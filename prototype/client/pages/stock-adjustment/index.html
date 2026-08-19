@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stock Adjustment - Fathima Grocery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#5c2400",
+                        "primary-fixed-dim": "#62df7d",
+                        "inverse-surface": "#263143",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#cfdaf2",
+                        "surface-bright": "#f9f9ff",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface-container-high": "#dee8ff",
+                        "on-secondary-fixed": "#341100",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#cea700",
+                        "surface-tint": "#006e2d",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#005320",
+                        "on-tertiary-fixed": "#231b00",
+                        "tertiary": "#735c00",
+                        "on-background": "#111c2d",
+                        "secondary-fixed": "#ffdbca",
+                        "on-surface": "#111c2d",
+                        "on-primary-fixed": "#002109",
+                        "outline": "#6e7b6c",
+                        "secondary-container": "#fd761a",
+                        "background": "#f9f9ff",
+                        "surface-container-low": "#f0f3ff",
+                        "primary-fixed": "#7ffc97",
+                        "surface-container": "#e7eeff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "primary-container": "#00873a",
+                        "on-surface-variant": "#3e4a3d",
+                        "inverse-primary": "#62df7d",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-variant": "#d8e3fb",
+                        "on-secondary": "#ffffff",
+                        "primary": "#006b2c",
+                        "on-primary-container": "#f7fff2",
+                        "on-tertiary-container": "#4e3e00",
+                        "outline-variant": "#bdcaba",
+                        "on-secondary-fixed-variant": "#783200",
+                        "tertiary-fixed-dim": "#eec200",
+                        "tertiary-fixed": "#ffe083",
+                        "secondary": "#9d4300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xl": "32px",
+                        "3xl": "64px",
+                        "gutter": "24px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "max-width": "1440px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "2xl": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface custom-scrollbar overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="flex items-center gap-sm mb-2xl">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="store">store</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Fathima Grocery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-surface-container rounded-lg text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-primary font-bold border-r-4 border-primary bg-surface-container-low rounded-l-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-surface-container rounded-lg text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-surface-container rounded-lg text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-label-md text-label-md">Sales</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-surface-container rounded-lg text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">P&amp;L</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-surface-container rounded-lg text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="pt-xl mt-auto border-t border-outline-variant/30">
+<button class="w-full bg-primary text-on-primary py-md rounded-xl font-label-md flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Entry
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen relative">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center px-margin-desktop py-sm shadow-sm">
+<div class="flex items-center gap-xl w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-low border border-outline-variant rounded-full text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Search inventory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-all active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-all active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-md">
+<div class="text-right">
+<p class="font-label-md text-label-md text-on-surface">Fathima R.</p>
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold">Manager</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-primary-fixed ring-2 ring-background" data-alt="Professional headshot of a female grocery store manager with a warm smile, wearing a professional emerald green blazer, set against a blurred high-end supermarket background. The lighting is bright and natural, reflecting a modern corporate SaaS aesthetic with high clarity and professional polish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvJ8ztgszF11aShrAEN0v6EGUSw_qWomhZtg1MpzTDf4AZ4OIGVWteKZcIu16J3NwYtJbm6YXJ2xfv9Ocj2ThNj7uwI5cW7wOW-0NlQftZkMSFvmH9WRvziq_Ct2xcPzeYF8zegYsAcQ4ehUvUudFa2lzPqWuHstcI4SYX_GSt1rcHxYUGcNsQyNZVL6IaiqInRjLARY0ObIS7FUty675H3byOCmOY9q523-P12YUIFNjwV7uU8J4utQ"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-xl max-w-max-width mx-auto">
+<!-- Breadcrumbs & Header -->
+<div class="flex justify-between items-end mb-xl">
+<div>
+<nav class="flex items-center gap-xs text-on-surface-variant mb-sm">
+<span class="font-label-sm text-label-sm cursor-pointer hover:text-primary">Inventory</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary">Stock Adjustment</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Stock Adjustment</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Increase or decrease inventory manually with detailed logging.</p>
+</div>
+<button class="flex items-center gap-sm px-lg py-sm bg-surface-container text-on-surface-variant rounded-xl font-label-md hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    Back to New Entry
+                </button>
+</div>
+<!-- Adjustment Form Grid -->
+<div class="grid grid-cols-12 gap-lg">
+<!-- Main Form Card -->
+<div class="col-span-12 lg:col-span-8 space-y-lg">
+<div class="bg-surface-container-lowest p-xl rounded-2xl shadow-sm border border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<!-- Product Selection -->
+<div class="col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Select Product</label>
+<div class="relative">
+<select class="w-full p-md bg-surface-container-low border border-outline-variant rounded-xl font-body-md appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+<option>Fresh Cavendish Bananas (Organic)</option>
+<option>Whole Milk 1L - Farm Fresh</option>
+<option>Red Bell Peppers (Local)</option>
+<option>Basmati Rice 5kg - Premium</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+<!-- Current Stock (Read-only) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Current Stock</label>
+<div class="flex items-center gap-md p-md bg-surface-container rounded-xl border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary" data-icon="inventory_2">inventory_2</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">452 <span class="text-body-sm font-normal text-on-surface-variant">Units</span></span>
+</div>
+</div>
+<!-- Adjustment Date -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Adjustment Date</label>
+<div class="relative">
+<input class="w-full p-md bg-surface-container-low border border-outline-variant rounded-xl font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="date" value="2023-10-27"/>
+</div>
+</div>
+<!-- Adjustment Type Toggle -->
+<div class="col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Adjustment Type</label>
+<div class="flex p-sm bg-surface-container-low rounded-2xl w-fit">
+<button class="flex items-center gap-sm px-xl py-sm bg-primary text-on-primary rounded-xl font-label-md transition-all shadow-sm" id="btn-increase" onclick="toggleType('increase')">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+                                        Increase
+                                    </button>
+<button class="flex items-center gap-sm px-xl py-sm text-on-surface-variant rounded-xl font-label-md transition-all" id="btn-decrease" onclick="toggleType('decrease')">
+<span class="material-symbols-outlined" data-icon="trending_down">trending_down</span>
+                                        Decrease
+                                    </button>
+</div>
+</div>
+<!-- Quantity -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Adjustment Quantity</label>
+<div class="relative">
+<input class="w-full p-md bg-white border border-outline-variant rounded-xl font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="0" type="number"/>
+<span class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant font-label-sm">Units</span>
+</div>
+</div>
+<!-- Reason Dropdown -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Reason for Adjustment</label>
+<div class="relative">
+<select class="w-full p-md bg-white border border-outline-variant rounded-xl font-body-md appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+<option>Stock Received</option>
+<option>Returns from Customer</option>
+<option>Damaged/Spoiled Goods</option>
+<option>Inventory Audit Correction</option>
+<option>Promotional Sampling</option>
+<option>Theft/Loss</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+<!-- Notes -->
+<div class="col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-sm">Additional Notes</label>
+<textarea class="w-full p-md bg-white border border-outline-variant rounded-xl font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Explain the reason for this manual adjustment..." rows="3"></textarea>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-between pt-md">
+<div class="flex gap-md">
+<button class="px-xl py-md text-on-surface-variant font-label-md hover:bg-surface-container rounded-xl transition-all">Cancel</button>
+<button class="px-xl py-md text-on-surface-variant border border-outline-variant font-label-md hover:bg-surface-container rounded-xl transition-all">Reset Form</button>
+</div>
+<button class="px-3xl py-md bg-primary text-on-primary rounded-xl font-headline-sm shadow-lg hover:shadow-primary/20 hover:brightness-110 active:scale-95 transition-all">
+                            Save Adjustment
+                        </button>
+</div>
+</div>
+<!-- Info Sidebar -->
+<div class="col-span-12 lg:col-span-4 space-y-lg">
+<!-- Product Preview Card -->
+<div class="bg-surface-container-lowest p-lg rounded-2xl shadow-sm border border-outline-variant/30">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-md">Product Summary</h3>
+<div class="flex items-center gap-md mb-lg">
+<div class="w-16 h-16 rounded-xl bg-cover bg-center border border-outline-variant/20" data-alt="A macro, high-resolution product photograph of fresh organic Cavendish bananas with vibrant yellow skins and subtle green tips, presented in a minimalist, bright light-mode setting. The lighting is soft and even, highlighting the fresh grocery aesthetic and premium quality of the inventory." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUsZBsHLIjy-gxMHa8Wp6B8JlwoiVhLbhUJ0oj64-Pa6XaIpHQWripIpXbSLg4543S_nXQ3KpEw7bcg8ZWOmo43QLd5B3yioAy7MkDWWByN35P63qbltS-9iAqjvuOJmquOnJCnZbeueyLpk7vM-c_8cbgoIgBGmCY9BjA11bywXkfYpL9OaN7NPAFzpNqlnkRxJKcENzrJaNVWhFunvWSdk9owss5sHpsZsLUBYskc-tGKIXXZu-u7A')"></div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Cavendish Bananas</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SKU: GRO-BAN-001</p>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between py-xs border-b border-outline-variant/10">
+<span class="font-body-sm text-on-surface-variant">Category</span>
+<span class="font-label-md text-on-surface">Fresh Produce</span>
+</div>
+<div class="flex justify-between py-xs border-b border-outline-variant/10">
+<span class="font-body-sm text-on-surface-variant">Last Audit</span>
+<span class="font-label-md text-on-surface">Oct 12, 2023</span>
+</div>
+<div class="flex justify-between py-xs">
+<span class="font-body-sm text-on-surface-variant">Reorder Level</span>
+<span class="font-label-md text-on-surface">100 Units</span>
+</div>
+</div>
+</div>
+<!-- User Tracking -->
+<div class="bg-surface-container-low p-lg rounded-2xl border border-outline-variant/30">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="person_check">person_check</span>
+<h3 class="font-label-md text-label-md text-on-surface">Adjustment Context</h3>
+</div>
+<div class="space-y-md">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Adjusted By</label>
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-[10px] font-bold">FR</div>
+<span class="font-body-md text-on-surface">Fathima R. (Store Manager)</span>
+</div>
+</div>
+<div class="p-md bg-primary-container/10 rounded-xl border border-primary/10">
+<p class="text-label-sm text-primary leading-snug">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="info">info</span>
+                                    This action will be permanently logged in the audit trail for "Fathima Grocery Shop".
+                                </p>
+</div>
+</div>
+</div>
+<!-- Helpful Tips -->
+<div class="bg-tertiary-fixed/10 p-lg rounded-2xl border border-tertiary-fixed-dim/30">
+<h4 class="font-label-md text-on-tertiary-fixed mb-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="lightbulb">lightbulb</span>
+                            Quick Tip
+                        </h4>
+<p class="font-body-sm text-on-tertiary-fixed-variant">
+                            Always document 'Damaged Goods' with a note about the disposal method to comply with store health and safety regulations.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Feedback Toast (Hidden by default) -->
+<div class="fixed bottom-xl right-xl bg-inverse-surface text-inverse-on-surface px-xl py-md rounded-2xl shadow-2xl flex items-center gap-md transform translate-y-32 transition-transform duration-300 z-50" id="toast">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="check_circle">check_circle</span>
+<span class="font-body-md">Stock adjustment saved successfully.</span>
+<button class="ml-xl hover:text-white" onclick="hideToast()"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</div>
+</main>
+<script>
+        function toggleType(type) {
+            const incBtn = document.getElementById('btn-increase');
+            const decBtn = document.getElementById('btn-decrease');
+            
+            if (type === 'increase') {
+                incBtn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+                incBtn.classList.remove('text-on-surface-variant');
+                decBtn.classList.remove('bg-error', 'text-on-error', 'shadow-sm');
+                decBtn.classList.add('text-on-surface-variant');
+            } else {
+                decBtn.classList.add('bg-error', 'text-on-error', 'shadow-sm');
+                decBtn.classList.remove('text-on-surface-variant');
+                incBtn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+                incBtn.classList.add('text-on-surface-variant');
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-32');
+            setTimeout(() => { hideToast(); }, 5000);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('translate-y-32');
+        }
+
+        // Handle primary action button
+        document.querySelector('button.bg-primary.text-on-primary.rounded-xl.font-headline-sm').addEventListener('click', () => {
+            showToast();
+        });
+    </script>
+</body></html>

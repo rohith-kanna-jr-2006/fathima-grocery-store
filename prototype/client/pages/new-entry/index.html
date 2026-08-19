@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Entry - Fathima Grocery</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#231b00",
+                        "on-primary-fixed-variant": "#005320",
+                        "surface-tint": "#006e2d",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#62df7d",
+                        "on-secondary-container": "#5c2400",
+                        "on-error-container": "#93000a",
+                        "on-background": "#111c2d",
+                        "tertiary-fixed-dim": "#eec200",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dee8ff",
+                        "surface-dim": "#cfdaf2",
+                        "surface-container": "#e7eeff",
+                        "secondary-fixed": "#ffdbca",
+                        "outline-variant": "#bdcaba",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-primary-container": "#f7fff2",
+                        "outline": "#6e7b6c",
+                        "inverse-surface": "#263143",
+                        "primary": "#006b2c",
+                        "on-secondary-fixed-variant": "#783200",
+                        "primary-fixed": "#7ffc97",
+                        "surface-variant": "#d8e3fb",
+                        "on-secondary-fixed": "#341100",
+                        "tertiary-container": "#cea700",
+                        "inverse-primary": "#62df7d",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fd761a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb690",
+                        "background": "#f9f9ff",
+                        "on-tertiary-container": "#4e3e00",
+                        "surface": "#f9f9ff",
+                        "on-surface": "#111c2d",
+                        "secondary": "#9d4300",
+                        "primary-container": "#00873a",
+                        "on-primary-fixed": "#002109",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#d8e3fb",
+                        "tertiary": "#735c00",
+                        "on-surface-variant": "#3e4a3d",
+                        "tertiary-fixed": "#ffe083",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "base": "4px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "3xl": "64px",
+                        "lg": "24px",
+                        "2xl": "48px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest dark:bg-surface-dim shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Fathima Grocery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+</div>
+<nav class="flex-1 space-y-sm">
+<!-- Active logic: New Entry is currently a task/modal, but Dashboard is the parent domain -->
+<a class="flex items-center gap-md p-md rounded-lg font-label-md text-label-md transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg font-label-md text-label-md transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg font-label-md text-label-md transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+                Products
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg font-label-md text-label-md transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+                Sales
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg font-label-md text-label-md transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                P&amp;L
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg font-label-md text-label-md transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                Reports
+            </a>
+</nav>
+<div class="pt-lg border-t border-outline-variant">
+<button class="w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary-container p-md rounded-xl font-label-md text-label-md active:scale-95 transition-transform text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                New Entry
+            </button>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center px-margin-desktop py-sm ml-64 sticky top-0 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md z-40 shadow-sm">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Fathima Grocery Shop</h2>
+<div class="hidden md:flex items-center bg-surface-container-low px-md py-xs rounded-full border border-outline-variant w-80">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full" placeholder="Search records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a grocery store manager in a clean business-casual outfit, with a warm and welcoming expression. The lighting is soft and natural, emphasizing a high-trust professional atmosphere with a blurred background of a modern grocery retail environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHo7_cXSSX5WyKr0dagLpjLRTRVzGFTsznWA9NhTDXyCSjiGeDI7qM9QHaoR0yPh2QqU-7ZtoPQKfYkQ2w5_el1n5j-ZjkJKYy7c0ALk474riaYBglAFENrdCwlSTvOsTHa8tSML0M-0VD6JtHDZ_xnmMV_nv50A5zc4ylzC8oyJE11_U6utlH-_hn0ybuAb0SMl62CdcRspXbLx3uxas8brLBzK0l1GwFEzcTSHt0wQ62kgw8Vdet4A"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 p-margin-desktop min-h-screen">
+<!-- Header -->
+<div class="mb-2xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Create New Entry</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Quickly add new business records to keep your inventory and sales data up to date.</p>
+</div>
+<!-- Action Bento Grid -->
+<div class="bento-grid mb-3xl">
+<!-- New Product -->
+<a class="flex items-center text-left p-lg glass-card rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all group active:scale-95" href="{{DATA:SCREEN:SCREEN_10}}">
+<div class="w-14 h-14 bg-primary-container/20 rounded-full flex items-center justify-center mr-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="inventory_2">inventory_2</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">New Product</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Add a new item to your inventory.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+<!-- New Sale -->
+<a class="flex items-center text-left p-lg glass-card rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all group active:scale-95" href="{{DATA:SCREEN:SCREEN_13}}">
+<div class="w-14 h-14 bg-primary-container/20 rounded-full flex items-center justify-center mr-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="point_of_sale">point_of_sale</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">New Sale</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Record a new customer transaction.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+<!-- New Purchase -->
+<a class="flex items-center text-left p-lg glass-card rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all group active:scale-95" href="{{DATA:SCREEN:SCREEN_132}}">
+<div class="w-14 h-14 bg-primary-container/20 rounded-full flex items-center justify-center mr-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shopping_cart_checkout">shopping_cart_checkout</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">New Purchase</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Log stock procurement from suppliers.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+<!-- New Supplier -->
+<a class="flex items-center text-left p-lg glass-card rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all group active:scale-95" href="{{DATA:SCREEN:SCREEN_130}}">
+<div class="w-14 h-14 bg-primary-container/20 rounded-full flex items-center justify-center mr-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="business_center">business_center</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">New Supplier</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Register a new business partner.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+<!-- New Category -->
+<a class="flex items-center text-left p-lg glass-card rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all group active:scale-95" href="{{DATA:SCREEN:SCREEN_134}}">
+<div class="w-14 h-14 bg-primary-container/20 rounded-full flex items-center justify-center mr-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="category">category</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">New Category</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Organize products into new groups.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+<!-- Stock Adjustment -->
+<a class="flex items-center text-left p-lg glass-card rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all group active:scale-95" href="{{DATA:SCREEN:SCREEN_136}}">
+<div class="w-14 h-14 bg-primary-container/20 rounded-full flex items-center justify-center mr-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="edit_note">edit_note</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Stock Adjustment</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manually update inventory levels.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<!-- Recent Activities Section -->
+<section class="glass-card rounded-2xl p-xl shadow-sm">
+<div class="flex items-center justify-between mb-lg border-b border-outline-variant pb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Activities</h2>
+<div class="flex gap-sm">
+<button class="px-md py-xs rounded-full font-label-md text-label-md bg-primary text-on-primary transition-colors">Products</button>
+<button class="px-md py-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors">Sales</button>
+<button class="px-md py-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors">Purchases</button>
+<button class="px-md py-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors">Stock</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl">
+<!-- Column: Recent Products -->
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span> Recent Products
+                    </h4>
+<ul class="space-y-md">
+<li class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Organic Milk</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2 mins ago</p>
+</div>
+</li>
+<li class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Whole Wheat Bread</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">15 mins ago</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Column: Recent Sales -->
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="receipt_long">receipt_long</span> Recent Sales
+                    </h4>
+<ul class="space-y-md">
+<li class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Inv #4592 - $42.50</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Just now</p>
+</div>
+</li>
+<li class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Inv #4591 - $12.00</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">10 mins ago</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Column: Recent Purchases -->
+<div>
+<h4 class="font-label-md text-label-md text-on-tertiary-container mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="local_shipping">local_shipping</span> Recent Purchases
+                    </h4>
+<ul class="space-y-md">
+<li class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="package_2">package_2</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Global Dairy Co.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1 hour ago</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Column: Stock Updates -->
+<div>
+<h4 class="font-label-md text-label-md text-error mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="sync_alt">sync_alt</span> Stock Updates
+                    </h4>
+<ul class="space-y-md">
+<li class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-error-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="trending_down">trending_down</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Damaged: Tomatoes</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">30 mins ago</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-margin-desktop right-margin-desktop w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-all z-50 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform duration-300" data-icon="add">add</span>
+<span class="absolute right-full mr-md bg-inverse-surface text-inverse-on-surface px-md py-xs rounded-lg text-label-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md">Quick Add</span>
+</button>
+<script>
+        // Micro-interaction for cards (applies to anchor elements now)
+        document.querySelectorAll('.bento-grid a').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.95)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1.0)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1.0)';
+            });
+        });
+
+        // Tabs Switching Simulation
+        const tabButtons = document.querySelectorAll('section .flex.gap-sm button');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary');
+                btn.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

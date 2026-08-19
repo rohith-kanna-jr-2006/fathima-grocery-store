@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stock Report - Fathima Grocery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#231b00",
+                      "surface-variant": "#d8e3fb",
+                      "on-tertiary-container": "#4e3e00",
+                      "tertiary-fixed-dim": "#eec200",
+                      "on-primary": "#ffffff",
+                      "outline": "#6e7b6c",
+                      "secondary-fixed-dim": "#ffb690",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#735c00",
+                      "on-background": "#111c2d",
+                      "primary": "#006b2c",
+                      "secondary-fixed": "#ffdbca",
+                      "surface-bright": "#f9f9ff",
+                      "on-surface-variant": "#3e4a3d",
+                      "on-primary-container": "#f7fff2",
+                      "surface-container-highest": "#d8e3fb",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface-container": "#e7eeff",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "surface": "#f9f9ff",
+                      "primary-fixed-dim": "#62df7d",
+                      "on-primary-fixed": "#002109",
+                      "primary-container": "#00873a",
+                      "surface-tint": "#006e2d",
+                      "on-primary-fixed-variant": "#005320",
+                      "secondary-container": "#fd761a",
+                      "secondary": "#9d4300",
+                      "inverse-primary": "#62df7d",
+                      "inverse-on-surface": "#ecf1ff",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#f0f3ff",
+                      "on-surface": "#111c2d",
+                      "on-secondary-fixed": "#341100",
+                      "surface-dim": "#cfdaf2",
+                      "on-secondary-fixed-variant": "#783200",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#263143",
+                      "on-secondary-container": "#5c2400",
+                      "outline-variant": "#bdcaba",
+                      "primary-fixed": "#7ffc97",
+                      "surface-container-high": "#dee8ff",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#cea700",
+                      "background": "#f9f9ff",
+                      "tertiary-fixed": "#ffe083"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "max-width": "1440px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "base": "4px",
+                      "3xl": "64px",
+                      "2xl": "48px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .chart-bar { transition: height 1s ease-in-out; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="flex flex-col gap-base">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Fathima Grocery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-70">Admin Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-xs mt-lg">
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-label-md text-label-md">Sales</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">P&amp;L</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container/50" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-surface-variant">
+<button class="w-full flex items-center justify-center gap-sm bg-primary text-on-primary py-md rounded-xl font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Entry
+            </button>
+<div class="flex items-center gap-md mt-lg p-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-dim border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female grocery store manager with a warm, confident expression. She is standing in a brightly lit modern office environment with subtle hints of retail organization in the background. The lighting is soft and natural, emphasizing a high-trust SaaS professional aesthetic with Emerald Green highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0fmSAvqMtaA_W89p6RD2B3I2oaU0UlfhJGSUSuFFlQAoCZuXnpibLBWk97MTiq3zjYHV5fR5Ikhj6H6mT7jPtsfU9pWiTTtxUTXIuqBPeqvzN8rY34IRvO6mIag-60ludfNFy-r9ofWNXmsvwe7AkE5iaAEsYnr6v2N53GfSmdLC-A2QXWlGLB7LGtr7G6tbwtUs4cM7ZqMORwIaUbdlHq0Wzn8b9kTegxeIIjl555lyU95kUxFuzog"/>
+</div>
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md text-on-surface truncate">Store Manager</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Fathima G.</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 w-full glass-panel flex justify-between items-center px-margin-desktop py-sm max-w-max-width mx-auto border-none">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Fathima Grocery Shop</h2>
+<div class="relative w-96 hidden md:block">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-3xl pr-md py-sm bg-surface-container-low border-none rounded-full font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Search reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined hover:bg-surface-container-high rounded-full p-2 transition-all text-on-surface-variant" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined hover:bg-surface-container-high rounded-full p-2 transition-all text-on-surface-variant" data-icon="settings">settings</button>
+<div class="w-px h-6 bg-surface-variant mx-sm"></div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Admin</span>
+<span class="material-symbols-outlined text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</header>
+<div class="p-margin-desktop max-w-max-width mx-auto flex flex-col gap-xl">
+<!-- Header Section -->
+<section class="flex flex-col gap-sm">
+<nav class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-xs" href="#">
+                         Reports
+                    </a>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Stock Report</span>
+</nav>
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Stock Report</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitor stock movement, aging, and replenishment schedules.</p>
+</div>
+<div class="flex gap-md">
+<button class="flex items-center gap-sm px-lg py-md rounded-xl border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                            Back to Reports
+                        </button>
+<button class="flex items-center gap-sm px-lg py-md rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:shadow-lg transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                            Export Data
+                        </button>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="glass-panel p-lg rounded-2xl flex flex-wrap items-center gap-lg shadow-sm">
+<div class="flex-1 flex gap-md">
+<div class="relative min-w-[200px]">
+<label class="block font-label-sm text-label-sm text-outline mb-xs">Stock Status</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20 outline-none appearance-none">
+<option>All Status</option>
+<option>Low Stock</option>
+<option>Out of Stock</option>
+<option>Healthy</option>
+</select>
+<span class="material-symbols-outlined absolute right-md bottom-[10px] pointer-events-none text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<div class="relative min-w-[200px]">
+<label class="block font-label-sm text-label-sm text-outline mb-xs">Category</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20 outline-none appearance-none">
+<option>All Categories</option>
+<option>Fresh Produce</option>
+<option>Dairy &amp; Eggs</option>
+<option>Bakery</option>
+</select>
+<span class="material-symbols-outlined absolute right-md bottom-[10px] pointer-events-none text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<div class="relative min-w-[200px]">
+<label class="block font-label-sm text-label-sm text-outline mb-xs">Warehouse Location</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20 outline-none appearance-none">
+<option>Main Warehouse</option>
+<option>North Branch Storage</option>
+<option>Cold Storage Unit A</option>
+</select>
+<span class="material-symbols-outlined absolute right-md bottom-[10px] pointer-events-none text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<button class="bg-surface-container-high p-md rounded-xl hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="filter_list">filter_list</span>
+</button>
+</section>
+<!-- KPI Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-2xl shadow-sm flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-error p-sm bg-error-container/30 rounded-xl" data-icon="warning">warning</span>
+<span class="font-label-sm text-label-sm text-error bg-error-container/50 px-sm py-xs rounded-full">+12%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Low Stock Count</p>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface">42 Items</h4>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-2xl shadow-sm flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-on-secondary-container p-sm bg-secondary-container/20 rounded-xl" data-icon="inventory">inventory</span>
+<span class="font-label-sm text-label-sm text-primary-container bg-primary-fixed/30 px-sm py-xs rounded-full">-5%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Out of Stock</p>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface">08 Items</h4>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-2xl shadow-sm flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary p-sm bg-primary-fixed/30 rounded-xl" data-icon="trending_up">trending_up</span>
+<span class="font-label-sm text-label-sm text-primary-container bg-primary-fixed/30 px-sm py-xs rounded-full">+18%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Fast Moving Items</p>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface">156 Items</h4>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-2xl shadow-sm flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-tertiary p-sm bg-tertiary-container/20 rounded-xl" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-tertiary-fixed/30 px-sm py-xs rounded-full">+2%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Slow Moving Items</p>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface">24 Items</h4>
+</div>
+</div>
+</section>
+<!-- Charts & Analytics Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Stock Movement Area Chart -->
+<div class="lg:col-span-2 glass-panel p-lg rounded-2xl shadow-sm flex flex-col gap-lg">
+<div class="flex justify-between items-center">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Stock Movement Timeline</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Daily inventory flow over the last 30 days</p>
+</div>
+<div class="flex gap-sm">
+<span class="flex items-center gap-xs font-label-sm text-label-sm"><span class="w-3 h-3 rounded-full bg-primary"></span> Inbound</span>
+<span class="flex items-center gap-xs font-label-sm text-label-sm"><span class="w-3 h-3 rounded-full bg-secondary-container"></span> Outbound</span>
+</div>
+</div>
+<div class="h-64 w-full relative flex items-end justify-between px-md pb-md border-l border-b border-outline-variant">
+<!-- Mock Waveform/Chart using SVG background -->
+<div class="absolute inset-x-md bottom-md top-0 pointer-events-none overflow-hidden opacity-20">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q10,70 20,85 T40,60 T60,75 T80,40 T100,65 V100 H0 Z" fill="var(--tw-primary)" fill-opacity="0.5"></path>
+<path d="M0,90 Q15,80 30,95 T50,70 T70,85 T90,50 T100,75 V100 H0 Z" fill="var(--tw-secondary)" fill-opacity="0.3"></path>
+</svg>
+</div>
+<!-- Axis Labels -->
+<div class="absolute -bottom-xl left-0 right-0 flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span>
+</div>
+</div>
+</div>
+<!-- Restock Suggestions List -->
+<div class="bg-surface-container-low p-lg rounded-2xl shadow-sm flex flex-col gap-md">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Restock Suggestions</h4>
+<div class="flex flex-col gap-sm overflow-y-auto max-h-[300px] pr-sm">
+<div class="flex items-center gap-md p-md bg-surface-container-lowest rounded-xl border border-outline-variant">
+<div class="w-12 h-12 bg-primary-fixed/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="local_drink">local_drink</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Organic Whole Milk</p>
+<p class="font-body-sm text-body-sm text-error">Current: 5 units</p>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-primary/10 p-sm rounded-full transition-colors" data-icon="shopping_cart">shopping_cart</button>
+</div>
+<div class="flex items-center gap-md p-md bg-surface-container-lowest rounded-xl border border-outline-variant">
+<div class="w-12 h-12 bg-primary-fixed/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Sourdough Loaf</p>
+<p class="font-body-sm text-body-sm text-error">Current: 2 units</p>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-primary/10 p-sm rounded-full transition-colors" data-icon="shopping_cart">shopping_cart</button>
+</div>
+<div class="flex items-center gap-md p-md bg-surface-container-lowest rounded-xl border border-outline-variant">
+<div class="w-12 h-12 bg-primary-fixed/20 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="egg">egg</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Free Range Eggs (Dozen)</p>
+<p class="font-body-sm text-body-sm text-error">Current: 12 units</p>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-primary/10 p-sm rounded-full transition-colors" data-icon="shopping_cart">shopping_cart</button>
+</div>
+</div>
+<button class="w-full mt-auto py-sm text-primary font-label-md text-label-md hover:underline">View All Suggestions</button>
+</div>
+</section>
+<!-- Detailed Data Table Section -->
+<section class="flex flex-col gap-lg">
+<div class="flex justify-between items-center">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Stock Status Table</h4>
+<div class="flex gap-md">
+<div class="flex items-center border border-outline-variant rounded-lg overflow-hidden font-label-md text-label-md">
+<button class="px-md py-sm bg-surface-container-high text-on-surface font-bold">List View</button>
+<button class="px-md py-sm hover:bg-surface-container text-on-surface-variant">Grid View</button>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-2xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant">Product Name</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant">Category</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant text-center">Current Stock</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant text-center">Min Stock</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant">Status</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant text-right">Suggested Restock</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant">
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up professional photography of fresh, crisp organic gala apples in a rustic wooden crate. The lighting is bright and natural, highlighting the vivid red skins and subtle textures. The scene is clean and organized, perfect for a high-end grocery retail dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV3DJqAryN4tKBBbr1MedribCXLM0LPeAQzzL0tc2LXxB3YhVCZJ_y2zP3Udw12jT_zRRYMB7_IYmDnMJ2Z8GQ18AzTHQA98w-33YgVq0Pma_ma_v0SyB5qoT7cw-8uoubPBJgM8JooSenKCcOTl1WhPPBr5XnVLx4gNOEK0RdIxAM_ZPwg7fByTb9hxUZZuFisvUgjuiXnp7-p9C8U2lWHEVjsAndBv44KUG33yuKE5NS2U7phts3Aw"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Organic Apples</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SKU: APP-001</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md font-body-sm text-body-sm">Fresh Produce</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center">154 kg</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center">50 kg</td>
+<td class="px-lg py-md">
+<span class="px-md py-base bg-primary-fixed/30 text-on-primary-fixed-variant rounded-full font-label-sm text-label-sm">Healthy</span>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-right font-semibold">--</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High-resolution product shot of a premium glass milk bottle with a clean, minimalist label. The lighting is soft and studio-quality, emphasizing the freshness of the milk. The background is a very light neutral gray to maintain a professional SaaS interface look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBerTUJsaN8-wmfhHiqZaPBbmvAn0936soJ4OKml7EDeRGcK5phRes107pDge820vMRp6OIH83HdCgEsCLBOYIdLiH1PsNwSQIZglpwcCSyUf4M57bwJq7MRluEKQMvWiIUY5xgZlUUZFqGrpHFaUNvzDqLgecgCufyREMWutKu9yK9n5kf6pMFvonD0qoqsx263RAwAh3doKnNBgPg66aFiw1b0RWLdbyNE9YXuEYEEd_bKvKYm2tFiA"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Whole Milk 1L</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SKU: MLK-042</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md font-body-sm text-body-sm">Dairy &amp; Eggs</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center text-error font-bold">12 units</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center">20 units</td>
+<td class="px-lg py-md">
+<span class="px-md py-base bg-error-container/50 text-error rounded-full font-label-sm text-label-sm">Low Stock</span>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-right font-semibold text-primary">+50 units</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional culinary photograph of a golden-brown artisan sourdough loaf on a marble countertop. Dusting of flour and beautiful crust textures are visible under warm, appetizing lighting. The background is slightly blurred to focus on the bread." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXD_nw2xm2ObLa-HEh6NDlwf9ygzcsx4Da-gzvt7BK9bVGxFeUvasna0w1OFqUICGvLXmK82KiWKOk4EaqBAsrt6R94j015R3gDKcudnD3km1UQhRlWGHhAvYPy4f__G8cA-JHdXAM7TcpWt4R2s_55hKX2nj5KSEOpalBwhmtVzilOt123O7nKNy4Y0HUwl3K5MUH9AZVDpM7Xuje02O70C-M6LXO-Sw3NxpIv5ydBDVRE3OujgN-sg"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Artisan Sourdough</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SKU: BKY-015</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md font-body-sm text-body-sm">Bakery</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center text-error font-bold">0 units</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center">10 units</td>
+<td class="px-lg py-md">
+<span class="px-md py-base bg-on-surface-variant/10 text-on-surface-variant rounded-full font-label-sm text-label-sm">Out of Stock</span>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-right font-semibold text-primary">+20 units</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, modern container of greek yogurt on a white surface with a few blueberries and honey drizzle. The lighting is high-key and fresh, fitting the Emerald Green and clean white SaaS brand identity. The product is center-framed and sharp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_AJWrXWU6hbFZxJfS4cWPrnuiWrgpM6A2_tjqxkGHQNYywt_gAGBJfuMhVfxF8lKcVgkCK_YkO_LVW0PHe_hHFFtjMff066Mar0gNVBjxHSz7N7QfIUpst33_EDS7-1X27G52HjuCGR609lZlOJfMmXDh0Ijs3SNid3xx8Hsgn317FBjQhGfSlG3krAw1M6EnlK5Mj7wTmDTusO-m6D-0XbXGNudSVWMgugr0Zf7v5Av8P2LOich3ug"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Greek Yogurt 500g</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SKU: DRY-088</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md font-body-sm text-body-sm">Dairy &amp; Eggs</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center">45 units</td>
+<td class="px-lg py-md font-body-sm text-body-sm text-center">15 units</td>
+<td class="px-lg py-md">
+<span class="px-md py-base bg-primary-fixed/30 text-on-primary-fixed-variant rounded-full font-label-sm text-label-sm">Healthy</span>
+</td>
+<td class="px-lg py-md font-body-md text-body-md text-right font-semibold">--</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="flex items-center justify-between px-lg py-md bg-surface-container-low/50 border-t border-outline-variant">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Showing 1 to 4 of 258 entries</p>
+<div class="flex items-center gap-base">
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center font-label-md">1</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors font-label-md">2</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors font-label-md">3</button>
+<span class="px-sm text-outline">...</span>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Info -->
+<footer class="max-w-max-width mx-auto px-margin-desktop py-lg text-center font-body-sm text-body-sm text-on-surface-variant opacity-60">
+            © 2024 Fathima Grocery Shop. Powered by RetailSync SaaS Pro.
+        </footer>
+</main>
+<script>
+        // Simple interactivity for the report page
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('click', () => {
+                // Future: open details modal
+                console.log('Row clicked');
+            });
+        });
+
+        // Search highlight interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary/40');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/40');
+        });
+    </script>
+</body></html>

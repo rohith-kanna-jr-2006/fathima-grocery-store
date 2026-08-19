@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fathima Grocery - Profit &amp; Loss Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#006b2c",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#005320",
+                    "on-primary-fixed": "#002109",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "surface-bright": "#f9f9ff",
+                    "on-surface-variant": "#3e4a3d",
+                    "on-tertiary-container": "#4e3e00",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f0f3ff",
+                    "on-secondary-fixed-variant": "#783200",
+                    "outline-variant": "#bdcaba",
+                    "secondary-fixed": "#ffdbca",
+                    "on-error": "#ffffff",
+                    "on-background": "#111c2d",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container": "#e7eeff",
+                    "inverse-surface": "#263143",
+                    "inverse-on-surface": "#ecf1ff",
+                    "surface-tint": "#006e2d",
+                    "primary-fixed": "#7ffc97",
+                    "surface": "#f9f9ff",
+                    "secondary-container": "#fd761a",
+                    "tertiary-container": "#cea700",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb690",
+                    "tertiary-fixed-dim": "#eec200",
+                    "primary-fixed-dim": "#62df7d",
+                    "tertiary": "#735c00",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#d8e3fb",
+                    "secondary": "#9d4300",
+                    "on-primary-container": "#f7fff2",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#d8e3fb",
+                    "inverse-primary": "#62df7d",
+                    "surface-dim": "#cfdaf2",
+                    "on-tertiary-fixed": "#231b00",
+                    "primary-container": "#00873a",
+                    "on-secondary-container": "#5c2400",
+                    "on-primary": "#ffffff",
+                    "outline": "#6e7b6c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#dee8ff",
+                    "on-surface": "#111c2d",
+                    "background": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "xl": "32px",
+                    "3xl": "64px",
+                    "gutter": "24px",
+                    "2xl": "48px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "max-width": "1440px",
+                    "base": "4px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 1); }
+        .sidebar-active { position: relative; }
+        .sidebar-active::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 4px; background-color: #006b2c; }
+        .chart-container { position: relative; height: 300px; width: 100%; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-on-surface bg-background">
+<!-- SideNavBar Component -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="flex flex-col gap-xs mb-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Fathima Grocery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+</div>
+<button class="flex items-center justify-center gap-sm bg-primary text-on-primary py-sm px-md rounded-lg font-label-md text-label-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+            New Entry
+        </button>
+<nav class="flex flex-col gap-sm mt-md flex-grow">
+<!-- Dashboard -->
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<!-- Products -->
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<!-- Sales -->
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-label-md text-label-md">Sales</span>
+</a>
+<!-- P&L (Active) -->
+<a class="flex items-center gap-md p-md rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label-md text-label-md">P&amp;L</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto flex items-center gap-md p-md border-t border-outline-variant pt-lg">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional close-up portrait of a South Asian woman with a kind smile, wearing business casual attire. The background is a blurred high-end grocery interior with soft bokeh lighting and clean emerald green accents. The overall atmosphere is trustworthy, authoritative, and modern corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLt0CuwIbuN5tCcjbb2J_bwAaTSAvuToq7FNznGzvq8aNXw9_5keEpPduX95HDnW6QdmwTantK_pRWQNr8jP3c09CPvBhTVqna4qPms4oF2h7KJuyHcL8YjlOfnEfo1WKyvQBPPL-BOl0wStClkB8ulD52w1mLVZbQNTKqGAdO2n4jFimHsVeFAtJbc96ZK3vqYSh1Hh4KtBuSQSDZf__Lae_tRO2c_stsxcgwbXYNiIvJYWoYm3nglg"/>
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md truncate">Fathima Store Manager</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">manager@fathima.com</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-md px-margin-desktop py-sm flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-lg flex-1">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Profit &amp; Loss</h2>
+<div class="relative w-96 max-w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/50 text-body-sm" placeholder="Search financials..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface">Oct 2023</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">calendar_today</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<section class="p-gutter max-w-max-width mx-auto w-full flex flex-col gap-lg">
+<!-- High-level Financial Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Total Revenue -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-primary/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<span class="text-primary font-label-md text-label-md bg-primary-fixed/20 px-sm py-1 rounded-full">+12.4%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Total Revenue</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">$142,580</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">vs $126,850 last month</p>
+</div>
+<!-- Total Expenses -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-secondary/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<span class="text-secondary font-label-md text-label-md bg-secondary-fixed/30 px-sm py-1 rounded-full">+4.2%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Total Expenses</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">$98,420</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Operating + Procurement</p>
+</div>
+<!-- Net Profit -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-primary/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+<span class="text-primary font-label-md text-label-md bg-primary-fixed/20 px-sm py-1 rounded-full">+18.1%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Net Profit</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">$44,160</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Highest ever recorded</p>
+</div>
+<!-- Gross Margin -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-tertiary/10 p-sm rounded-lg">
+<span class="material-symbols-outlined text-tertiary">percent</span>
+</div>
+<span class="text-error font-label-md text-label-md bg-error-container px-sm py-1 rounded-full">-0.8%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Gross Margin</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">31.0%</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Due to higher supply costs</p>
+</div>
+</div>
+<!-- Bento Grid Section: Charts & Tables -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Monthly Profit Area Chart -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Monthly Profit Trend</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Annual net earnings analysis for 2023</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-lg font-label-md text-label-md text-on-surface focus:ring-primary">
+<option>Last 6 Months</option>
+<option>Year to Date</option>
+</select>
+</div>
+<div class="chart-container flex items-end justify-between px-md gap-sm">
+<!-- Simulated Chart Bars/Area -->
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40" style="height: 120px;"></div>
+<span class="mt-sm font-label-sm text-label-sm text-on-surface-variant">May</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/30 rounded-t-lg transition-all group-hover:bg-primary/50" style="height: 150px;"></div>
+<span class="mt-sm font-label-sm text-label-sm text-on-surface-variant">Jun</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/40 rounded-t-lg transition-all group-hover:bg-primary/60" style="height: 140px;"></div>
+<span class="mt-sm font-label-sm text-label-sm text-on-surface-variant">Jul</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/50 rounded-t-lg transition-all group-hover:bg-primary/70" style="height: 180px;"></div>
+<span class="mt-sm font-label-sm text-label-sm text-on-surface-variant">Aug</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/60 rounded-t-lg transition-all group-hover:bg-primary/80" style="height: 210px;"></div>
+<span class="mt-sm font-label-sm text-label-sm text-on-surface-variant">Sep</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary rounded-t-lg shadow-[0_-8px_16px_rgba(0,107,44,0.2)]" style="height: 240px;"></div>
+<span class="mt-sm font-label-sm text-label-sm font-bold text-primary">Oct</span>
+</div>
+</div>
+</div>
+<!-- Expense Breakdown Pie Chart -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm flex flex-col">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Expense Breakdown</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xl">Current Month: Oct 2023</p>
+<div class="flex-grow flex items-center justify-center relative">
+<!-- Simulated Donut Chart -->
+<div class="w-48 h-48 rounded-full border-[16px] border-primary-container relative flex items-center justify-center">
+<div class="absolute inset-[-16px] rounded-full border-[16px] border-secondary border-l-transparent border-b-transparent border-r-transparent transform -rotate-45"></div>
+<div class="absolute inset-[-16px] rounded-full border-[16px] border-tertiary border-t-transparent border-r-transparent border-l-transparent transform rotate-45"></div>
+<div class="text-center">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">$98.4k</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Total</p>
+</div>
+</div>
+</div>
+<div class="mt-lg flex flex-col gap-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm">Procurement</span>
+</div>
+<span class="font-label-md text-label-md">$62,100</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm">Operational</span>
+</div>
+<span class="font-label-md text-label-md">$24,320</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="font-body-sm text-body-sm">Staff &amp; Taxes</span>
+</div>
+<span class="font-label-md text-label-md">$12,000</span>
+</div>
+</div>
+</div>
+<!-- Recent Transactions / P&L Details -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-low/50">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Transaction Ledger</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Detailed view of recent revenue and outgoings</p>
+</div>
+<button class="text-primary font-label-md text-label-md hover:underline">Download Report</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="px-lg py-md">Date</th>
+<th class="px-lg py-md">Category</th>
+<th class="px-lg py-md">Description</th>
+<th class="px-lg py-md text-right">Amount</th>
+<th class="px-lg py-md">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-lg py-md font-body-sm">Oct 24, 2023</td>
+<td class="px-lg py-md">
+<span class="bg-primary-fixed/20 text-on-primary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Revenue</span>
+</td>
+<td class="px-lg py-md font-body-sm">Daily Store Sales - Main Branch</td>
+<td class="px-lg py-md text-right font-label-md text-primary">+$4,230.50</td>
+<td class="px-lg py-md">
+<span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-lg py-md font-body-sm">Oct 23, 2023</td>
+<td class="px-lg py-md">
+<span class="bg-secondary-fixed/30 text-on-secondary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Expense</span>
+</td>
+<td class="px-lg py-md font-body-sm">Fresh Produce Inventory Restock</td>
+<td class="px-lg py-md text-right font-label-md text-error">-$2,150.00</td>
+<td class="px-lg py-md">
+<span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-lg py-md font-body-sm">Oct 22, 2023</td>
+<td class="px-lg py-md">
+<span class="bg-primary-fixed/20 text-on-primary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Revenue</span>
+</td>
+<td class="px-lg py-md font-body-sm">Online Orders - Mobile App</td>
+<td class="px-lg py-md text-right font-label-md text-primary">+$1,890.20</td>
+<td class="px-lg py-md">
+<span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-lg py-md font-body-sm">Oct 22, 2023</td>
+<td class="px-lg py-md">
+<span class="bg-secondary-fixed/30 text-on-secondary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Expense</span>
+</td>
+<td class="px-lg py-md font-body-sm">Electricity Bill - Store Q4</td>
+<td class="px-lg py-md text-right font-label-md text-error">-$840.00</td>
+<td class="px-lg py-md">
+<span class="flex items-center gap-xs text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span> Pending
+                                        </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-lg py-md font-body-sm">Oct 21, 2023</td>
+<td class="px-lg py-md">
+<span class="bg-primary-fixed/20 text-on-primary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Revenue</span>
+</td>
+<td class="px-lg py-md font-body-sm">Bulk Order - Community Center</td>
+<td class="px-lg py-md text-right font-label-md text-primary">+$5,600.00</td>
+<td class="px-lg py-md">
+<span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-md bg-surface-container-low/30 text-center border-t border-outline-variant">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">View All Transactions</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights / Bottom Bar Section -->
+<section class="mt-auto px-margin-desktop py-lg border-t border-outline-variant bg-surface-container-lowest">
+<div class="max-w-max-width mx-auto flex flex-col md:flex-row gap-lg items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="p-sm bg-primary/10 rounded-full text-primary">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface">Insight: Inventory Turnover</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fresh produce turnover is up 5% compared to last quarter, boosting net profit.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-2 border border-outline text-on-surface-variant rounded-lg font-label-md text-label-md hover:bg-surface-container transition-all">Audit Logs</button>
+<button class="px-lg py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 shadow-sm transition-all">Generate Full P&amp;L PDF</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button for quick entries -->
+<div class="fixed bottom-margin-desktop right-margin-desktop group">
+<div class="absolute bottom-16 right-0 flex flex-col gap-sm items-end opacity-0 group-hover:opacity-100 transition-all scale-90 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto">
+<button class="flex items-center gap-sm bg-surface-container-lowest px-md py-2 rounded-full shadow-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">
+<span class="font-label-md text-label-md">Record Sale</span>
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+</button>
+<button class="flex items-center gap-sm bg-surface-container-lowest px-md py-2 rounded-full shadow-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">
+<span class="font-label-md text-label-md">Log Expense</span>
+<span class="material-symbols-outlined text-secondary">outbox</span>
+</button>
+</div>
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('translate-y-[-2px]');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('translate-y-[-2px]');
+            });
+        });
+    </script>
+</body></html>

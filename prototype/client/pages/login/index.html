@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | Fathima Grocery Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#006b2c",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#005320",
+                        "on-primary-fixed": "#002109",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface-bright": "#f9f9ff",
+                        "on-surface-variant": "#3e4a3d",
+                        "on-tertiary-container": "#4e3e00",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f0f3ff",
+                        "on-secondary-fixed-variant": "#783200",
+                        "outline-variant": "#bdcaba",
+                        "secondary-fixed": "#ffdbca",
+                        "on-error": "#ffffff",
+                        "on-background": "#111c2d",
+                        "on-secondary-fixed": "#341100",
+                        "surface-container": "#e7eeff",
+                        "inverse-surface": "#263143",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-tint": "#006e2d",
+                        "primary-fixed": "#7ffc97",
+                        "surface": "#f9f9ff",
+                        "secondary-container": "#fd761a",
+                        "tertiary-fixed": "#ffe083",
+                        "tertiary-container": "#cea700",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb690",
+                        "tertiary-fixed-dim": "#eec200",
+                        "primary-fixed-dim": "#62df7d",
+                        "tertiary": "#735c00",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d8e3fb",
+                        "secondary": "#9d4300",
+                        "on-primary-container": "#f7fff2",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#d8e3fb",
+                        "inverse-primary": "#62df7d",
+                        "surface-dim": "#cfdaf2",
+                        "on-tertiary-fixed": "#231b00",
+                        "primary-container": "#00873a",
+                        "on-secondary-container": "#5c2400",
+                        "on-primary": "#ffffff",
+                        "outline": "#6e7b6c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#dee8ff",
+                        "on-surface": "#111c2d",
+                        "background": "#f9f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "xl": "32px",
+                        "3xl": "64px",
+                        "gutter": "24px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "max-width": "1440px",
+                        "base": "4px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .input-focus-ring:focus {
+            ring: 2px;
+            ring-color: #006b2c;
+            border-color: #006b2c;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-on-background">
+<!-- Split Layout Container -->
+<main class="flex w-full max-w-max-width h-screen bg-surface-container-lowest overflow-hidden shadow-2xl md:rounded-xl md:h-[90vh]">
+<!-- Left Side: Login Form -->
+<section class="w-full md:w-1/2 flex flex-col justify-center px-margin-mobile md:px-2xl relative">
+<div class="max-w-md w-full mx-auto space-y-xl">
+<!-- Brand Identity -->
+<div class="space-y-sm">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Fathima Grocery</h1>
+</div>
+<div class="space-y-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-background">Welcome back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Please enter your credentials to manage your inventory.</p>
+</div>
+</div>
+<!-- Login Form -->
+<form class="space-y-lg" onsubmit="return false;">
+<div class="space-y-md">
+<!-- Username Field -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-1" for="username">Username or Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">person</span>
+<input class="w-full pl-12 pr-4 py-3.5 bg-surface border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="username" placeholder="manager@fathima.com" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-12 pr-12 py-3.5 bg-surface border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-sm">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" id="remember" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="remember">Keep me logged in for 30 days</label>
+</div>
+<!-- CTA Button -->
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-headline-sm text-headline-sm hover:bg-primary-container active:scale-[0.98] transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-sm group">
+                        Sign In to Portal
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Footer/Support -->
+<div class="pt-xl text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Need assistance? <a class="text-primary font-bold hover:underline" href="#">Contact System Administrator</a>
+</p>
+</div>
+</div>
+<!-- Atmospheric micro-interaction script -->
+<script>
+                document.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('focus', () => {
+                        input.parentElement.querySelector('.material-symbols-outlined').style.color = '#006b2c';
+                    });
+                    input.addEventListener('blur', () => {
+                        input.parentElement.querySelector('.material-symbols-outlined').style.color = '#6e7b6c';
+                    });
+                });
+            </script>
+</section>
+<!-- Right Side: Illustration & Branding -->
+<section class="hidden md:flex md:w-1/2 relative bg-[#f8fafc] items-center justify-center overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full -ml-48 -mb-48"></div>
+<div class="relative z-10 w-full h-full flex flex-col p-2xl">
+<!-- Image Container with Glass Overlay -->
+<div class="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border border-white/40">
+<img alt="Fathima Grocery Storefront Illustration" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT8w_2QVtF55OXO67FGYWgRAuG-lJBAcGfYekujlNxtsbhQomJKFoW3_BVLD0D6x6U4QhQWdzVNUYF8HqQx-TR3vmJes2mS7-sVNJjFJw9dlCy7YO99offi4fWd6BIrhpTlTft_y3jKj9hMCBSOWRKZ0G0H6uH0q9Ec8E04PQiuj0VX_tT-NgunXwJ0ivi_bZrdpFAOh32yGoMX7wcVpoNnlk53n5txG8VR_ol1uAc0SIjytQDtL220g"/>
+<!-- Glassmorphism Badge -->
+<div class="absolute bottom-lg right-lg p-lg glass-panel rounded-2xl max-w-xs shadow-2xl">
+<div class="flex items-start gap-md">
+<div class="bg-secondary p-sm rounded-lg">
+<span class="material-symbols-outlined text-on-secondary" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div class="space-y-xs">
+<p class="font-label-md text-label-md text-on-surface">Real-time Inventory</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage your stock, fresh produce, and local deliveries from one central dashboard.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Background Pattern -->
+<div class="fixed inset-0 -z-10 bg-[radial-gradient(#bdcaba_1px,transparent_1px)] [background-size:24px_24px] opacity-20"></div>
+</body></html>

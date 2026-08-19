@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supplier Report - Fathima Grocery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#231b00",
+                    "surface-variant": "#d8e3fb",
+                    "on-tertiary-container": "#4e3e00",
+                    "tertiary-fixed-dim": "#eec200",
+                    "on-primary": "#ffffff",
+                    "outline": "#6e7b6c",
+                    "secondary-fixed-dim": "#ffb690",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#735c00",
+                    "on-background": "#111c2d",
+                    "primary": "#006b2c",
+                    "secondary-fixed": "#ffdbca",
+                    "surface-bright": "#f9f9ff",
+                    "on-surface-variant": "#3e4a3d",
+                    "on-primary-container": "#f7fff2",
+                    "surface-container-highest": "#d8e3fb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "surface": "#f9f9ff",
+                    "primary-fixed-dim": "#62df7d",
+                    "on-primary-fixed": "#002109",
+                    "primary-container": "#00873a",
+                    "surface-tint": "#006e2d",
+                    "on-primary-fixed-variant": "#005320",
+                    "secondary-container": "#fd761a",
+                    "secondary": "#9d4300",
+                    "inverse-primary": "#62df7d",
+                    "inverse-on-surface": "#ecf1ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f0f3ff",
+                    "on-surface": "#111c2d",
+                    "on-secondary-fixed": "#341100",
+                    "surface-dim": "#cfdaf2",
+                    "on-secondary-fixed-variant": "#783200",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#263143",
+                    "on-secondary-container": "#5c2400",
+                    "outline-variant": "#bdcaba",
+                    "primary-fixed": "#7ffc97",
+                    "surface-container-high": "#dee8ff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#cea700",
+                    "background": "#f9f9ff",
+                    "tertiary-fixed": "#ffe083"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1440px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "3xl": "64px",
+                    "2xl": "48px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .sidebar-active {
+            box-shadow: inset -4px 0 0 0 #006b2c;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="flex flex-col gap-xs mb-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary">Fathima Grocery</span>
+<span class="font-body-sm text-body-sm text-outline">Admin Portal</span>
+</div>
+<nav class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-label-md text-label-md">Sales</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">P&L</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-low transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary py-sm px-lg rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+            New Entry
+        </button>
+<div class="mt-md pt-md border-t border-surface-variant flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a store manager, an Indian woman in her late 30s with a confident smile, wearing a professional green blazer that matches the store's branding. The background is a clean, slightly blurred grocery store environment with organized shelves, emphasizing her leadership in the retail space. The lighting is soft and cinematic, conveying high-trust and administrative authority in a modern SaaS context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxivaSaZmSn5so0gCReJpczg-ajrUr_p0csIE-8ar_OI6Wob2620decLwubDcqGyGIzNsiKO5nvPDy-CAxZTayJTu_MTf5_xKjxEwPj5ZNlhT98GLOHC_F3BRfxN9WidYecdC05MerjoPd0So5hPe4TdvUT7BxioPpkPMoIwkQdywS885SYaHffXqR0ggwEQVeuWHP0ozdl9ueFQJ5IrUj_YDAPBF9WkdsGWkNmmg7yFjPmYoMDMZ3ZQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">Fathima R.</span>
+<span class="font-label-sm text-label-sm text-outline">Store Manager</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center px-margin-desktop py-sm max-w-full">
+<div class="flex items-center gap-lg flex-grow">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Fathima Grocery Shop</h1>
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-sm text-body-sm" placeholder="Search reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all active:opacity-80">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<section class="px-margin-desktop py-lg flex flex-col gap-lg">
+<!-- Breadcrumb & Title -->
+<div class="flex flex-col gap-xs">
+<nav class="flex items-center gap-xs text-outline font-label-sm text-label-sm">
+<a class="hover:text-primary" href="#">Reports</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">Supplier Report</span>
+</nav>
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Supplier Report</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Evaluate supplier performance, delivery reliability, and procurement volume.</p>
+</div>
+<button class="flex items-center gap-sm px-md py-sm border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                        Back to Reports
+                    </button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="glass-card p-md rounded-xl flex flex-wrap gap-md items-center">
+<div class="flex flex-col gap-1 min-w-[200px]">
+<label class="font-label-sm text-label-sm text-outline px-1">Supplier Name</label>
+<select class="rounded-lg border-outline-variant bg-surface-container-lowest font-body-sm text-body-sm py-2">
+<option>All Suppliers</option>
+<option>Fresh Farms Co.</option>
+<option>Dairyland Logistics</option>
+<option>Global Grains Ltd.</option>
+</select>
+</div>
+<div class="flex flex-col gap-1 min-w-[150px]">
+<label class="font-label-sm text-label-sm text-outline px-1">Rating</label>
+<select class="rounded-lg border-outline-variant bg-surface-container-lowest font-body-sm text-body-sm py-2">
+<option>Any Rating</option>
+<option>4.5+ Stars</option>
+<option>4.0+ Stars</option>
+<option>Below 4.0</option>
+</select>
+</div>
+<div class="flex flex-col gap-1 min-w-[240px]">
+<label class="font-label-sm text-label-sm text-outline px-1">Date Range</label>
+<div class="flex items-center border border-outline-variant rounded-lg px-3 bg-surface-container-lowest py-2">
+<span class="material-symbols-outlined text-outline-variant text-sm mr-2" data-icon="calendar_today">calendar_today</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 font-body-sm text-body-sm w-full" type="text" value="Oct 01, 2023 - Oct 31, 2023"/>
+</div>
+</div>
+<button class="bg-primary text-on-primary self-end py-2 px-xl rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+                    Apply Filters
+                </button>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Total Suppliers</span>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="group">group</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold">42</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span> +3 this month
+                    </span>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Avg. Delivery Time</span>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="schedule">schedule</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold">1.8 Days</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs" data-icon="trending_down">trending_down</span> -0.4d improvement
+                    </span>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">On-Time Rate %</span>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="verified">verified</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold">94.2%</span>
+<div class="w-full bg-surface-container rounded-full h-1.5 mt-1">
+<div class="bg-primary h-1.5 rounded-full" style="width: 94.2%"></div>
+</div>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-outline">Total Procurement</span>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="payments">payments</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold">$124.5k</span>
+<span class="font-label-sm text-label-sm text-on-secondary-fixed-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span> 12% vs last month
+                    </span>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 glass-card p-lg rounded-xl shadow-sm flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm font-semibold">Procurement Volume by Supplier</h3>
+<div class="flex gap-2">
+<button class="p-1 px-3 bg-primary text-on-primary rounded text-xs font-semibold">Value</button>
+<button class="p-1 px-3 bg-surface-container-high text-outline rounded text-xs">Quantity</button>
+</div>
+</div>
+<div class="h-64 w-full flex items-end justify-around gap-4 pt-8">
+<div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 85%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$42k</div>
+<div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Fresh Farms</div>
+</div>
+<div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 60%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$28k</div>
+<div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">DairyLand</div>
+</div>
+<div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 45%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$21k</div>
+<div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Grain Mart</div>
+</div>
+<div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 35%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$15k</div>
+<div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Organic Hub</div>
+</div>
+<div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 25%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$11k</div>
+<div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Ocean Fresh</div>
+</div>
+<div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 15%">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$7k</div>
+<div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Others</div>
+</div>
+</div>
+<div class="mt-8 border-t border-outline-variant pt-4 flex justify-between items-center font-label-sm text-label-sm text-outline">
+<span>Updated 2 hours ago</span>
+<a class="text-primary hover:underline" href="#">View Breakdown</a>
+</div>
+</div>
+<div class="glass-card p-lg rounded-xl shadow-sm flex flex-col gap-md">
+<h3 class="font-headline-sm text-headline-sm font-semibold">Most Active Suppliers</h3>
+<div class="flex flex-col gap-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">FF</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md font-bold">Fresh Farms Co.</span>
+<span class="font-label-sm text-label-sm text-outline">12 orders this week</span>
+</div>
+<span class="text-primary font-bold">4.9 ★</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold">DL</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md font-bold">Dairyland Logistics</span>
+<span class="font-label-sm text-label-sm text-outline">8 orders this week</span>
+</div>
+<span class="text-primary font-bold">4.7 ★</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">GG</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md font-bold">Global Grains Ltd.</span>
+<span class="font-label-sm text-label-sm text-outline">6 orders this week</span>
+</div>
+<span class="text-primary font-bold">4.5 ★</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-outline font-bold">OH</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md font-bold">Organic Hub</span>
+<span class="font-label-sm text-label-sm text-outline">5 orders this week</span>
+</div>
+<span class="text-primary font-bold">4.3 ★</span>
+</div>
+</div>
+<button class="mt-auto w-full py-2 bg-surface-container-low text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">
+                        View Ranking List
+                    </button>
+</div>
+</div>
+<!-- Detailed Data Table -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="px-lg py-md border-b border-outline-variant flex justify-between items-center bg-surface-container-low/50">
+<h3 class="font-headline-sm text-headline-sm font-semibold">Detailed Supplier Performance</h3>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-1.5 bg-white border border-outline-variant rounded-lg font-label-sm text-label-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span> Export CSV
+                        </button>
+<button class="flex items-center gap-xs px-md py-1.5 bg-white border border-outline-variant rounded-lg font-label-sm text-label-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="print">print</span> Print
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-outline">
+<th class="px-lg py-md font-semibold">Supplier Name</th>
+<th class="px-lg py-md font-semibold">Total Orders</th>
+<th class="px-lg py-md font-semibold">Total Value</th>
+<th class="px-lg py-md font-semibold">Last Delivery</th>
+<th class="px-lg py-md font-semibold">On-Time %</th>
+<th class="px-lg py-md font-semibold">Rating</th>
+<th class="px-lg py-md font-semibold">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-bold">Fresh Farms Co.</td>
+<td class="px-lg py-md">142</td>
+<td class="px-lg py-md">$42,500.00</td>
+<td class="px-lg py-md">Oct 28, 2023</td>
+<td class="px-lg py-md">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-[10px]">98%</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<button class="text-primary font-bold hover:underline">Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-bold">Dairyland Logistics</td>
+<td class="px-lg py-md">98</td>
+<td class="px-lg py-md">$28,120.00</td>
+<td class="px-lg py-md">Oct 29, 2023</td>
+<td class="px-lg py-md">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-[10px]">95%</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<button class="text-primary font-bold hover:underline">Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-bold">Global Grains Ltd.</td>
+<td class="px-lg py-md">75</td>
+<td class="px-lg py-md">$21,450.00</td>
+<td class="px-lg py-md">Oct 25, 2023</td>
+<td class="px-lg py-md">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary font-bold text-[10px]">89%</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<button class="text-primary font-bold hover:underline">Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-bold">Organic Hub</td>
+<td class="px-lg py-md">54</td>
+<td class="px-lg py-md">$15,200.00</td>
+<td class="px-lg py-md">Oct 20, 2023</td>
+<td class="px-lg py-md">
+<span class="px-2 py-0.5 rounded-full bg-error-container/40 text-error font-bold text-[10px]">82%</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<button class="text-primary font-bold hover:underline">Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-lg py-md border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline">Showing 1 to 4 of 42 entries</span>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md bg-primary text-on-primary font-bold text-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md border border-outline-variant hover:bg-surface-container transition-colors text-sm font-medium">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md border border-outline-variant hover:bg-surface-container transition-colors text-sm font-medium">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="flex justify-center pb-2xl">
+<p class="font-body-sm text-body-sm text-outline">End of Supplier Performance Report. Last updated: November 2, 2023 at 10:45 AM</p>
+</div>
+</section>
+</main>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, a').forEach(elem => {
+            elem.addEventListener('mousedown', () => {
+                elem.style.transform = 'scale(0.98)';
+            });
+            elem.addEventListener('mouseup', () => {
+                elem.style.transform = 'scale(1)';
+            });
+            elem.addEventListener('mouseleave', () => {
+                elem.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

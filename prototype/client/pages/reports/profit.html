@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profit Report - Fathima Grocery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#231b00",
+                    "surface-variant": "#d8e3fb",
+                    "on-tertiary-container": "#4e3e00",
+                    "tertiary-fixed-dim": "#eec200",
+                    "on-primary": "#ffffff",
+                    "outline": "#6e7b6c",
+                    "secondary-fixed-dim": "#ffb690",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#735c00",
+                    "on-background": "#111c2d",
+                    "primary": "#006b2c",
+                    "secondary-fixed": "#ffdbca",
+                    "surface-bright": "#f9f9ff",
+                    "on-surface-variant": "#3e4a3d",
+                    "on-primary-container": "#f7fff2",
+                    "surface-container-highest": "#d8e3fb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "surface": "#f9f9ff",
+                    "primary-fixed-dim": "#62df7d",
+                    "on-primary-fixed": "#002109",
+                    "primary-container": "#00873a",
+                    "surface-tint": "#006e2d",
+                    "on-primary-fixed-variant": "#005320",
+                    "secondary-container": "#fd761a",
+                    "secondary": "#9d4300",
+                    "inverse-primary": "#62df7d",
+                    "inverse-on-surface": "#ecf1ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f0f3ff",
+                    "on-surface": "#111c2d",
+                    "on-secondary-fixed": "#341100",
+                    "surface-dim": "#cfdaf2",
+                    "on-secondary-fixed-variant": "#783200",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#263143",
+                    "on-secondary-container": "#5c2400",
+                    "outline-variant": "#bdcaba",
+                    "primary-fixed": "#7ffc97",
+                    "surface-container-high": "#dee8ff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#cea700",
+                    "background": "#f9f9ff",
+                    "tertiary-fixed": "#ffe083"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1440px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "base": "4px",
+                    "3xl": "64px",
+                    "2xl": "48px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+        .chart-bar-glow { filter: drop-shadow(0 0 4px rgba(0, 107, 44, 0.2)); }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Anchor -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest dark:bg-surface-dim shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="flex flex-col gap-xs mb-md">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Fathima Grocery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-base">
+<!-- Navigation Items Mapping from JSON -->
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-label-md text-label-md">Sales</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">P&amp;L</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-lg flex items-center justify-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                New Entry
+            </button>
+</div>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="ml-64 sticky top-0 bg-surface/80 backdrop-blur-md z-40 flex justify-between items-center px-margin-desktop py-sm shadow-sm">
+<div class="flex items-center gap-lg flex-1">
+<div class="flex-1 max-w-md relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-sm pl-3xl pr-md font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20" placeholder="Search reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all text-on-surface-variant relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-sm">
+<img class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/10" data-alt="A professional headshot of a female store manager with a warm smile, wearing a professional green apron, in a bright, modern corporate grocery office environment. High-key lighting, soft focus background of a clean store." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo7OhXRrRnEjLryPJQhb1k_hQTqoKvkw5x3nVnGXxwCXJDq52FdOuSEcXVjTuMIpGwG4KEwTZgDdIlGNDe9HU0cvpKorGiD8U4URs5nu0HQutq2kZHYbs2q_7WZxi8NoXwDwPkydTY__aJjUZco1bfVyG0ijuBcGOmEZ4Jx2YnwTuRIUKncJwDzB8AuuiTClwj0QTICCDw-A2Nqb-MV-VIFxOyKNiCWjX9JOOpxD2UhmHcMv4OiPSerg"/>
+<span class="font-label-md text-label-md hidden lg:block">Fathima Manager</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-margin-desktop space-y-lg max-w-[1440px]">
+<!-- Breadcrumbs & Title Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div class="space-y-xs">
+<nav class="flex items-center gap-xs font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-primary" href="#">Reports</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-semibold">Profit Report</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Profit Report</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Detailed financial breakdown of revenue, expenses, and net margins across the grocery store's product categories.</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-xs px-md py-sm rounded-lg border border-outline-variant font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+                    Back to Reports
+                </button>
+<button class="flex items-center gap-xs px-md py-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                    Export PDF
+                </button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant flex flex-wrap items-center gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-xs">Date Range</span>
+<select class="bg-surface-container-low border-outline-variant rounded-lg font-body-sm text-body-sm py-sm px-md min-w-[160px] focus:border-primary focus:ring-primary">
+<option>Monthly</option>
+<option selected="">Quarterly</option>
+<option>Yearly</option>
+<option>Custom Range</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-xs">Category</span>
+<select class="bg-surface-container-low border-outline-variant rounded-lg font-body-sm text-body-sm py-sm px-md min-w-[200px] focus:border-primary focus:ring-primary">
+<option>All Categories</option>
+<option>Fresh Produce</option>
+<option>Dairy &amp; Eggs</option>
+<option>Frozen Foods</option>
+<option>Household Supplies</option>
+</select>
+</div>
+<button class="mt-auto h-[38px] px-md rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                More Filters
+            </button>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Revenue -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-sm">
+<span class="p-xs bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</span>
+<span class="text-primary font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                            +12.5%
+                        </span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Total Revenue</h3>
+<p class="font-headline-md text-headline-md text-on-surface">$142,500.00</p>
+</div>
+<div class="mt-md h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[80%] rounded-full"></div>
+</div>
+</div>
+<!-- Expenses -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-sm">
+<span class="p-xs bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</span>
+<span class="text-error font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                            +4.2%
+                        </span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Total Expenses</h3>
+<p class="font-headline-md text-headline-md text-on-surface">$98,420.50</p>
+</div>
+<div class="mt-md h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[65%] rounded-full"></div>
+</div>
+</div>
+<!-- Net Profit -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-sm">
+<span class="p-xs bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</span>
+<span class="text-primary font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                            +18.4%
+                        </span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Net Profit</h3>
+<p class="font-headline-md text-headline-md text-on-surface">$44,079.50</p>
+</div>
+<div class="mt-md h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[45%] rounded-full"></div>
+</div>
+</div>
+<!-- Profit Margin -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-sm">
+<span class="p-xs bg-primary-fixed-dim/20 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="percent">percent</span>
+</span>
+<span class="text-primary font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="show_chart">show_chart</span>
+                            Stable
+                        </span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Profit Margin %</h3>
+<p class="font-headline-md text-headline-md text-on-surface">30.9%</p>
+</div>
+<div class="mt-md h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[70%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Charts Section (Asymmetric Bento Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Profit Trend Chart -->
+<div class="lg:col-span-2 bg-white p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center justify-between mb-xl">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Profit Trend</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Net profit performance over the last 6 months.</p>
+</div>
+<div class="flex gap-sm">
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm">Profit</span>
+</div>
+</div>
+</div>
+<div class="h-[300px] w-full relative">
+<!-- SVG Chart Mock -->
+<svg class="w-full h-full" viewbox="0 0 800 300">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="rgba(0, 107, 44, 0.2)"></stop>
+<stop offset="100%" stop-color="rgba(0, 107, 44, 0)"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines -->
+<line stroke="#E2E8F0" stroke-dasharray="4" x1="0" x2="800" y1="250" y2="250"></line>
+<line stroke="#E2E8F0" stroke-dasharray="4" x1="0" x2="800" y1="175" y2="175"></line>
+<line stroke="#E2E8F0" stroke-dasharray="4" x1="0" x2="800" y1="100" y2="100"></line>
+<line stroke="#E2E8F0" stroke-dasharray="4" x1="0" x2="800" y1="25" y2="25"></line>
+<!-- Area Fill -->
+<path d="M0 250 L100 200 L200 220 L300 150 L400 130 L500 80 L600 90 L700 50 L800 60 V300 H0 Z" fill="url(#chartGradient)"></path>
+<!-- Line -->
+<path d="M0 250 L100 200 L200 220 L300 150 L400 130 L500 80 L600 90 L700 50 L800 60" fill="none" stroke="#006b2c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<!-- Data Points -->
+<circle cx="100" cy="200" fill="white" r="4" stroke="#006b2c" stroke-width="2"></circle>
+<circle cx="300" cy="150" fill="white" r="4" stroke="#006b2c" stroke-width="2"></circle>
+<circle cx="500" cy="80" fill="white" r="4" stroke="#006b2c" stroke-width="2"></circle>
+<circle cx="700" cy="50" fill="white" r="4" stroke="#006b2c" stroke-width="2"></circle>
+</svg>
+<div class="flex justify-between mt-md px-base text-label-sm font-label-sm text-on-surface-variant">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+</div>
+</div>
+</div>
+<!-- Analytics: Highest Profit Products -->
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Top Performers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Products with highest margins.</p>
+</div>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up studio shot of organic local avocados, high quality grocery product photography, bright light, soft green tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyztVdTo-H7FGmoMNCVXjJNvB5oLGiFwfsEsR0ygir2vAKVXbYWwFoq5hbrBMBFPW2PijvLFG1EAxNvqU-m_DZeAls6GAmI_yqWKEtyxHaBOzDj2RIsInrdTTAee2BTANJl910uJ7ZR8c5zpi4ZW4R1Xxi2w2eIyKVJrCcRYtD9WTHumXJ41M_gkkR3H_mJZW8Xy03KD4wAZBpCod5tSIMBOMmvn1ocWYUFoT18PCsmelxE1ST0Nr4aw"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Organic Avocados</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">$3,420 Profit</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">42% Margin</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro shot of premium coffee beans in a hessian sack, warm professional lighting, earth tones, high end grocery branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD51DI8aTxoD_YELH-DUTo2Pf3XIMDdyjrzb7DaZK7ld66L2OwXkfBjePc7N6P4SLPttsUKOA12V81haxULV4VNAARE8fs7Nv0e-cun3NYSRBqjXWcUNSoAd2I5Vt_4H8KVkJyJwF4-EJFz3OUotNms8RmjEp5Motyolcu13b_j3D7HWUNJBk9KgX6GhVVQyRBucgT0rXX0lVUqc5gVcS48MGb8W1LfSjxjz7PrYvGdWlMsapmtJ1s6-g"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Artisan Coffee</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">$2,980 Profit</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">38% Margin</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High resolution shot of fresh organic honey in a glass jar, golden lighting, amber tones, premium packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA3boExZEOnOfwULHDPKLXZdUaVBKAVWOrEVED9k4BxrpFHcP83SRvs7vnAfbanM9h0QxCFO_9LifMHtX7-FqzQtEQqksPlLXnTi3QXXrgc1OJq3mYQ_QmYpbznJhR7diUDpV7ktwIY7xLjPhrK3azYB2anU86GMfdAjxI1lv_YdRfI_WW1e02mfpOkcXDbO1--X31rv4A8ntM0ZwXbr910ahrxMp8EUu90Gdj43uGI7DzFgiyUNAvWw"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Wildflower Honey</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">$2,150 Profit</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">35% Margin</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Minimalist shot of artisan sourdough bread on a wooden board, clean white background, professional food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVHSsiJoJLp-mhHegZv93H8B4AYSlKLc3DehDueumszz8hiewhYYOPxI9INNiVrNOBWSWsxG_qFxRN8YXUF0AgqmQQMhLFcoKT2qY_Vw4WO-NO7OZef13QELeuBKWgTV8z-IDVJN63GTDciaBG91B8hvGAJZ1j_GK9Az3dOUiPQj71WfxI7xVNrkf-QLRxTE_SvF33yaDI-66gI6_QLFDxFTmiTjsK_bKiQ2tnzDhwqdSJuNKxXHbLEg"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Sourdough Loaf</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">$1,840 Profit</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">31% Margin</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-xl py-sm text-primary font-label-md text-label-md hover:underline">View All Rankings</button>
+</div>
+</div>
+<!-- Revenue vs Expenses Grouped Bar Chart & Table Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<div class="bg-white p-lg rounded-xl shadow-sm border border-outline-variant">
+<h3 class="font-headline-sm text-headline-sm mb-xl">Revenue vs Expenses</h3>
+<div class="flex items-end justify-between h-64 gap-md px-md">
+<!-- May -->
+<div class="flex-1 flex flex-col items-center gap-sm h-full justify-end">
+<div class="flex gap-xs items-end h-full w-full">
+<div class="flex-1 bg-primary rounded-t-lg" style="height: 80%;"></div>
+<div class="flex-1 bg-secondary rounded-t-lg" style="height: 55%;"></div>
+</div>
+<span class="font-label-sm text-label-sm">May</span>
+</div>
+<!-- Jun -->
+<div class="flex-1 flex flex-col items-center gap-sm h-full justify-end">
+<div class="flex gap-xs items-end h-full w-full">
+<div class="flex-1 bg-primary rounded-t-lg" style="height: 90%;"></div>
+<div class="flex-1 bg-secondary rounded-t-lg" style="height: 60%;"></div>
+</div>
+<span class="font-label-sm text-label-sm">Jun</span>
+</div>
+<!-- Jul -->
+<div class="flex-1 flex flex-col items-center gap-sm h-full justify-end">
+<div class="flex gap-xs items-end h-full w-full">
+<div class="flex-1 bg-primary rounded-t-lg" style="height: 85%;"></div>
+<div class="flex-1 bg-secondary rounded-t-lg" style="height: 65%;"></div>
+</div>
+<span class="font-label-sm text-label-sm">Jul</span>
+</div>
+<!-- Aug -->
+<div class="flex-1 flex flex-col items-center gap-sm h-full justify-end">
+<div class="flex gap-xs items-end h-full w-full">
+<div class="flex-1 bg-primary rounded-t-lg" style="height: 95%;"></div>
+<div class="flex-1 bg-secondary rounded-t-lg" style="height: 58%;"></div>
+</div>
+<span class="font-label-sm text-label-sm">Aug</span>
+</div>
+</div>
+<div class="flex justify-center gap-xl mt-lg">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded bg-primary"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Revenue</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded bg-secondary"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expenses</span>
+</div>
+</div>
+</div>
+<!-- Distribution / Quick Metrics -->
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-primary p-lg rounded-xl flex flex-col justify-between text-on-primary">
+<h4 class="font-label-md text-label-md opacity-80">COGS Impact</h4>
+<div>
+<p class="font-display-lg text-display-lg leading-none">62%</p>
+<p class="font-body-sm text-body-sm mt-sm">Cost of goods sold relative to total revenue.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-lg rounded-xl flex flex-col justify-between">
+<h4 class="font-label-md text-label-md text-on-surface-variant">Oper. Efficiency</h4>
+<div>
+<p class="font-display-lg text-display-lg text-primary leading-none">94.2</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Operational productivity score (Scale 0-100).</p>
+</div>
+</div>
+<div class="bg-secondary p-lg rounded-xl col-span-2 relative overflow-hidden group">
+<div class="relative z-10 text-on-secondary">
+<h4 class="font-label-md text-label-md opacity-80">Inventory Loss</h4>
+<div class="flex items-end justify-between mt-md">
+<p class="font-display-lg text-display-lg leading-none">$1,240</p>
+<span class="font-label-sm text-label-sm bg-white/20 px-md py-xs rounded-full">Low Alert</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[120px]" data-icon="inventory_2">inventory_2</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Data Table -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="p-lg flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm">Financial Breakdown</h3>
+<div class="flex items-center gap-sm">
+<button class="p-sm rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="print">print</span>
+</button>
+<button class="p-sm rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-y border-outline-variant">
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Month</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Revenue</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">COGS</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Expenses</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Net Profit</th>
+<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md font-label-md text-label-md">August 2023</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$48,200.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$28,150.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$6,400.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$13,650.00</td>
+<td class="px-lg py-md text-center">
+<span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-label-md text-label-md">July 2023</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$42,150.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$25,300.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$6,200.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$10,650.00</td>
+<td class="px-lg py-md text-center">
+<span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-label-md text-label-md">June 2023</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$52,400.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$32,100.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$7,100.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$13,200.00</td>
+<td class="px-lg py-md text-center">
+<span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md font-label-md text-label-md">May 2023</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$38,900.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$22,400.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">$5,800.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$10,700.00</td>
+<td class="px-lg py-md text-center">
+<span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-lg flex items-center justify-between border-t border-outline-variant">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1 to 4 of 24 entries</span>
+<div class="flex items-center gap-xs">
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant hover:bg-surface-container font-label-md text-label-md">2</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant hover:bg-surface-container font-label-md text-label-md">3</button>
+<button class="p-sm rounded-lg border border-outline-variant hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Spacer -->
+<div class="pb-3xl"></div>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple hover effect for KPI cards to simulate high-end UI feel
+        document.querySelectorAll('.bg-white.rounded-xl.shadow-sm').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+                card.classList.remove('shadow-sm');
+                card.classList.add('shadow-md');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.classList.remove('shadow-md');
+                card.classList.add('shadow-sm');
+            });
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[placeholder="Search reports..."]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+            searchInput.parentElement.style.transition = 'transform 0.2s ease';
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+</body></html>

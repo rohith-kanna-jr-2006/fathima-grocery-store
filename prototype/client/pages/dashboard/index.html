@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analytics Dashboard | Fathima Grocery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#006b2c",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#005320",
+                    "on-primary-fixed": "#002109",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "surface-bright": "#f9f9ff",
+                    "on-surface-variant": "#3e4a3d",
+                    "on-tertiary-container": "#4e3e00",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f0f3ff",
+                    "on-secondary-fixed-variant": "#783200",
+                    "outline-variant": "#bdcaba",
+                    "secondary-fixed": "#ffdbca",
+                    "on-error": "#ffffff",
+                    "on-background": "#111c2d",
+                    "on-secondary-fixed": "#341100",
+                    "surface-container": "#e7eeff",
+                    "inverse-surface": "#263143",
+                    "inverse-on-surface": "#ecf1ff",
+                    "surface-tint": "#006e2d",
+                    "primary-fixed": "#7ffc97",
+                    "surface": "#f9f9ff",
+                    "secondary-container": "#fd761a",
+                    "tertiary-container": "#cea700",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb690",
+                    "tertiary-fixed-dim": "#eec200",
+                    "primary-fixed-dim": "#62df7d",
+                    "tertiary": "#735c00",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#d8e3fb",
+                    "secondary": "#9d4300",
+                    "on-primary-container": "#f7fff2",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#d8e3fb",
+                    "inverse-primary": "#62df7d",
+                    "surface-dim": "#cfdaf2",
+                    "on-tertiary-fixed": "#231b00",
+                    "primary-container": "#00873a",
+                    "on-secondary-container": "#5c2400",
+                    "on-primary": "#ffffff",
+                    "outline": "#6e7b6c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#dee8ff",
+                    "on-surface": "#111c2d",
+                    "background": "#f9f9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "xl": "32px",
+                    "3xl": "64px",
+                    "gutter": "24px",
+                    "2xl": "48px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "max-width": "1440px",
+                    "base": "4px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .trend-up { color: #006b2c; }
+        .trend-down { color: #ba1a1a; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Side Navigation Bar -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Fathima Grocery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-md p-md rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span class="font-label-md text-label-md">Sales</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">P&amp;L</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary font-label-md text-label-md py-md px-lg rounded-xl flex items-center justify-center gap-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">add</span>
+            New Entry
+        </button>
+<div class="flex items-center gap-md mt-lg pt-lg border-t border-outline-variant">
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional headshot of a female store manager with a warm and confident expression, set against a blurred modern office background with soft green plants. The lighting is bright and professional, creating a clean SaaS business portrait style in light mode colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABcQnOHjkU4NlJwV0OInBed1jr72nd94U7L7OvayX_e_PfZjZxx9lzfSikfc4HaPztBghM6lprFadkrmn1_nZxumA24ha3VNovWKs2R6F_hF9FN2FSjU9Kc45QUkMXx9LlrHDuCVSKsq0Vlgzjm25CAmRaqUa26J684--v_8ZVSwul8JuReP1aoHyJiW7itHPbd96fBYHQF2K4FF2EILVQ2M8MHF6dyF2z7Px84DkhRQTOLHOZmLskqg"/>
+<div>
+<p class="font-label-md text-label-md">Fathima Rahman</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Store Manager</p>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="ml-64 sticky top-0 z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center px-margin-desktop py-sm shadow-sm">
+<div class="flex items-center gap-lg flex-grow max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 font-body-sm text-body-sm focus:ring-2 focus:ring-primary" placeholder="Search inventory, sales, products..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md ml-lg">
+<div class="hover:bg-surface-container-high rounded-full p-2 transition-all cursor-pointer relative">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full"></span>
+</div>
+<div class="hover:bg-surface-container-high rounded-full p-2 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary">settings</span>
+</div>
+<div class="h-8 w-px bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-sm">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Fathima Grocery Shop</h2>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 p-margin-desktop min-h-screen">
+<!-- Header Section -->
+<div class="mb-3xl">
+<h2 class="font-display-lg text-display-lg text-on-surface">Performance Overview</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Real-time tracking of your grocery business health, inventory levels, and financial milestones.</p>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-3xl">
+<!-- Total Products -->
+<div class="glass-card rounded-xl p-lg flex flex-col gap-md hover:shadow-lg transition-all">
+<div class="flex justify-between items-start">
+<div class="p-sm bg-primary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">inventory</span>
+</div>
+<span class="flex items-center text-primary font-label-md text-label-sm gap-xs">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12.5%
+                    </span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Total Products</p>
+<h3 class="font-display-lg text-headline-lg mt-xs">1,482</h3>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1">
+<div class="bg-primary h-1 rounded-full w-4/5"></div>
+</div>
+</div>
+<!-- Stock Value -->
+<div class="glass-card rounded-xl p-lg flex flex-col gap-md hover:shadow-lg transition-all">
+<div class="flex justify-between items-start">
+<div class="p-sm bg-secondary-fixed/20 rounded-lg">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<span class="flex items-center text-primary font-label-md text-label-sm gap-xs">
+<span class="material-symbols-outlined text-sm">trending_up</span> +8.2%
+                    </span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Stock Value</p>
+<h3 class="font-display-lg text-headline-lg mt-xs">$42,910</h3>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1">
+<div class="bg-secondary h-1 rounded-full w-2/3"></div>
+</div>
+</div>
+<!-- Daily Sales -->
+<div class="glass-card rounded-xl p-lg flex flex-col gap-md hover:shadow-lg transition-all">
+<div class="flex justify-between items-start">
+<div class="p-sm bg-tertiary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</div>
+<span class="flex items-center text-error font-label-md text-label-sm gap-xs">
+<span class="material-symbols-outlined text-sm">trending_down</span> -2.4%
+                    </span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Daily Sales</p>
+<h3 class="font-display-lg text-headline-lg mt-xs">$2,845</h3>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1">
+<div class="bg-tertiary h-1 rounded-full w-1/2"></div>
+</div>
+</div>
+<!-- Low Stock Items -->
+<div class="glass-card rounded-xl p-lg flex flex-col gap-md hover:shadow-lg transition-all bg-error-container/10">
+<div class="flex justify-between items-start">
+<div class="p-sm bg-error-container rounded-lg">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<span class="px-md py-xs bg-error text-on-error rounded-full font-label-sm text-label-sm">Critical</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Low Stock Items</p>
+<h3 class="font-display-lg text-headline-lg mt-xs">24</h3>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1">
+<div class="bg-error h-1 rounded-full w-1/4"></div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Charts Section -->
+<div class="grid grid-cols-12 gap-gutter items-stretch">
+<!-- Sales Overview Line Chart (Large) -->
+<div class="col-span-12 lg:col-span-8 glass-card rounded-2xl p-xl flex flex-col gap-lg">
+<div class="flex justify-between items-center">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Sales Overview</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Weekly revenue comparison</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Week</button>
+<button class="px-md py-sm rounded-lg bg-primary text-on-primary font-label-sm text-label-sm">Month</button>
+</div>
+</div>
+<div class="relative h-64 w-full flex items-end gap-md pt-lg">
+<!-- Simplified Visual Representation of a Line Chart -->
+<div class="absolute inset-0 flex flex-col justify-between text-xs text-on-surface-variant/40 pb-6">
+<span>$10k</span><span>$7.5k</span><span>$5k</span><span>$2.5k</span><span>0</span>
+</div>
+<div class="ml-8 flex-grow h-full flex items-end justify-between border-b border-l border-outline-variant/30 px-md">
+<!-- Chart Lines logic visualized with CSS gradients/divs -->
+<div class="relative w-full h-full">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 800 200">
+<path d="M0,150 Q100,80 200,120 T400,60 T600,90 T800,40" fill="none" stroke="url(#gradient-green)" stroke-linecap="round" stroke-width="4"></path>
+<defs>
+<lineargradient id="gradient-green" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" style="stop-color:#00873a;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#7ffc97;stop-opacity:1"></stop>
+</lineargradient>
+</defs>
+<!-- Data points -->
+<circle cx="0" cy="150" fill="#006b2c" r="5"></circle>
+<circle cx="200" cy="120" fill="#006b2c" r="5"></circle>
+<circle cx="400" cy="60" fill="#006b2c" r="5"></circle>
+<circle cx="600" cy="90" fill="#006b2c" r="5"></circle>
+<circle cx="800" cy="40" fill="#006b2c" r="5"></circle>
+</svg>
+</div>
+</div>
+</div>
+<div class="flex justify-between ml-8 text-on-surface-variant font-label-sm text-label-sm">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Category Sales Doughnut Chart (Medium) -->
+<div class="col-span-12 lg:col-span-4 glass-card rounded-2xl p-xl flex flex-col gap-lg">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Category Distribution</h4>
+<div class="relative flex justify-center py-lg">
+<div class="w-48 h-48 rounded-full border-[20px] border-surface-container relative">
+<!-- Segments logic -->
+<div class="absolute inset-[-20px] rounded-full border-[20px] border-primary" style="clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%);"></div>
+<div class="absolute inset-[-20px] rounded-full border-[20px] border-secondary" style="clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg text-headline-lg">78%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Main Categories</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-body-sm text-body-sm">Fresh Produce</span>
+</div>
+<span class="font-label-md text-label-md">45%</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-body-sm text-body-sm">Dairy &amp; Meat</span>
+</div>
+<span class="font-label-md text-label-md">33%</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-surface-container-highest"></div>
+<span class="font-body-sm text-body-sm">Pantry Staples</span>
+</div>
+<span class="font-label-md text-label-md">22%</span>
+</div>
+</div>
+</div>
+<!-- Revenue vs Expenses Bar Chart (Medium-Wide) -->
+<div class="col-span-12 lg:col-span-7 glass-card rounded-2xl p-xl flex flex-col gap-lg">
+<div class="flex justify-between items-center">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Revenue vs Expenses</h4>
+<div class="flex gap-md">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-label-sm text-label-sm">Revenue</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<span class="font-label-sm text-label-sm">Expenses</span>
+</div>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-xl pt-lg border-b border-outline-variant/30">
+<!-- Bar Groups -->
+<div class="flex-grow flex items-end justify-around h-full">
+<div class="flex items-end gap-xs h-full w-8">
+<div class="w-3 bg-primary rounded-t-sm h-[60%]"></div>
+<div class="w-3 bg-error rounded-t-sm h-[40%]"></div>
+</div>
+<div class="flex items-end gap-xs h-full w-8">
+<div class="w-3 bg-primary rounded-t-sm h-[80%]"></div>
+<div class="w-3 bg-error rounded-t-sm h-[30%]"></div>
+</div>
+<div class="flex items-end gap-xs h-full w-8">
+<div class="w-3 bg-primary rounded-t-sm h-[55%]"></div>
+<div class="w-3 bg-error rounded-t-sm h-[45%]"></div>
+</div>
+<div class="flex items-end gap-xs h-full w-8">
+<div class="w-3 bg-primary rounded-t-sm h-[90%]"></div>
+<div class="w-3 bg-error rounded-t-sm h-[20%]"></div>
+</div>
+<div class="flex items-end gap-xs h-full w-8">
+<div class="w-3 bg-primary rounded-t-sm h-[70%]"></div>
+<div class="w-3 bg-error rounded-t-sm h-[50%]"></div>
+</div>
+<div class="flex items-end gap-xs h-full w-8">
+<div class="w-3 bg-primary rounded-t-sm h-[85%]"></div>
+<div class="w-3 bg-error rounded-t-sm h-[35%]"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-around text-on-surface-variant font-label-sm text-label-sm">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+</div>
+</div>
+<!-- Recent Notifications / Quick Actions (Narrow) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-gutter">
+<!-- Action Card -->
+<div class="glass-card rounded-2xl p-lg bg-primary-container text-on-primary-container border-none">
+<h5 class="font-headline-sm text-headline-sm mb-xs">Inventory Audit Due</h5>
+<p class="font-body-sm text-body-sm mb-lg opacity-90">Your monthly stock reconciliation is scheduled for tomorrow at 8:00 AM.</p>
+<button class="w-full bg-on-primary-container text-primary-container font-label-md text-label-md py-md rounded-xl hover:opacity-90 transition-all">
+                        View Schedule
+                    </button>
+</div>
+<!-- Low Stock Quick List -->
+<div class="glass-card rounded-2xl p-lg flex flex-col gap-md flex-grow">
+<h5 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Urgent Refills</h5>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="A macro studio photograph of fresh organic green apples in a wooden crate, with professional lighting accentuating the textures and vibrant colors. The style is fresh and clean, suitable for a premium grocery SaaS inventory list." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1AqhsPWrPh8hSQCgXglM0M2ro83z9t7P4--wWYMwgRyA7V8S9ZzZQTb9kzJxjvsMvkRD0kAA0GcUvLjiRrRR3PQOtjMLToVwKe-vtws4_g0Kbs4EHSwDRhEOeL0KVaufTcova2bHqqL94jwrowsZtUqmxNcTpKgVms8RHAXQFp1TarZ33zQVNn2gZpEQUjYyVbu2CsB3bvFcgWwz5-rEDt7xWrwD6BAiMVgm9_eVM5s2otgCN0i9iCg"/>
+<div>
+<p class="font-label-md text-label-md">Granny Smith Apples</p>
+<p class="font-body-sm text-body-sm text-error">5kg left</p>
+</div>
+</div>
+<button class="p-xs bg-surface-container rounded-lg text-primary">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="A clean, minimalist product photo of high-quality organic whole milk in a glass bottle on a white marble surface. Bright natural light, soft shadows, and a premium health-focused aesthetic for a modern grocery retail dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEyDjvJ2mYGFW7nfS-h00Ha-UIWyYBfQM-THck2Zqg3OcQwtNPXjHwUT1SwGOV-I687CHLd3V2rBKhBRhnXT6ZyMt608M2do_Ul4aJuUWEhZJMfI_MXGet7u8G6Wmm-sxhe2OyE7Rcy_dxCvUfuo2KiVW0iVzqfpCVbmv_6xkEtDzCeXpSDoF3aZHKFaaHjL13OPcHZhZvAjm73aD0iwHZDYmcFwrSOAsSQ9ul0Xr0v8rTaMtrEHkrlw"/>
+<div>
+<p class="font-label-md text-label-md">Organic Whole Milk</p>
+<p class="font-body-sm text-body-sm text-error">12 units left</p>
+</div>
+</div>
+<button class="p-xs bg-surface-container rounded-lg text-primary">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

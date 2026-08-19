@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Category - Fathima Grocery Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#e7eeff",
+                    "surface-container-low": "#f0f3ff",
+                    "tertiary": "#735c00",
+                    "surface-dim": "#cfdaf2",
+                    "surface": "#f9f9ff",
+                    "on-secondary-fixed": "#341100",
+                    "on-surface-variant": "#3e4a3d",
+                    "secondary-container": "#fd761a",
+                    "primary-fixed": "#7ffc97",
+                    "surface-variant": "#d8e3fb",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#231b00",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary": "#006b2c",
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-background": "#111c2d",
+                    "surface-bright": "#f9f9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#62df7d",
+                    "tertiary-container": "#cea700",
+                    "on-primary-container": "#f7fff2",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#00873a",
+                    "outline": "#6e7b6c",
+                    "on-secondary-container": "#5c2400",
+                    "tertiary-fixed": "#ffe083",
+                    "surface-tint": "#006e2d",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "inverse-surface": "#263143",
+                    "on-primary-fixed-variant": "#005320",
+                    "surface-container-high": "#dee8ff",
+                    "on-primary-fixed": "#002109",
+                    "outline-variant": "#bdcaba",
+                    "tertiary-fixed-dim": "#eec200",
+                    "inverse-primary": "#62df7d",
+                    "surface-container-highest": "#d8e3fb",
+                    "secondary": "#9d4300",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#4e3e00",
+                    "background": "#f9f9ff",
+                    "on-secondary-fixed-variant": "#783200",
+                    "secondary-fixed": "#ffdbca",
+                    "on-surface": "#111c2d",
+                    "secondary-fixed-dim": "#ffb690"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "3xl": "64px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "2xl": "48px",
+                    "margin-desktop": "32px",
+                    "max-width": "1440px",
+                    "base": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .card-shadow { shadow-sm: 0px 4px 20px rgba(30, 41, 59, 0.05); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar (Shared Components Execution) -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md">store</span>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Fathima Grocery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs mt-xl">
+<a class="flex items-center gap-md py-sm px-md rounded-lg transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg transition-colors duration-200 bg-surface-container-high text-primary font-bold border-r-4 border-primary" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+<span class="font-label-md text-label-md">Sales</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">P&amp;L</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-lg transition-colors duration-200 hover:bg-surface-container text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-primary text-on-primary py-md px-lg rounded-xl font-label-md text-label-md active:scale-95 transition-transform flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">add_circle</span>
+                New Entry
+            </button>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-64 min-h-screen">
+<!-- Top Navigation (Shared Components Execution) -->
+<header class="sticky top-0 z-40 flex justify-between items-center px-margin-desktop py-sm bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border-none rounded-full w-64 focus:ring-2 focus:ring-primary transition-all" placeholder="Search inventory..." type="text"/>
+</div>
+<nav class="hidden md:flex gap-md">
+<span class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary cursor-pointer">Inventory Manager</span>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-surface-container-high rounded-full p-2 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary-container overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female grocery store manager with a friendly expression, set against a blurred retail background with warm ambient lighting. The style is modern corporate photography, clean and well-lit with high-end digital clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRULCEJJH5ho157slA2EPxsQRPGW5ugaILs1Bg04TR9kmD9rjvtujcg_ONjc0Z4gtzG-nmVX2qWLesUWTUhmYQp_UcJIoEJ0LB5Cq3bHSHValEA_CxIFtHEK6YudSRR4rSvCGt2Zl5NUBap9hBfkjiutcA8nAwC3DTMVZ5NZZ0KdmCh2UQjrrkXYeT3dG-QyV-YOOjXVhTppg3H7w-2aflM1UjfqhFFMc7vMMEE8bLnkpBGeIvUjK2gg"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="px-margin-desktop py-lg max-w-max-width mx-auto">
+<!-- Header & Breadcrumbs -->
+<div class="mb-xl">
+<div class="flex items-center gap-sm text-outline font-label-sm text-label-sm mb-sm">
+<span>Dashboard</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>New Entry</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">New Category</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Create New Category</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Organize grocery products into categories for better inventory management and reporting.</p>
+</div>
+<a class="flex items-center gap-sm text-primary font-label-md text-label-md hover:underline" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back to New Entry
+                    </a>
+</div>
+</div>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left: Form Sections -->
+<div class="col-span-12 lg:col-span-8 space-y-gutter">
+<!-- Section 1: Form Details -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md">
+<span class="material-symbols-outlined text-primary">info</span>
+<h3 class="font-headline-sm text-headline-sm">Category Details</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Category ID</label>
+<input class="bg-surface-container border-outline-variant text-outline rounded-lg py-md px-md font-body-md text-body-md cursor-not-allowed" readonly="" type="text" value="CAT-2023-08"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Category Code</label>
+<input class="border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-md px-md font-body-md text-body-md" type="text" value="CAT-001"/>
+</div>
+<div class="col-span-1 md:col-span-2 flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Category Name</label>
+<input class="border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-md px-md font-body-md text-body-md" placeholder="e.g. Fresh Fruits" type="text"/>
+</div>
+<div class="col-span-1 md:col-span-2 flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Category Description</label>
+<textarea class="border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-md px-md font-body-md text-body-md" placeholder="Describe the type of products in this category..." rows="4"></textarea>
+</div>
+</div>
+</section>
+<!-- Section 2: Appearance -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md">
+<span class="material-symbols-outlined text-primary">palette</span>
+<h3 class="font-headline-sm text-headline-sm">Appearance</h3>
+</div>
+<div class="space-y-lg">
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-sm">Category Icon Picker</label>
+<div class="flex flex-wrap gap-md">
+<button class="p-lg border-2 border-primary bg-primary-container/10 rounded-xl flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[32px]">nutrition</span>
+<span class="text-xs font-label-sm">Fruits</span>
+</button>
+<button class="p-lg border border-outline-variant hover:border-primary transition-all rounded-xl flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[32px]">restaurant</span>
+<span class="text-xs font-label-sm">Vegetables</span>
+</button>
+<button class="p-lg border border-outline-variant hover:border-primary transition-all rounded-xl flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[32px]">egg</span>
+<span class="text-xs font-label-sm">Dairy</span>
+</button>
+<button class="p-lg border border-outline-variant hover:border-primary transition-all rounded-xl flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[32px]">bakery_dining</span>
+<span class="text-xs font-label-sm">Bakery</span>
+</button>
+<button class="p-lg border border-outline-variant hover:border-primary transition-all rounded-xl flex flex-col items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[32px]">icecream</span>
+<span class="text-xs font-label-sm">Frozen</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Theme Color</label>
+<div class="flex items-center gap-md p-sm border border-outline-variant rounded-lg">
+<div class="w-10 h-10 rounded-full bg-primary cursor-pointer"></div>
+<div class="w-10 h-10 rounded-full bg-secondary cursor-pointer"></div>
+<div class="w-10 h-10 rounded-full bg-tertiary cursor-pointer"></div>
+<input class="w-10 h-10 border-none bg-transparent cursor-pointer" type="color"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Cover Image</label>
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-lg flex flex-col items-center gap-xs bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-outline">upload_file</span>
+<span class="font-label-sm text-label-sm text-outline">Click to upload image</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Settings -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md">
+<span class="material-symbols-outlined text-primary">settings</span>
+<h3 class="font-headline-sm text-headline-sm">Advanced Settings</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Status</span>
+<span class="text-xs text-on-surface-variant">Visible in storefront</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Display Order</label>
+<input class="border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-md px-md font-body-md text-body-md" type="number" value="1"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Parent Category</label>
+<select class="border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-md px-md font-body-md text-body-md">
+<option>None (Top Level)</option>
+<option>Perishables</option>
+<option>Pantry</option>
+</select>
+</div>
+<div class="flex items-center justify-between p-md bg-surface border border-outline-variant rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Min Stock Alert</span>
+<span class="text-xs text-on-surface-variant">Notify when items low</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+</div>
+<!-- Right: Summary & Preview -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- Section 4: Live Preview -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-md">Live Preview</h3>
+<div class="group relative overflow-hidden rounded-2xl bg-white border border-outline-variant hover:shadow-lg transition-all duration-300">
+<div class="h-32 bg-primary/10 flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="A lush and vibrant collection of varied fresh fruits including grapes, apples, and oranges, artistically arranged on a light clean wooden surface. High-key lighting, soft shadows, and high-definition detail that suggests freshness and premium quality grocery products." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf-RgJphk4Ff3-EdelKf1pVi5KxgoWx6ZelRkUaFrtV89IQnW0gnb_l5T_l1LCOdCAK71MYnv9qQgf3Ub0f058h8StKHKY1R1dKY2mWI22Bb1b7wIEJT7efaqoezLe610IllfXBMTCdFo-DIVoqcMJ4v1MtF-jVzu1cG_zaXemWLXNt4ef-brpjlvhmgezJahxhU-WBv68DEJB_XA_K3YG5DvvYT3fzhOCz2DdW9OrJI4VHRQ6f04xrQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold">ACTIVE</div>
+<div class="absolute bottom-4 left-4 bg-white/90 p-3 rounded-xl shadow-md border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[28px]">nutrition</span>
+</div>
+</div>
+<div class="p-lg pt-8">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Fresh Fruits</h4>
+<p class="text-xs text-outline mb-sm font-label-sm">CAT-001</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Premium selection of seasonal and exotic fruits sourced directly from organic farms.</p>
+<div class="mt-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">inventory_2</span>
+<span class="text-xs font-medium text-primary">0 Products assigned</span>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant flex flex-col gap-sm">
+<button class="w-full bg-primary text-on-primary py-md rounded-xl font-bold active:scale-95 transition-transform">Save Category</button>
+<button class="w-full bg-surface-container text-primary py-md rounded-xl font-bold active:scale-95 transition-transform">Save Draft</button>
+<div class="grid grid-cols-2 gap-sm">
+<button class="bg-surface-container-low text-on-surface-variant py-md rounded-xl font-bold text-sm">Reset</button>
+<button class="bg-surface-container-low text-error py-md rounded-xl font-bold text-sm">Cancel</button>
+</div>
+</div>
+</section>
+<!-- Right Sidebar: Category Summary -->
+<section class="bg-primary text-on-primary rounded-xl p-lg shadow-md">
+<h3 class="font-label-md text-label-md uppercase tracking-wider opacity-80 mb-lg">Category Analytics</h3>
+<div class="grid grid-cols-2 gap-lg">
+<div>
+<p class="text-display-lg font-display-lg leading-tight">12</p>
+<p class="text-xs opacity-80">Total Categories</p>
+</div>
+<div>
+<p class="text-display-lg font-display-lg leading-tight">10</p>
+<p class="text-xs opacity-80">Active</p>
+</div>
+<div>
+<p class="text-display-lg font-display-lg leading-tight text-secondary-container">2</p>
+<p class="text-xs opacity-80">Inactive</p>
+</div>
+<div>
+<p class="text-display-lg font-display-lg leading-tight">1.2k</p>
+<p class="text-xs opacity-80">Products</p>
+</div>
+</div>
+</section>
+<!-- Recent Categories -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="font-headline-sm text-headline-sm mb-lg">Recent Categories</h3>
+<div class="space-y-md">
+<div class="flex items-center gap-md p-sm hover:bg-surface-container rounded-lg transition-colors cursor-pointer border-b border-surface-container pb-md last:border-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bakery_dining</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Bakery &amp; Pastries</p>
+<p class="text-[11px] text-outline">Oct 24, 2023 • 142 items</p>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="flex items-center gap-md p-sm hover:bg-surface-container rounded-lg transition-colors cursor-pointer border-b border-surface-container pb-md last:border-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md">Beverages</p>
+<p class="text-[11px] text-outline">Oct 22, 2023 • 312 items</p>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+<button class="w-full mt-lg text-primary font-label-md text-label-md">View All Categories</button>
+</section>
+</div>
+<!-- Bottom: Category List Table -->
+<div class="col-span-12 mt-lg">
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
+<h3 class="font-headline-sm text-headline-sm">Existing Categories</h3>
+<div class="flex items-center gap-sm">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-surface border border-outline-variant rounded-lg text-sm w-48 focus:w-64 transition-all focus:ring-primary focus:border-primary" placeholder="Search categories..." type="text"/>
+</div>
+<div class="flex gap-1">
+<button class="p-2 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors" title="Export PDF"><span class="material-symbols-outlined text-sm">picture_as_pdf</span></button>
+<button class="p-2 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors" title="Export Excel"><span class="material-symbols-outlined text-sm">table_view</span></button>
+<button class="p-2 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors" title="Print"><span class="material-symbols-outlined text-sm">print</span></button>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+<tr>
+<th class="px-lg py-md">Icon</th>
+<th class="px-lg py-md">Name</th>
+<th class="px-lg py-md">Code</th>
+<th class="px-lg py-md">Description</th>
+<th class="px-lg py-md">Products</th>
+<th class="px-lg py-md">Status</th>
+<th class="px-lg py-md">Date</th>
+<th class="px-lg py-md">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">egg</span>
+</div>
+</td>
+<td class="px-lg py-md font-medium">Dairy &amp; Eggs</td>
+<td class="px-lg py-md font-mono text-xs">DAIRY-001</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant max-w-xs truncate">Fresh milk, eggs, yogurt and cheese products...</td>
+<td class="px-lg py-md text-primary font-bold">186</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded-full uppercase">Active</span>
+</td>
+<td class="px-lg py-md text-sm text-outline">Oct 12, 2023</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="p-1 hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="p-1 hover:text-error"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">icecream</span>
+</div>
+</td>
+<td class="px-lg py-md font-medium">Frozen Foods</td>
+<td class="px-lg py-md font-mono text-xs">FRZ-002</td>
+<td class="px-lg py-md text-body-sm text-on-surface-variant max-w-xs truncate">Ice cream, frozen vegetables and ready meals...</td>
+<td class="px-lg py-md text-primary font-bold">92</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded-full uppercase">Active</span>
+</td>
+<td class="px-lg py-md text-sm text-outline">Oct 05, 2023</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="p-1 hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="p-1 hover:text-error"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-lg bg-surface flex items-center justify-between">
+<span class="text-body-sm text-outline">Showing 2 of 12 categories</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-outline-variant rounded-lg text-sm hover:bg-surface-container transition-colors disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 border border-outline-variant rounded-lg bg-primary text-on-primary text-sm">1</button>
+<button class="px-3 py-1 border border-outline-variant rounded-lg text-sm hover:bg-surface-container transition-colors">2</button>
+<button class="px-3 py-1 border border-outline-variant rounded-lg text-sm hover:bg-surface-container transition-colors">Next</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Micro-interactions for form live preview
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('input[type="text"], textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', (e) => {
+                    // Logic to update live preview card could go here
+                });
+            });
+
+            // Smooth active state for buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+                btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            });
+        });
+    </script>
+</body></html>
