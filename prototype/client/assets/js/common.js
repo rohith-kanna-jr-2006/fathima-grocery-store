@@ -401,12 +401,18 @@ function showToast(message, type = 'success') {
   }, 3500);
 }
 
-// Helper to format currency
+// Helper to format currency in Indian Rupees (INR / ₹)
 function formatCurrency(amount) {
+  const num = (typeof amount === 'number' && !isNaN(amount)) ? amount : (parseFloat(amount) || 0);
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
     currency: 'INR',
-    maximumFractionDigits: 2
-  }).format(amount);
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2
+  }).format(num);
+}
+
+function formatRupee(amount) {
+  return formatCurrency(amount);
 }
 

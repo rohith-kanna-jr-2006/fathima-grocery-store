@@ -119,6 +119,15 @@
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
     </style>
+
+    <!-- Authentication pre-load checks -->
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = '/login';
+      }
+    </script>
+    <script src="/assets/js/common.js" defer></script>
+    
 </head>
 <body class="text-on-surface bg-background">
 <!-- SideNavBar Component -->
@@ -209,8 +218,8 @@
 <span class="text-primary font-label-md text-label-md bg-primary-fixed/20 px-sm py-1 rounded-full">+12.4%</span>
 </div>
 <p class="font-label-md text-label-md text-on-surface-variant">Total Revenue</p>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">$142,580</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">vs $126,850 last month</p>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">₹142,580</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">vs ₹126,850 last month</p>
 </div>
 <!-- Total Expenses -->
 <div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
@@ -221,7 +230,7 @@
 <span class="text-secondary font-label-md text-label-md bg-secondary-fixed/30 px-sm py-1 rounded-full">+4.2%</span>
 </div>
 <p class="font-label-md text-label-md text-on-surface-variant">Total Expenses</p>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">$98,420</h3>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">₹98,420</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Operating + Procurement</p>
 </div>
 <!-- Net Profit -->
@@ -233,7 +242,7 @@
 <span class="text-primary font-label-md text-label-md bg-primary-fixed/20 px-sm py-1 rounded-full">+18.1%</span>
 </div>
 <p class="font-label-md text-label-md text-on-surface-variant">Net Profit</p>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">$44,160</h3>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mt-xs">₹44,160</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Highest ever recorded</p>
 </div>
 <!-- Gross Margin -->
@@ -301,7 +310,7 @@
 <div class="absolute inset-[-16px] rounded-full border-[16px] border-secondary border-l-transparent border-b-transparent border-r-transparent transform -rotate-45"></div>
 <div class="absolute inset-[-16px] rounded-full border-[16px] border-tertiary border-t-transparent border-r-transparent border-l-transparent transform rotate-45"></div>
 <div class="text-center">
-<span class="font-headline-md text-headline-md font-bold text-on-surface">$98.4k</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">₹98.4k</span>
 <p class="font-label-sm text-label-sm text-on-surface-variant">Total</p>
 </div>
 </div>
@@ -312,21 +321,21 @@
 <span class="w-3 h-3 rounded-full bg-primary-container"></span>
 <span class="font-body-sm text-body-sm">Procurement</span>
 </div>
-<span class="font-label-md text-label-md">$62,100</span>
+<span class="font-label-md text-label-md">₹62,100</span>
 </div>
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-sm">
 <span class="w-3 h-3 rounded-full bg-secondary"></span>
 <span class="font-body-sm text-body-sm">Operational</span>
 </div>
-<span class="font-label-md text-label-md">$24,320</span>
+<span class="font-label-md text-label-md">₹24,320</span>
 </div>
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-sm">
 <span class="w-3 h-3 rounded-full bg-tertiary"></span>
 <span class="font-body-sm text-body-sm">Staff &amp; Taxes</span>
 </div>
-<span class="font-label-md text-label-md">$12,000</span>
+<span class="font-label-md text-label-md">₹12,000</span>
 </div>
 </div>
 </div>
@@ -357,7 +366,7 @@
 <span class="bg-primary-fixed/20 text-on-primary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Revenue</span>
 </td>
 <td class="px-lg py-md font-body-sm">Daily Store Sales - Main Branch</td>
-<td class="px-lg py-md text-right font-label-md text-primary">+$4,230.50</td>
+<td class="px-lg py-md text-right font-label-md text-primary">+₹4,230.50</td>
 <td class="px-lg py-md">
 <span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
@@ -370,7 +379,7 @@
 <span class="bg-secondary-fixed/30 text-on-secondary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Expense</span>
 </td>
 <td class="px-lg py-md font-body-sm">Fresh Produce Inventory Restock</td>
-<td class="px-lg py-md text-right font-label-md text-error">-$2,150.00</td>
+<td class="px-lg py-md text-right font-label-md text-error">-₹2,150.00</td>
 <td class="px-lg py-md">
 <span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
@@ -383,7 +392,7 @@
 <span class="bg-primary-fixed/20 text-on-primary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Revenue</span>
 </td>
 <td class="px-lg py-md font-body-sm">Online Orders - Mobile App</td>
-<td class="px-lg py-md text-right font-label-md text-primary">+$1,890.20</td>
+<td class="px-lg py-md text-right font-label-md text-primary">+₹1,890.20</td>
 <td class="px-lg py-md">
 <span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
@@ -396,7 +405,7 @@
 <span class="bg-secondary-fixed/30 text-on-secondary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Expense</span>
 </td>
 <td class="px-lg py-md font-body-sm">Electricity Bill - Store Q4</td>
-<td class="px-lg py-md text-right font-label-md text-error">-$840.00</td>
+<td class="px-lg py-md text-right font-label-md text-error">-₹840.00</td>
 <td class="px-lg py-md">
 <span class="flex items-center gap-xs text-secondary font-label-sm text-label-sm">
 <span class="material-symbols-outlined text-[16px]">schedule</span> Pending
@@ -409,7 +418,7 @@
 <span class="bg-primary-fixed/20 text-on-primary-fixed-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Revenue</span>
 </td>
 <td class="px-lg py-md font-body-sm">Bulk Order - Community Center</td>
-<td class="px-lg py-md text-right font-label-md text-primary">+$5,600.00</td>
+<td class="px-lg py-md text-right font-label-md text-primary">+₹5,600.00</td>
 <td class="px-lg py-md">
 <span class="flex items-center gap-xs text-primary font-label-sm text-label-sm">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified

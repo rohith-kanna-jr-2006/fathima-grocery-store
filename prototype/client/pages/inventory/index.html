@@ -704,7 +704,7 @@
             if (valEl) {
                 valEl.textContent = (typeof formatCurrency === 'function') 
                     ? formatCurrency(summary.totalInventoryValue || 0)
-                    : `$${Number(summary.totalInventoryValue || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                    : `₹${Number(summary.totalInventoryValue || 0).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             }
         }
 
@@ -791,8 +791,8 @@
                         </td>
 
                         <!-- Pricing -->
-                        <td class="px-lg py-md text-xs font-semibold text-on-surface-variant">$${purchasePrice}</td>
-                        <td class="px-lg py-md text-xs font-bold text-on-surface">$${sellingPrice}</td>
+                        <td class="px-lg py-md text-xs font-semibold text-on-surface-variant">${typeof formatCurrency === 'function' ? formatCurrency(purchasePrice) : `₹${purchasePrice}`}</td>
+                        <td class="px-lg py-md text-xs font-bold text-on-surface">${typeof formatCurrency === 'function' ? formatCurrency(sellingPrice) : `₹${sellingPrice}`}</td>
 
                         <!-- Status Badge -->
                         <td class="px-lg py-md">${statusBadge}</td>
@@ -1109,8 +1109,8 @@
             const sellingPrice = Number(p.sellingPrice || 0);
 
             stockVal.textContent = `${stock} ${unit}`;
-            purchaseVal.textContent = `$${purchasePrice.toFixed(2)}`;
-            sellingVal.textContent = `$${sellingPrice.toFixed(2)}`;
+            purchaseVal.textContent = typeof formatCurrency === 'function' ? formatCurrency(purchasePrice) : `₹${purchasePrice.toFixed(2)}`;
+            sellingVal.textContent = typeof formatCurrency === 'function' ? formatCurrency(sellingPrice) : `₹${sellingPrice.toFixed(2)}`;
 
             const marginPct = sellingPrice > 0 ? (((sellingPrice - purchasePrice) / sellingPrice) * 100).toFixed(1) : 0;
             marginVal.textContent = `${marginPct}%`;

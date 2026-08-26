@@ -122,6 +122,15 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
         .chart-bar-glow { filter: drop-shadow(0 0 4px rgba(0, 107, 44, 0.2)); }
     </style>
+
+    <!-- Authentication pre-load checks -->
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = '/login';
+      }
+    </script>
+    <script src="/assets/js/common.js" defer></script>
+    
 </head>
 <body class="bg-background text-on-surface">
 <!-- SideNavBar Anchor -->
@@ -252,7 +261,7 @@
                         </span>
 </div>
 <h3 class="font-label-md text-label-md text-on-surface-variant">Total Revenue</h3>
-<p class="font-headline-md text-headline-md text-on-surface">$142,500.00</p>
+<p class="font-headline-md text-headline-md text-on-surface">₹142,500.00</p>
 </div>
 <div class="mt-md h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
 <div class="h-full bg-primary w-[80%] rounded-full"></div>
@@ -271,7 +280,7 @@
                         </span>
 </div>
 <h3 class="font-label-md text-label-md text-on-surface-variant">Total Expenses</h3>
-<p class="font-headline-md text-headline-md text-on-surface">$98,420.50</p>
+<p class="font-headline-md text-headline-md text-on-surface">₹98,420.50</p>
 </div>
 <div class="mt-md h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
 <div class="h-full bg-secondary w-[65%] rounded-full"></div>
@@ -290,7 +299,7 @@
                         </span>
 </div>
 <h3 class="font-label-md text-label-md text-on-surface-variant">Net Profit</h3>
-<p class="font-headline-md text-headline-md text-on-surface">$44,079.50</p>
+<p class="font-headline-md text-headline-md text-on-surface">₹44,079.50</p>
 </div>
 <div class="mt-md h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
 <div class="h-full bg-tertiary w-[45%] rounded-full"></div>
@@ -374,7 +383,7 @@
 </div>
 <div class="flex-1">
 <p class="font-label-md text-label-md">Organic Avocados</p>
-<p class="font-body-sm text-body-sm text-primary font-semibold">$3,420 Profit</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">₹3,420 Profit</p>
 </div>
 <div class="text-right">
 <span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">42% Margin</span>
@@ -386,7 +395,7 @@
 </div>
 <div class="flex-1">
 <p class="font-label-md text-label-md">Artisan Coffee</p>
-<p class="font-body-sm text-body-sm text-primary font-semibold">$2,980 Profit</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">₹2,980 Profit</p>
 </div>
 <div class="text-right">
 <span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">38% Margin</span>
@@ -394,11 +403,11 @@
 </div>
 <div class="flex items-center gap-md">
 <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="High resolution shot of fresh organic honey in a glass jar, golden lighting, amber tones, premium packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA3boExZEOnOfwULHDPKLXZdUaVBKAVWOrEVED9k4BxrpFHcP83SRvs7vnAfbanM9h0QxCFO_9LifMHtX7-FqzQtEQqksPlLXnTi3QXXrgc1OJq3mYQ_QmYpbznJhR7diUDpV7ktwIY7xLjPhrK3azYB2anU86GMfdAjxI1lv_YdRfI_WW1e02mfpOkcXDbO1--X31rv4A8ntM0ZwXbr910ahrxMp8EUu90Gdj43uGI7DzFgiyUNAvWw"/>
+<img class="w-full h-full object-cover" data-alt="High resolution shot of fresh organic honey in a glass jar, golden lighting, amber tones, premium packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA3boExZEOnOfwULHDPKLXZdUaVBKAVWOrEVED9k4BxrpFHcP83SRvs7vnAfbanM9h0QxCFO_9LifMHtX7-FqzQtEQqksPlLXnTi3QXXrgc1OJq3mYQ_QmYpbznJhR7diUDpV7ktwIY7xLjPhrK3azYB2anU86GMfdAjxI1lv_YdRfI_WW1e02mfOkcXDbO1--X31rv4A8ntM0ZwXbr910ahrxMp8EUu90Gdj43uGI7DzFgiyUNAvWw"/>
 </div>
 <div class="flex-1">
 <p class="font-label-md text-label-md">Wildflower Honey</p>
-<p class="font-body-sm text-body-sm text-primary font-semibold">$2,150 Profit</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">₹2,150 Profit</p>
 </div>
 <div class="text-right">
 <span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">35% Margin</span>
@@ -410,7 +419,7 @@
 </div>
 <div class="flex-1">
 <p class="font-label-md text-label-md">Sourdough Loaf</p>
-<p class="font-body-sm text-body-sm text-primary font-semibold">$1,840 Profit</p>
+<p class="font-body-sm text-body-sm text-primary font-semibold">₹1,840 Profit</p>
 </div>
 <div class="text-right">
 <span class="font-label-sm text-label-sm bg-primary/10 text-primary px-sm py-base rounded-full">31% Margin</span>
@@ -489,7 +498,7 @@
 <div class="relative z-10 text-on-secondary">
 <h4 class="font-label-md text-label-md opacity-80">Inventory Loss</h4>
 <div class="flex items-end justify-between mt-md">
-<p class="font-display-lg text-display-lg leading-none">$1,240</p>
+<p class="font-display-lg text-display-lg leading-none">₹1,240</p>
 <span class="font-label-sm text-label-sm bg-white/20 px-md py-xs rounded-full">Low Alert</span>
 </div>
 </div>
@@ -527,40 +536,40 @@
 <tbody class="divide-y divide-outline-variant">
 <tr class="hover:bg-surface-container-low transition-colors group">
 <td class="px-lg py-md font-label-md text-label-md">August 2023</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$48,200.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$28,150.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$6,400.00</td>
-<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$13,650.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹48,200.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹28,150.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹6,400.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">₹13,650.00</td>
 <td class="px-lg py-md text-center">
 <span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
 </td>
 </tr>
 <tr class="hover:bg-surface-container-low transition-colors">
 <td class="px-lg py-md font-label-md text-label-md">July 2023</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$42,150.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$25,300.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$6,200.00</td>
-<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$10,650.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹42,150.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹25,300.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹6,200.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">₹10,650.00</td>
 <td class="px-lg py-md text-center">
 <span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
 </td>
 </tr>
 <tr class="hover:bg-surface-container-low transition-colors">
 <td class="px-lg py-md font-label-md text-label-md">June 2023</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$52,400.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$32,100.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$7,100.00</td>
-<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$13,200.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹52,400.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹32,100.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹7,100.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">₹13,200.00</td>
 <td class="px-lg py-md text-center">
 <span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
 </td>
 </tr>
 <tr class="hover:bg-surface-container-low transition-colors">
 <td class="px-lg py-md font-label-md text-label-md">May 2023</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$38,900.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$22,400.00</td>
-<td class="px-lg py-md text-right font-body-sm text-body-sm">$5,800.00</td>
-<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">$10,700.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹38,900.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹22,400.00</td>
+<td class="px-lg py-md text-right font-body-sm text-body-sm">₹5,800.00</td>
+<td class="px-lg py-md text-right font-body-md text-body-md font-semibold text-primary">₹10,700.00</td>
 <td class="px-lg py-md text-center">
 <span class="bg-primary/10 text-primary px-md py-xs rounded-full font-label-sm text-label-sm">Profitable</span>
 </td>

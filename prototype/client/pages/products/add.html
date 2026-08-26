@@ -402,12 +402,12 @@
 </div>
 <div class="grid grid-cols-2 gap-lg">
 <div class="input-group">
-<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-3 px-4" id="purchase_price" placeholder=" " type="number"/>
-<label for="purchase_price">Purchase Price ($)</label>
+<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-3 px-4" id="purchase_price" placeholder=" " type="number" step="0.01"/>
+<label for="purchase_price">Purchase Price (₹)</label>
 </div>
 <div class="input-group">
-<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-3 px-4" id="selling_price" placeholder=" " type="number"/>
-<label for="selling_price">Selling Price ($)</label>
+<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-3 px-4" id="selling_price" placeholder=" " type="number" step="0.01"/>
+<label for="selling_price">Selling Price (₹)</label>
 </div>
 <div class="input-group">
 <select class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-3 px-4 bg-white" id="gst">
@@ -419,12 +419,12 @@
 <label for="gst">GST / Tax Rate</label>
 </div>
 <div class="input-group">
-<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-3 px-4" id="discount" placeholder=" " type="number"/>
-<label for="discount">Fixed Discount ($)</label>
+<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg py-3 px-4" id="discount" placeholder=" " type="number" step="0.01"/>
+<label for="discount">Fixed Discount (₹)</label>
 </div>
 <div class="col-span-2 p-md bg-primary-container/10 border border-primary-container rounded-lg flex justify-between items-center">
 <span class="font-label-md text-label-md text-primary">Estimated Profit Margin</span>
-<span class="font-headline-sm text-primary" id="margin-calc">$0.00 (0%)</span>
+<span class="font-headline-sm text-primary" id="margin-calc">₹0.00 (0%)</span>
 </div>
 </div>
 </section>
@@ -529,7 +529,7 @@ PREVIEW
 <span class="text-xs font-bold text-primary uppercase tracking-widest truncate" id="preview-category">CATEGORY</span>
 <h5 class="font-headline-sm text-headline-sm text-on-surface mt-xs break-words font-semibold" id="preview-name">New Product Title</h5>
 </div>
-<span class="font-headline-md text-primary font-bold whitespace-nowrap flex-shrink-0" id="preview-price">$0.00</span>
+<span class="font-headline-md text-primary font-bold whitespace-nowrap flex-shrink-0" id="preview-price">₹0.00</span>
 </div>
 <div class="grid grid-cols-2 gap-md py-md border-y border-outline-variant/30">
 <div class="flex flex-col">
@@ -753,7 +753,10 @@ PREVIEW
 
         const updatePreview = () => {
             if (previews.name) previews.name.textContent = inputs.name?.value || "New Product Title";
-            if (previews.price) previews.price.textContent = `$${parseFloat(inputs.price?.value || 0).toFixed(2)}`;
+            if (previews.price) {
+                const pVal = parseFloat(inputs.price?.value || 0);
+                previews.price.textContent = typeof formatCurrency === 'function' ? formatCurrency(pVal) : `₹${pVal.toFixed(2)}`;
+            }
             if (previews.stock) previews.stock.textContent = `${inputs.qty?.value || 0} ${inputs.unit?.value || 'pcs'}`;
             if (previews.cat) {
               const selectedCatText = inputs.cat?.options[inputs.cat.selectedIndex]?.text;
@@ -773,9 +776,10 @@ PREVIEW
               if(sell > 0 && buy > 0) {
                   const margin = sell - buy;
                   const percent = ((margin / sell) * 100).toFixed(1);
-                  previews.margin.textContent = `$${margin.toFixed(2)} (${percent}%)`;
+                  const marginFormatted = typeof formatCurrency === 'function' ? formatCurrency(margin) : `₹${margin.toFixed(2)}`;
+                  previews.margin.textContent = `${marginFormatted} (${percent}%)`;
               } else {
-                  previews.margin.textContent = "$0.00 (0%)";
+                  previews.margin.textContent = "₹0.00 (0%)";
               }
             }
         };

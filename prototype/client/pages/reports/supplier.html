@@ -111,6 +111,15 @@
             box-shadow: inset -4px 0 0 0 #006b2c;
         }
     </style>
+
+    <!-- Authentication pre-load checks -->
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = '/login';
+      }
+    </script>
+    <script src="/assets/js/common.js" defer></script>
+    
 </head>
 <body class="bg-background text-on-surface">
 <!-- SideNavBar -->
@@ -266,7 +275,7 @@
 <span class="font-label-md text-label-md text-outline">Total Procurement</span>
 <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg" data-icon="payments">payments</span>
 </div>
-<span class="font-headline-md text-headline-md font-bold">$124.5k</span>
+<span class="font-headline-md text-headline-md font-bold">₹124.5k</span>
 <span class="font-label-sm text-label-sm text-on-secondary-fixed-variant flex items-center gap-xs">
 <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span> 12% vs last month
                     </span>
@@ -284,27 +293,27 @@
 </div>
 <div class="h-64 w-full flex items-end justify-around gap-4 pt-8">
 <div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 85%">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$42k</div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">₹42k</div>
 <div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Fresh Farms</div>
 </div>
 <div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 60%">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$28k</div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">₹28k</div>
 <div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">DairyLand</div>
 </div>
 <div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 45%">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$21k</div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">₹21k</div>
 <div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Grain Mart</div>
 </div>
 <div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 35%">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$15k</div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">₹15k</div>
 <div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Organic Hub</div>
 </div>
 <div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 25%">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$11k</div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">₹11k</div>
 <div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Ocean Fresh</div>
 </div>
 <div class="w-12 bg-primary/20 rounded-t-lg relative group transition-all hover:bg-primary/40" style="height: 15%">
-<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">$7k</div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary">₹7k</div>
 <div class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] text-outline font-medium rotate-45 origin-left">Others</div>
 </div>
 </div>
@@ -384,7 +393,7 @@
 <tr class="hover:bg-surface-container-low transition-colors">
 <td class="px-lg py-md font-bold">Fresh Farms Co.</td>
 <td class="px-lg py-md">142</td>
-<td class="px-lg py-md">$42,500.00</td>
+<td class="px-lg py-md">₹42,500.00</td>
 <td class="px-lg py-md">Oct 28, 2023</td>
 <td class="px-lg py-md">
 <span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-[10px]">98%</span>
@@ -405,7 +414,7 @@
 <tr class="hover:bg-surface-container-low transition-colors">
 <td class="px-lg py-md font-bold">Dairyland Logistics</td>
 <td class="px-lg py-md">98</td>
-<td class="px-lg py-md">$28,120.00</td>
+<td class="px-lg py-md">₹28,120.00</td>
 <td class="px-lg py-md">Oct 29, 2023</td>
 <td class="px-lg py-md">
 <span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-[10px]">95%</span>
@@ -426,7 +435,7 @@
 <tr class="hover:bg-surface-container-low transition-colors">
 <td class="px-lg py-md font-bold">Global Grains Ltd.</td>
 <td class="px-lg py-md">75</td>
-<td class="px-lg py-md">$21,450.00</td>
+<td class="px-lg py-md">₹21,450.00</td>
 <td class="px-lg py-md">Oct 25, 2023</td>
 <td class="px-lg py-md">
 <span class="px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary font-bold text-[10px]">89%</span>
@@ -447,7 +456,7 @@
 <tr class="hover:bg-surface-container-low transition-colors">
 <td class="px-lg py-md font-bold">Organic Hub</td>
 <td class="px-lg py-md">54</td>
-<td class="px-lg py-md">$15,200.00</td>
+<td class="px-lg py-md">₹15,200.00</td>
 <td class="px-lg py-md">Oct 20, 2023</td>
 <td class="px-lg py-md">
 <span class="px-2 py-0.5 rounded-full bg-error-container/40 text-error font-bold text-[10px]">82%</span>

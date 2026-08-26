@@ -265,7 +265,7 @@
 <td class="px-lg py-md font-body-sm text-on-surface-variant">5012345678</td>
 <td class="px-lg py-md font-body-sm">Fruits</td>
 <td class="px-lg py-md font-body-sm">
-<span class="text-on-surface-variant">$2.50</span> / <span class="font-bold">$4.99</span>
+<span class="text-on-surface-variant">₹2.50</span> / <span class="font-bold">₹4.99</span>
 </td>
 <td class="px-lg py-md font-body-sm">485 Units</td>
 <td class="px-lg py-md font-body-sm">24 Oct 2024</td>
@@ -296,7 +296,7 @@
 <td class="px-lg py-md font-body-sm text-on-surface-variant">5098765432</td>
 <td class="px-lg py-md font-body-sm">Dairy</td>
 <td class="px-lg py-md font-body-sm">
-<span class="text-on-surface-variant">$0.80</span> / <span class="font-bold">$1.45</span>
+<span class="text-on-surface-variant">₹0.80</span> / <span class="font-bold">₹1.45</span>
 </td>
 <td class="px-lg py-md font-body-sm text-secondary">8 Units</td>
 <td class="px-lg py-md font-body-sm">18 May 2024</td>
@@ -327,7 +327,7 @@
 <td class="px-lg py-md font-body-sm text-on-surface-variant">5034567890</td>
 <td class="px-lg py-md font-body-sm">Bakery</td>
 <td class="px-lg py-md font-body-sm">
-<span class="text-on-surface-variant">$3.20</span> / <span class="font-bold">$6.50</span>
+<span class="text-on-surface-variant">₹3.20</span> / <span class="font-bold">₹6.50</span>
 </td>
 <td class="px-lg py-md font-body-sm">0 Units</td>
 <td class="px-lg py-md font-body-sm">16 May 2024</td>
@@ -358,7 +358,7 @@
 <td class="px-lg py-md font-body-sm text-on-surface-variant">5022113344</td>
 <td class="px-lg py-md font-body-sm">Dairy</td>
 <td class="px-lg py-md font-body-sm">
-<span class="text-on-surface-variant">$1.50</span> / <span class="font-bold">$3.25</span>
+<span class="text-on-surface-variant">₹1.50</span> / <span class="font-bold">₹3.25</span>
 </td>
 <td class="px-lg py-md font-body-sm">112 Units</td>
 <td class="px-lg py-md font-body-sm text-[#0061A4]">17 May 2024</td>
@@ -434,7 +434,7 @@
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
 </div>
 <div>
-<p class="text-headline-sm font-bold text-on-surface">$42,910</p>
+<p class="text-headline-sm font-bold text-on-surface">₹42,910</p>
 <p class="text-body-sm text-on-surface-variant">Inventory Value</p>
 </div>
 </div>
@@ -545,7 +545,7 @@
                 <td class="px-lg py-md font-body-sm text-on-surface-variant font-mono">${p.barcode || 'N/A'}</td>
                 <td class="px-lg py-md font-body-sm">${categoryName}</td>
                 <td class="px-lg py-md font-body-sm">
-                  <span class="text-on-surface-variant">$${Number(p.purchasePrice || 0).toFixed(2)}</span> / <span class="font-bold text-on-surface">$${Number(p.sellingPrice || 0).toFixed(2)}</span>
+                  <span class="text-on-surface-variant">${typeof formatCurrency === 'function' ? formatCurrency(p.purchasePrice) : `₹${Number(p.purchasePrice || 0).toFixed(2)}`}</span> / <span class="font-bold text-on-surface">${typeof formatCurrency === 'function' ? formatCurrency(p.sellingPrice) : `₹${Number(p.sellingPrice || 0).toFixed(2)}`}</span>
                 </td>
                 <td class="px-lg py-md font-body-sm ${stock <= 15 ? 'text-secondary font-semibold' : ''}">${stock} ${p.unit || 'Units'}</td>
                 <td class="px-lg py-md font-body-sm text-on-surface-variant">${expiry}</td>

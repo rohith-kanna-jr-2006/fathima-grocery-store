@@ -122,6 +122,15 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
         .chart-bar { transition: height 1s ease-out; }
     </style>
+
+    <!-- Authentication pre-load checks -->
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = '/login';
+      }
+    </script>
+    <script src="/assets/js/common.js" defer></script>
+    
 </head>
 <body class="bg-surface font-body-md text-on-surface overflow-x-hidden">
 <!-- SideNavBar (Execution from JSON) -->
@@ -293,7 +302,7 @@
 <span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
 </div>
 </div>
-<p class="font-headline-lg text-headline-lg">$84,210</p>
+<p class="font-headline-lg text-headline-lg">₹84,210</p>
 <div class="flex items-center gap-xs text-[12px] text-on-surface-variant">
 <span class="material-symbols-outlined text-[14px]" data-icon="info">info</span>
 <span>Estimated current market value</span>
@@ -514,7 +523,7 @@
 <td class="px-lg py-md">
 <span class="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-bold">142 Units</span>
 </td>
-<td class="px-lg py-md font-label-md">$426.00</td>
+<td class="px-lg py-md font-label-md">₹426.00</td>
 <td class="px-lg py-md">
 <div class="flex items-center gap-1 text-primary">
 <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
@@ -543,7 +552,7 @@
 <td class="px-lg py-md">
 <span class="bg-tertiary/10 text-tertiary px-2 py-1 rounded-full text-xs font-bold">12 Units</span>
 </td>
-<td class="px-lg py-md font-label-md">$36.00</td>
+<td class="px-lg py-md font-label-md">₹36.00</td>
 <td class="px-lg py-md">
 <div class="flex items-center gap-1 text-error">
 <span class="material-symbols-outlined text-xs" data-icon="trending_down">trending_down</span>
@@ -572,7 +581,7 @@
 <td class="px-lg py-md">
 <span class="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-bold">65 Units</span>
 </td>
-<td class="px-lg py-md font-label-md">$325.00</td>
+<td class="px-lg py-md font-label-md">₹325.00</td>
 <td class="px-lg py-md">
 <div class="flex items-center gap-1 text-primary">
 <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
@@ -601,7 +610,7 @@
 <td class="px-lg py-md">
 <span class="bg-error/10 text-error px-2 py-1 rounded-full text-xs font-bold">0 Units</span>
 </td>
-<td class="px-lg py-md font-label-md">$0.00</td>
+<td class="px-lg py-md font-label-md">₹0.00</td>
 <td class="px-lg py-md">
 <div class="flex items-center gap-1 text-on-surface-variant">
 <span class="material-symbols-outlined text-xs" data-icon="horizontal_rule">horizontal_rule</span>
@@ -630,7 +639,7 @@
 <td class="px-lg py-md">
 <span class="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-bold">428 Units</span>
 </td>
-<td class="px-lg py-md font-label-md">$6,420.00</td>
+<td class="px-lg py-md font-label-md">₹6,420.00</td>
 <td class="px-lg py-md">
 <div class="flex items-center gap-1 text-primary">
 <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>

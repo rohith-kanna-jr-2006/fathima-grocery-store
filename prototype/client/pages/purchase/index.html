@@ -127,6 +127,15 @@
             border-radius: 10px;
         }
     </style>
+
+    <!-- Authentication pre-load checks -->
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = '/login';
+      }
+    </script>
+    <script src="/assets/js/common.js" defer></script>
+    
 </head>
 <body class="bg-background text-on-background font-body-md">
 <!-- SideNavBar (Authority Source: JSON) -->
@@ -292,7 +301,7 @@
 <span class="text-secondary font-bold text-label-sm bg-secondary-fixed/30 px-sm py-xs rounded">+5.4%</span>
 </div>
 <p class="text-on-surface-variant font-label-md">Monthly Spending</p>
-<h4 class="text-headline-md font-bold text-on-surface">$42,850</h4>
+<h4 class="text-headline-md font-bold text-on-surface">₹42,850</h4>
 <p class="text-[10px] text-on-surface-variant uppercase">Peak spending on Week 3</p>
 </div>
 <div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-sm">
@@ -367,7 +376,7 @@
 <div class="flex flex-col gap-xs">
 <div class="flex justify-between text-label-sm">
 <span>Fresh Farms Co.</span>
-<span class="font-bold">$12.4k</span>
+<span class="font-bold">₹12.4k</span>
 </div>
 <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
 <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
@@ -376,7 +385,7 @@
 <div class="flex flex-col gap-xs">
 <div class="flex justify-between text-label-sm">
 <span>Global Grains</span>
-<span class="font-bold">$8.2k</span>
+<span class="font-bold">₹8.2k</span>
 </div>
 <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
 <div class="bg-primary h-full rounded-full" style="width: 60%"></div>
@@ -385,7 +394,7 @@
 <div class="flex flex-col gap-xs">
 <div class="flex justify-between text-label-sm">
 <span>Dairy Delights</span>
-<span class="font-bold">$6.5k</span>
+<span class="font-bold">₹6.5k</span>
 </div>
 <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
 <div class="bg-primary h-full rounded-full" style="width: 45%"></div>
@@ -394,7 +403,7 @@
 <div class="flex flex-col gap-xs">
 <div class="flex justify-between text-label-sm">
 <span>Swift Logistics</span>
-<span class="font-bold">$4.1k</span>
+<span class="font-bold">₹4.1k</span>
 </div>
 <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
 <div class="bg-primary h-full rounded-full" style="width: 30%"></div>
@@ -436,7 +445,7 @@
 <td class="px-lg py-md text-body-sm">Oct 24, 2023</td>
 <td class="px-lg py-md text-body-sm font-medium">Fresh Farms Co.</td>
 <td class="px-lg py-md"><span class="px-sm py-xs bg-surface-container rounded text-[10px] uppercase font-bold">Produce</span></td>
-<td class="px-lg py-md font-bold text-on-surface">$2,450.00</td>
+<td class="px-lg py-md font-bold text-on-surface">₹2,450.00</td>
 <td class="px-lg py-md">
 <span class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-primary-container/20 text-primary text-[10px] font-bold">
 <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Delivered
@@ -451,7 +460,7 @@
 <td class="px-lg py-md text-body-sm">Oct 25, 2023</td>
 <td class="px-lg py-md text-body-sm font-medium">Global Grains Ltd.</td>
 <td class="px-lg py-md"><span class="px-sm py-xs bg-surface-container rounded text-[10px] uppercase font-bold">Grains</span></td>
-<td class="px-lg py-md font-bold text-on-surface">$5,120.00</td>
+<td class="px-lg py-md font-bold text-on-surface">₹5,120.00</td>
 <td class="px-lg py-md">
 <span class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-secondary-container/20 text-secondary text-[10px] font-bold">
 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Pending
@@ -466,7 +475,7 @@
 <td class="px-lg py-md text-body-sm">Oct 26, 2023</td>
 <td class="px-lg py-md text-body-sm font-medium">Dairy Delights</td>
 <td class="px-lg py-md"><span class="px-sm py-xs bg-surface-container rounded text-[10px] uppercase font-bold">Dairy</span></td>
-<td class="px-lg py-md font-bold text-on-surface">$1,280.00</td>
+<td class="px-lg py-md font-bold text-on-surface">₹1,280.00</td>
 <td class="px-lg py-md">
 <span class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-primary-container/20 text-primary text-[10px] font-bold">
 <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Delivered
