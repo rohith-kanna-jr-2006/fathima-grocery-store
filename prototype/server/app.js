@@ -11,8 +11,8 @@ const app = express();
 
 // Middlewares
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Ensure upload directory exists
 const uploadDir = path.join(__dirname, 'uploads');
@@ -29,6 +29,15 @@ app.use('/assets', express.static(path.join(__dirname, '../client/assets')));
 app.use('/images', express.static(path.join(__dirname, '../client/assets/images')));
 
 // API Routes
+app.use('/api', async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/categories', require('./routes/categoryRoutes'));
 app.use('/api/suppliers', require('./routes/supplierRoutes'));

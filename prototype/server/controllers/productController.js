@@ -108,7 +108,7 @@ exports.getProductById = async (req, res) => {
 // Create product and initialize inventory
 exports.createProduct = async (req, res) => {
   try {
-    const { name, barcode, category, purchasePrice, sellingPrice, unit, expiryDate, stockQuantity } = req.body;
+    const { name, barcode, category, purchasePrice, sellingPrice, unit, expiryDate, stockQuantity, image: bodyImage } = req.body;
 
     // Check duplicate name or barcode
     if (name) {
@@ -125,7 +125,7 @@ exports.createProduct = async (req, res) => {
     }
 
     // Set image path
-    let image = '';
+    let image = bodyImage || '';
     if (req.file) {
       image = `/uploads/${req.file.filename}`;
     }
@@ -184,7 +184,7 @@ exports.createProduct = async (req, res) => {
 // Update Product
 exports.updateProduct = async (req, res) => {
   try {
-    const { name, barcode, category, purchasePrice, sellingPrice, unit, expiryDate, stockQuantity } = req.body;
+    const { name, barcode, category, purchasePrice, sellingPrice, unit, expiryDate, stockQuantity, image } = req.body;
     const productId = req.params.id;
 
     const product = await Product.findById(productId);
@@ -224,6 +224,7 @@ exports.updateProduct = async (req, res) => {
     if (sellingPrice !== undefined) product.sellingPrice = Number(sellingPrice);
     if (unit !== undefined) product.unit = unit;
     if (expiryDate !== undefined) product.expiryDate = expiryDate ? new Date(expiryDate) : null;
+    if (image !== undefined) product.image = image;
 
     if (req.file) {
       product.image = `/uploads/${req.file.filename}`;

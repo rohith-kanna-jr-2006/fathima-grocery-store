@@ -1,33 +1,42 @@
 const Inventory = require('../models/Inventory');
 const Product = require('../models/Product');
+const Category = require('../models/Category');
 const StockAdjustment = require('../models/StockAdjustment');
 
-// Get current inventory status with search and status filters
+// Get current inventory status with search, category, status filters and summary metrics
 exports.getInventory = async (req, res) => {
   try {
     const { search, category, status, page = 1, limit = 15 } = req.query;
-
     const skipIndex = (page - 1) * limit;
 
-    // We need to filter inventory by product criteria (search name/barcode and category)
     const productQuery = {};
-    if (search) {
+    if (search && search.trim()) {
       productQuery.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { barcode: { $regex: search, $options: 'i' } }
+        { name: { $regex: search.trim(), $options: 'i' } },
+        { barcode: { $regex: search.trim(), $options: 'i' } }
       ];
     }
 
-    // Direct find products matching search
-    const matchingProducts = await Product.find(productQuery).select('_id');
-    const matchingProductIds = matchingProducts.map(p => p._id);
+    if (category && category !== 'Category' && category !== 'All Categories' && category !== 'All') {
+      const catDoc = await Category.findOne({ name: { $regex: `^${category.trim()}$`, $options: 'i' } });
+      if (catDoc) {
+        productQuery.category = catDoc._id;
+      }
+    }
+
+    let matchingProductIds = null;
+    if (Object.keys(productQuery).length > 0) {
+      const matchingProducts = await Product.find(productQuery).select('_id');
+      matchingProductIds = matchingProducts.map(p => p._id);
+    }
 
     // Build main inventory query
-    const inventoryQuery = {
-      product: { $in: matchingProductIds }
-    };
+    const inventoryQuery = {};
+    if (matchingProductIds !== null) {
+      inventoryQuery.product = { $in: matchingProductIds };
+    }
 
-    if (status && status !== 'Status') {
+    if (status && status !== 'Status' && status !== 'All Stock' && status !== 'All') {
       inventoryQuery.status = status;
     }
 
@@ -38,26 +47,77 @@ exports.getInventory = async (req, res) => {
         path: 'product',
         populate: { path: 'category', select: 'name' }
       })
+      .sort({ updatedAt: -1 })
       .limit(Number(limit))
       .skip(skipIndex);
 
-    // Filter by Category name on populated fields if Category was selected
-    let filteredInventory = inventory;
-    if (category && category !== 'Category') {
-      filteredInventory = inventory.filter(item => 
-        item.product && item.product.category && 
-        item.product.category.name.toLowerCase() === category.toLowerCase()
-      );
-    }
+    // Compute summary KPI metrics across inventory
+    const allInventories = await Inventory.find().populate('product');
+    let totalSku = allInventories.length;
+    let lowStockCount = 0;
+    let outOfStockCount = 0;
+    let inStockCount = 0;
+    let totalInventoryValue = 0;
+
+    allInventories.forEach(inv => {
+      if (inv.status === 'Out of Stock' || inv.stockQuantity <= 0) {
+        outOfStockCount++;
+      } else if (inv.status === 'Low Stock' || inv.stockQuantity <= 15) {
+        lowStockCount++;
+      } else {
+        inStockCount++;
+      }
+
+      if (inv.product && typeof inv.product.purchasePrice === 'number') {
+        totalInventoryValue += (inv.product.purchasePrice * (inv.stockQuantity || 0));
+      }
+    });
 
     return res.status(200).json({
       success: true,
-      data: filteredInventory,
+      data: inventory,
+      summary: {
+        totalSku,
+        lowStockCount,
+        outOfStockCount,
+        inStockCount,
+        totalInventoryValue
+      },
       pagination: {
         total,
         page: Number(page),
         limit: Number(limit),
-        pages: Math.ceil(total / limit)
+        pages: Math.ceil(total / limit) || 1
+      }
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// Get single product inventory details and its adjustment history
+exports.getProductInventory = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    const inventory = await Inventory.findOne({ product: productId })
+      .populate({
+        path: 'product',
+        populate: { path: 'category', select: 'name' }
+      });
+
+    if (!inventory) {
+      return res.status(404).json({ success: false, message: 'Inventory not found for this product.' });
+    }
+
+    const adjustments = await StockAdjustment.find({ product: productId })
+      .sort({ createdAt: -1 })
+      .limit(10);
+
+    return res.status(200).json({
+      success: true,
+      data: {
+        inventory,
+        adjustments
       }
     });
   } catch (error) {

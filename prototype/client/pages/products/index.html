@@ -189,15 +189,15 @@
 <p class="font-body-md text-body-md text-on-surface-variant">Manage grocery products, categories, pricing, and stock information.</p>
 </div>
 <div class="flex flex-wrap gap-sm">
-<button class="flex items-center gap-sm px-lg py-sm rounded-lg border border-outline-variant text-primary font-label-md hover:bg-surface-container-low transition-colors">
+<button class="flex items-center gap-sm px-lg py-sm rounded-lg border border-outline-variant text-primary font-label-md hover:bg-surface-container-low transition-colors" onclick="window.print()">
 <span class="material-symbols-outlined">description</span> Export Excel
                     </button>
-<button class="flex items-center gap-sm px-lg py-sm rounded-lg border border-outline-variant text-primary font-label-md hover:bg-surface-container-low transition-colors">
+<button class="flex items-center gap-sm px-lg py-sm rounded-lg border border-outline-variant text-primary font-label-md hover:bg-surface-container-low transition-colors" onclick="window.print()">
 <span class="material-symbols-outlined">picture_as_pdf</span> Export PDF
                     </button>
-<button class="flex items-center gap-sm px-lg py-sm rounded-lg bg-[#16A34A] text-white font-label-md hover:bg-[#15803d] transition-colors shadow-md">
+<a href="/products/add" id="add-product-btn" class="flex items-center gap-sm px-lg py-sm rounded-lg bg-[#16A34A] text-white font-label-md hover:bg-[#15803d] active:scale-95 transition-all shadow-md cursor-pointer">
 <span class="material-symbols-outlined">add</span> + Add Product
-                    </button>
+</a>
 </div>
 </div>
 <!-- Content Layout -->
@@ -208,30 +208,28 @@
 <div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant/20 flex flex-wrap gap-md items-center">
 <div class="relative flex-1 min-w-[240px]">
 <span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline scale-90">search</span>
-<input class="w-full pl-xl pr-md py-sm bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20" placeholder="Search Product..." type="text"/>
+<input id="search-product-input" class="w-full pl-xl pr-md py-sm bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20" placeholder="Search Product..." type="text"/>
 </div>
-<select class="bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20 py-sm pr-lg min-w-[140px]">
-<option>Category</option>
-<option>Dairy</option>
-<option>Produce</option>
-<option>Bakery</option>
+<select id="category-filter" class="bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20 py-sm pr-lg min-w-[140px]">
+<option value="">All Categories</option>
+<option value="Fruits">Fruits</option>
+<option value="Vegetables">Vegetables</option>
+<option value="Dairy">Dairy</option>
+<option value="Bakery">Bakery</option>
+<option value="Meat & Seafood">Meat & Seafood</option>
+<option value="Pantry Staples">Pantry Staples</option>
 </select>
-<select class="bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20 py-sm pr-lg min-w-[140px]">
-<option>Supplier</option>
-<option>FreshFarm Ltd</option>
-<option>Global Foods</option>
-</select>
-<select class="bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20 py-sm pr-lg min-w-[140px]">
-<option>Availability</option>
-<option>In Stock</option>
-<option>Low Stock</option>
+<select id="availability-filter" class="bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20 py-sm pr-lg min-w-[140px]">
+<option value="">All Availability</option>
+<option value="In Stock">In Stock</option>
+<option value="Low Stock">Low Stock</option>
+<option value="Out of Stock">Out of Stock</option>
 </select>
 <div class="h-8 w-px bg-outline-variant/30 hidden md:block"></div>
-<select class="bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20 py-sm pr-lg">
-<option>Sort By</option>
-<option>Name A-Z</option>
-<option>Price High-Low</option>
-<option>Stock Level</option>
+<select id="sort-filter" class="bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary/20 py-sm pr-lg">
+<option value="">Sort By</option>
+<option value="Name A-Z">Name A-Z</option>
+<option value="Price High-Low">Price High-Low</option>
 </select>
 </div>
 <!-- Modern Data Table -->
@@ -250,7 +248,7 @@
 <th class="px-lg py-md font-label-md text-on-surface-variant text-right">Actions</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-outline-variant/10">
+<tbody id="products-table-body" class="divide-y divide-outline-variant/10">
 <!-- Row 1 -->
 <tr class="hover:bg-surface-container-low/30 transition-colors cursor-default">
 <td class="px-lg py-md">
@@ -398,7 +396,7 @@
 </div>
 </div>
 <!-- Right Statistics Panel -->
-<aside class="space-y-md">
+<div class="space-y-md">
 <div class="font-label-md text-on-surface-variant px-sm">Quick Statistics</div>
 <!-- Stat Card 1 -->
 <div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant/20 shadow-sm flex items-center gap-lg">
@@ -473,22 +471,122 @@
 </div>
 </div>
 </div>
-</aside>
 </div>
 </div>
 </main>
 <script>
-        // Simple micro-interactions
+        // Micro-interactions
         document.querySelectorAll('button').forEach(btn => {
-            btn.addEventListener('mousedown', () => {
-                btn.style.transform = 'scale(0.97)';
-            });
-            btn.addEventListener('mouseup', () => {
-                btn.style.transform = 'scale(1)';
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'scale(1)';
-            });
+            btn.addEventListener('mousedown', () => { btn.style.transform = 'scale(0.97)'; });
+            btn.addEventListener('mouseup', () => { btn.style.transform = 'scale(1)'; });
+            btn.addEventListener('mouseleave', () => { btn.style.transform = 'scale(1)'; });
         });
+
+        // Dynamic Product Management
+        let productsData = [];
+        const tableBody = document.getElementById('products-table-body');
+        const searchInput = document.getElementById('search-product-input');
+        const categoryFilter = document.getElementById('category-filter');
+        const availabilityFilter = document.getElementById('availability-filter');
+        const sortFilter = document.getElementById('sort-filter');
+
+        async function fetchProducts() {
+          const token = localStorage.getItem('token');
+          try {
+            const params = new URLSearchParams();
+            if (searchInput && searchInput.value.trim()) params.append('search', searchInput.value.trim());
+            if (categoryFilter && categoryFilter.value) params.append('category', categoryFilter.value);
+            if (availabilityFilter && availabilityFilter.value) params.append('status', availabilityFilter.value);
+            if (sortFilter && sortFilter.value) params.append('sort', sortFilter.value);
+
+            const res = await fetch(`/api/products?${params.toString()}`, {
+              headers: {
+                'Authorization': `Bearer ${token}`
+              }
+            });
+            const data = await res.json();
+            if (data.success && data.data && data.data.length > 0) {
+              productsData = data.data;
+              renderProducts(productsData);
+            }
+          } catch (err) {
+            console.error('Error fetching products:', err);
+          }
+        }
+
+        function renderProducts(items) {
+          if (!tableBody) return;
+          tableBody.innerHTML = items.map(p => {
+            const categoryName = (p.category && typeof p.category === 'object') ? (p.category.name || 'General') : (p.category || 'General');
+            const stock = p.stockQuantity ?? 0;
+            let statusBadge = '<span class="px-sm py-1 rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-wider">In Stock</span>';
+            if (stock <= 0 || p.status === 'Out of Stock') {
+              statusBadge = '<span class="px-sm py-1 rounded-full bg-error/10 text-error text-[11px] font-bold uppercase tracking-wider">Out of Stock</span>';
+            } else if (stock <= 15 || p.status === 'Low Stock') {
+              statusBadge = '<span class="px-sm py-1 rounded-full bg-secondary/10 text-secondary text-[11px] font-bold uppercase tracking-wider">Low Stock</span>';
+            }
+
+            const expiry = p.expiryDate ? new Date(p.expiryDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'N/A';
+            const imgUrl = p.image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkMPyjMZHD1YUmeSTIG8jcrPQoEu9zHeAdDZO3CeWQFPtxw7bzWLiSZvsaDd-hL1RaMTunzINdJ9S1RS2__f9PQYUdC5ZFzw6YW1LoCo4VbODbbSgiRzzUU0KdsynitVAUUWTSTPYul2FhF02j0uqT_-odkb-lJtuudTO0TsCevv03bL4iGBsqtf-mDt5c6ofhNf0_afvZr_70F2afzjBwOMazaF-Sc1_z3hRGdqGuyXhQG0Ev1IAFCg';
+
+            return `
+              <tr class="hover:bg-surface-container-low/30 transition-colors cursor-default">
+                <td class="px-lg py-md">
+                  <div class="flex items-center gap-md">
+                    <div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+                      <img class="w-full h-full object-cover" src="${imgUrl}" alt="${p.name}"/>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-on-surface font-semibold">${p.name}</p>
+                      <p class="text-xs text-on-surface-variant">${categoryName}</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-lg py-md font-body-sm text-on-surface-variant font-mono">${p.barcode || 'N/A'}</td>
+                <td class="px-lg py-md font-body-sm">${categoryName}</td>
+                <td class="px-lg py-md font-body-sm">
+                  <span class="text-on-surface-variant">$${Number(p.purchasePrice || 0).toFixed(2)}</span> / <span class="font-bold text-on-surface">$${Number(p.sellingPrice || 0).toFixed(2)}</span>
+                </td>
+                <td class="px-lg py-md font-body-sm ${stock <= 15 ? 'text-secondary font-semibold' : ''}">${stock} ${p.unit || 'Units'}</td>
+                <td class="px-lg py-md font-body-sm text-on-surface-variant">${expiry}</td>
+                <td class="px-lg py-md">${statusBadge}</td>
+                <td class="px-lg py-md text-right">
+                  <div class="flex justify-end gap-xs">
+                    <a href="/products/add?id=${p._id}" class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-primary" title="View / Edit Product"><span class="material-symbols-outlined text-[20px]">edit</span></a>
+                    <button onclick="deleteProduct('${p._id}', '${p.name}')" class="p-2 hover:bg-error/10 rounded-full transition-colors text-error cursor-pointer" title="Delete Product"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+                  </div>
+                </td>
+              </tr>
+            `;
+          }).join('');
+        }
+
+        async function deleteProduct(id, name) {
+          if (!confirm(`Are you sure you want to delete "${name}"?`)) return;
+          const token = localStorage.getItem('token');
+          try {
+            const res = await fetch(`/api/products/${id}`, {
+              method: 'DELETE',
+              headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await res.json();
+            if (data.success) {
+              fetchProducts();
+            } else {
+              alert(data.message || 'Failed to delete product');
+            }
+          } catch (e) {
+            console.error('Delete error:', e);
+          }
+        }
+
+        // Attach filter listeners
+        if (searchInput) searchInput.addEventListener('input', () => { setTimeout(fetchProducts, 300); });
+        if (categoryFilter) categoryFilter.addEventListener('change', fetchProducts);
+        if (availabilityFilter) availabilityFilter.addEventListener('change', fetchProducts);
+        if (sortFilter) sortFilter.addEventListener('change', fetchProducts);
+
+        // Fetch on load
+        fetchProducts();
     </script>
 </body></html>

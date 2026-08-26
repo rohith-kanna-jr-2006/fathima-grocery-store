@@ -1,120 +1,112 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Inventory Management - Fathima Grocery</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Inventory Management - Fathima Grocery</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             "colors": {
-                    "primary": "#006b2c",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-fixed-variant": "#005320",
-                    "on-primary-fixed": "#002109",
-                    "on-tertiary-fixed-variant": "#574500",
-                    "surface-bright": "#f9f9ff",
-                    "on-surface-variant": "#3e4a3d",
-                    "on-tertiary-container": "#4e3e00",
-                    "error": "#ba1a1a",
-                    "surface-container-low": "#f0f3ff",
-                    "on-secondary-fixed-variant": "#783200",
-                    "outline-variant": "#bdcaba",
-                    "secondary-fixed": "#ffdbca",
-                    "on-error": "#ffffff",
-                    "on-background": "#111c2d",
-                    "on-secondary-fixed": "#341100",
-                    "surface-container": "#e7eeff",
-                    "inverse-surface": "#263143",
-                    "inverse-on-surface": "#ecf1ff",
-                    "surface-tint": "#006e2d",
-                    "primary-fixed": "#7ffc97",
-                    "surface": "#f9f9ff",
-                    "secondary-container": "#fd761a",
-                    "tertiary-container": "#cea700",
-                    "on-secondary": "#ffffff",
-                    "secondary-fixed-dim": "#ffb690",
-                    "tertiary-fixed-dim": "#eec200",
-                    "primary-fixed-dim": "#62df7d",
-                    "tertiary": "#735c00",
-                    "error-container": "#ffdad6",
-                    "surface-container-highest": "#d8e3fb",
-                    "secondary": "#9d4300",
-                    "on-primary-container": "#f7fff2",
-                    "on-error-container": "#93000a",
-                    "surface-variant": "#d8e3fb",
-                    "inverse-primary": "#62df7d",
-                    "surface-dim": "#cfdaf2",
-                    "on-tertiary-fixed": "#231b00",
-                    "primary-container": "#00873a",
-                    "on-secondary-container": "#5c2400",
-                    "on-primary": "#ffffff",
-                    "outline": "#6e7b6c",
-                    "surface-container-lowest": "#ffffff",
-                    "surface-container-high": "#dee8ff",
-                    "on-surface": "#111c2d",
-                    "background": "#f9f9ff"
+              "primary": "#006b2c",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#005320",
+              "on-primary-fixed": "#002109",
+              "on-tertiary-fixed-variant": "#574500",
+              "surface-bright": "#f9f9ff",
+              "on-surface-variant": "#3e4a3d",
+              "on-tertiary-container": "#4e3e00",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f0f3ff",
+              "on-secondary-fixed-variant": "#783200",
+              "outline-variant": "#bdcaba",
+              "secondary-fixed": "#ffdbca",
+              "on-error": "#ffffff",
+              "on-background": "#111c2d",
+              "on-secondary-fixed": "#341100",
+              "surface-container": "#e7eeff",
+              "inverse-surface": "#263143",
+              "inverse-on-surface": "#ecf1ff",
+              "surface-tint": "#006e2d",
+              "primary-fixed": "#7ffc97",
+              "surface": "#f9f9ff",
+              "secondary-container": "#fd761a",
+              "tertiary-container": "#cea700",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#ffb690",
+              "tertiary-fixed-dim": "#eec200",
+              "primary-fixed-dim": "#62df7d",
+              "tertiary": "#735c00",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#d8e3fb",
+              "secondary": "#9d4300",
+              "on-primary-container": "#f7fff2",
+              "on-error-container": "#93000a",
+              "surface-variant": "#d8e3fb",
+              "inverse-primary": "#62df7d",
+              "surface-dim": "#cfdaf2",
+              "on-tertiary-fixed": "#231b00",
+              "primary-container": "#00873a",
+              "on-secondary-container": "#5c2400",
+              "on-primary": "#ffffff",
+              "outline": "#6e7b6c",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#dee8ff",
+              "on-surface": "#111c2d",
+              "background": "#f9f9ff"
             },
             "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "2xl": "1rem",
+              "full": "9999px"
             },
             "spacing": {
-                    "margin-desktop": "32px",
-                    "xl": "32px",
-                    "3xl": "64px",
-                    "gutter": "24px",
-                    "2xl": "48px",
-                    "xs": "4px",
-                    "lg": "24px",
-                    "sm": "8px",
-                    "margin-mobile": "16px",
-                    "max-width": "1440px",
-                    "base": "4px",
-                    "md": "16px"
+              "margin-desktop": "32px",
+              "xl": "32px",
+              "3xl": "64px",
+              "gutter": "24px",
+              "2xl": "48px",
+              "xs": "4px",
+              "lg": "24px",
+              "sm": "8px",
+              "margin-mobile": "16px",
+              "max-width": "1440px",
+              "base": "4px",
+              "md": "16px"
             },
             "fontFamily": {
-                    "label-md": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "body-md": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "label-sm": ["Inter"],
-                    "headline-sm": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "display-lg": ["Inter"],
-                    "body-sm": ["Inter"]
-            },
-            "fontSize": {
-                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
-                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
-                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-lg": ["Inter"],
+              "label-sm": ["Inter"],
+              "headline-sm": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-sm": ["Inter"]
             }
           },
         },
       }
     </script>
-<style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
-        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); }
-        .sidebar-active { position: relative; }
-        .sidebar-active::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 4px; background-color: #006b2c; }
+    <style>
+      body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+      .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); }
+      .dropdown-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+      .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+      .animate-fade-in { animation: fadeIn 0.15s ease-out forwards; }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.96) translateY(-4px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+      }
     </style>
 
     <!-- Authentication pre-load checks -->
@@ -124,367 +116,1080 @@
       }
     </script>
     <script src="/assets/js/common.js" defer></script>
-    
 </head>
-<body class="text-on-surface">
-<!-- SIDE NAVIGATION BAR -->
-<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest dark:bg-surface-dim shadow-sm flex flex-col py-md px-lg gap-lg z-50">
-<div class="flex items-center gap-sm mb-lg">
-<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
-</div>
-<div>
-<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim leading-none">Fathima</h1>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
-</div>
-</div>
-<nav class="flex flex-col gap-xs flex-grow">
-<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined">dashboard</span>
-<span>Dashboard</span>
-</a>
-<!-- ACTIVE TAB: Inventory -->
-<a class="flex items-center gap-md py-sm px-md rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low transition-colors duration-200 font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
-<span>Inventory</span>
-</a>
-<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined">shopping_basket</span>
-<span>Products</span>
-</a>
-<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined">point_of_sale</span>
-<span>Sales</span>
-</a>
-<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined">payments</span>
-<span>P&amp;L</span>
-</a>
-<a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 transition-transform font-label-md text-label-md" href="#">
-<span class="material-symbols-outlined">assessment</span>
-<span>Reports</span>
-</a>
-</nav>
-<div class="mt-auto pt-lg border-t border-outline-variant/30">
-<button class="w-full bg-primary text-white py-md px-lg rounded-xl font-label-md text-label-md flex items-center justify-center gap-sm hover:brightness-110 active:scale-95 transition-all">
-<span class="material-symbols-outlined">add_circle</span>
+<body class="text-on-surface bg-[#f8fafc]">
+    <!-- SIDE NAVIGATION BAR -->
+    <aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-lowest dark:bg-surface-dim shadow-sm flex flex-col py-md px-lg gap-lg z-50">
+        <div class="flex items-center gap-sm mb-lg">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+            </div>
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim leading-none">Fathima</h1>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+            </div>
+        </div>
+        <nav class="flex flex-col gap-xs flex-grow">
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 font-label-md text-label-md" href="/dashboard">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <!-- ACTIVE TAB: Inventory -->
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low transition-colors duration-200 font-label-md text-label-md" href="/inventory">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                <span>Inventory</span>
+            </a>
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 font-label-md text-label-md" href="/products">
+                <span class="material-symbols-outlined">shopping_basket</span>
+                <span>Products</span>
+            </a>
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 font-label-md text-label-md" href="/sales">
+                <span class="material-symbols-outlined">point_of_sale</span>
+                <span>Sales</span>
+            </a>
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 font-label-md text-label-md" href="/purchase">
+                <span class="material-symbols-outlined">local_shipping</span>
+                <span>Purchases</span>
+            </a>
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 font-label-md text-label-md" href="/stock-adjustment">
+                <span class="material-symbols-outlined">tune</span>
+                <span>Stock Adjust</span>
+            </a>
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 font-label-md text-label-md" href="/profit-loss">
+                <span class="material-symbols-outlined">payments</span>
+                <span>P&amp;L</span>
+            </a>
+            <a class="flex items-center gap-md py-sm px-md rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200 active:scale-95 font-label-md text-label-md" href="/reports">
+                <span class="material-symbols-outlined">assessment</span>
+                <span>Reports</span>
+            </a>
+        </nav>
+        <div class="mt-auto pt-lg border-t border-outline-variant/30">
+            <a href="/new-entry" class="w-full bg-primary text-white py-md px-lg rounded-xl font-label-md text-label-md flex items-center justify-center gap-sm hover:brightness-110 active:scale-95 transition-all">
+                <span class="material-symbols-outlined">add_circle</span>
                 New Entry
-            </button>
-</div>
-</aside>
-<!-- MAIN CONTENT AREA -->
-<main class="ml-64 min-h-screen">
-<!-- TOP NAVIGATION BAR -->
-<header class="sticky top-0 z-40 flex justify-between items-center px-margin-desktop py-sm bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm">
-<div class="flex items-center gap-md flex-1">
-<div class="relative w-full max-w-md">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/20 text-body-sm font-body-sm transition-all" placeholder="Search products, SKU, or categories..." type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-md">
-<button class="hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full p-2 transition-all text-on-surface-variant">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full p-2 transition-all text-on-surface-variant">
-<span class="material-symbols-outlined">settings</span>
-</button>
-<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
-<div class="flex items-center gap-sm">
-<div class="text-right hidden sm:block">
-<p class="font-label-md text-label-md text-on-surface leading-none">Fathima G.</p>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Manager</p>
-</div>
-<img class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="A professional headshot of a female grocery store manager with a friendly smile, wearing a modern dark green apron over a crisp white shirt. The background is a softly blurred modern grocery store interior with warm lighting. Professional corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATKx_GSJxR8-iLzgFEW9Kt9KMD5qa50wXr7sfx4rYjGC69cBjyoRI2sAxWgJJDq9nWKvY3MHPjWujmFxJbnQN6nciraJjtgihF47sbFLzNXCIFaKUq53cfIiSmJnxOHkN11mCK3zGc87jesxhKU1ev1gJQTkqbCKJjQ3aHSV-D2OljpVx_vVnCxTTR5JX6-2H3ShzifT8fps4-rrJRNSvE7prj_eYLaFP2x7HkLCjJKcgXiBHk37GkoQ"/>
-</div>
-</div>
-</header>
-<!-- PAGE CONTENT -->
-<div class="p-margin-desktop max-w-max-width mx-auto">
-<!-- HEADER & FILTERS -->
-<section class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-2xl">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Inventory Management</h2>
-<p class="text-on-surface-variant font-body-md text-body-md">Track stock levels, prices, and product performance across all aisles.</p>
-</div>
-<div class="flex items-center gap-sm">
-<div class="flex bg-surface-container-low p-1 rounded-xl">
-<button class="px-md py-sm bg-white shadow-sm rounded-lg text-primary font-label-md text-label-md">All Stock</button>
-<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:text-on-surface">Out of Stock</button>
-</div>
-<button class="flex items-center gap-sm px-md py-sm border border-outline-variant rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-white transition-colors">
-<span class="material-symbols-outlined text-[20px]">filter_list</span>
-                        Filters
-                    </button>
-<button class="flex items-center gap-sm px-md py-sm bg-primary text-white rounded-lg font-label-md text-label-md hover:brightness-110 shadow-lg shadow-primary/10">
-<span class="material-symbols-outlined text-[20px]">add</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="ml-64 min-h-screen">
+        <!-- TOP NAVIGATION BAR -->
+        <header class="sticky top-0 z-40 flex justify-between items-center px-margin-desktop py-sm bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm">
+            <div class="flex items-center gap-md flex-1">
+                <div class="relative w-full max-w-md">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                    <input id="header-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/20 text-body-sm font-body-sm transition-all" placeholder="Search products, SKU, or barcodes..." type="text"/>
+                </div>
+            </div>
+            <div class="flex items-center gap-md">
+                <button class="hover:bg-surface-container-high rounded-full p-2 transition-all text-on-surface-variant" title="Refresh Inventory" onclick="fetchInventory()">
+                    <span class="material-symbols-outlined">refresh</span>
+                </button>
+                <a href="/new-entry" class="hover:bg-surface-container-high rounded-full p-2 transition-all text-on-surface-variant" title="Settings / Configuration">
+                    <span class="material-symbols-outlined">settings</span>
+                </a>
+                <div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-sm">
+                    <div class="text-right hidden sm:block">
+                        <p class="font-label-md text-label-md text-on-surface leading-none">Fathima G.</p>
+                        <p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Store Manager</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center text-primary font-bold">
+                        FG
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <div class="p-margin-desktop max-w-max-width mx-auto">
+            <!-- HEADER & ACTIONS -->
+            <section class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-2xl">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs font-bold">Inventory Management</h2>
+                    <p class="text-on-surface-variant font-body-md text-body-md">Track stock levels, monitor alerts, adjust stock on hand, and manage shelf availability.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-sm">
+                    <a href="/stock-adjustment" class="flex items-center gap-sm px-md py-sm border border-outline-variant bg-white rounded-lg text-on-surface font-label-md hover:bg-surface-container transition-colors shadow-sm">
+                        <span class="material-symbols-outlined text-[20px] text-primary">tune</span>
+                        Adjustment Logs
+                    </a>
+                    <a href="/products/add" class="flex items-center gap-sm px-md py-sm bg-primary text-white rounded-lg font-label-md hover:brightness-110 shadow-md shadow-primary/20 active:scale-95 transition-all">
+                        <span class="material-symbols-outlined text-[20px]">add</span>
                         Add Product
+                    </a>
+                </div>
+            </section>
+
+            <!-- KPI OVERVIEW CARDS (Bento Style) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-2xl">
+                <div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.04)]">
+                    <div class="flex items-center justify-between mb-md">
+                        <div class="p-sm bg-primary-container/20 rounded-lg text-primary">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                        </div>
+                        <span class="text-primary font-label-sm text-xs font-semibold px-2 py-0.5 rounded-full bg-primary/10">Active Catalog</span>
+                    </div>
+                    <p class="text-on-surface-variant font-label-md text-sm">Total SKUs</p>
+                    <h3 id="kpi-total-skus" class="text-headline-md font-headline-md font-bold text-on-surface mt-1">--</h3>
+                </div>
+
+                <div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.04)]">
+                    <div class="flex items-center justify-between mb-md">
+                        <div class="p-sm bg-amber-100 rounded-lg text-amber-700">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+                        </div>
+                        <span class="text-amber-700 font-label-sm text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-50">Threshold &le; 15</span>
+                    </div>
+                    <p class="text-on-surface-variant font-label-md text-sm">Low Stock Items</p>
+                    <h3 id="kpi-low-stock" class="text-headline-md font-headline-md font-bold text-amber-600 mt-1">--</h3>
+                </div>
+
+                <div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.04)]">
+                    <div class="flex items-center justify-between mb-md">
+                        <div class="p-sm bg-red-100 rounded-lg text-error">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">remove_shopping_cart</span>
+                        </div>
+                        <span class="text-error font-label-sm text-xs font-semibold px-2 py-0.5 rounded-full bg-red-50">Urgent Restock</span>
+                    </div>
+                    <p class="text-on-surface-variant font-label-md text-sm">Out of Stock</p>
+                    <h3 id="kpi-out-stock" class="text-headline-md font-headline-md font-bold text-error mt-1">--</h3>
+                </div>
+
+                <div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.04)]">
+                    <div class="flex items-center justify-between mb-md">
+                        <div class="p-sm bg-emerald-100 rounded-lg text-emerald-800">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+                        </div>
+                        <span class="text-on-surface-variant font-label-sm text-xs">Cost Basis</span>
+                    </div>
+                    <p class="text-on-surface-variant font-label-md text-sm">Total Inventory Value</p>
+                    <h3 id="kpi-inventory-value" class="text-headline-md font-headline-md font-bold text-emerald-800 mt-1">--</h3>
+                </div>
+            </div>
+
+            <!-- FILTER CONTROLS BAR -->
+            <div class="bg-white rounded-xl p-md shadow-sm border border-outline-variant/30 mb-lg flex flex-wrap gap-md items-center justify-between">
+                <div class="flex flex-wrap items-center gap-sm flex-1 min-w-[280px]">
+                    <!-- Status Filter Tabs -->
+                    <div class="flex bg-surface-container-low p-1 rounded-xl" id="status-tabs-container">
+                        <button onclick="setStatusFilter('')" class="status-tab-btn px-md py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-primary shadow-sm" data-status="">All Stock</button>
+                        <button onclick="setStatusFilter('In Stock')" class="status-tab-btn px-md py-1.5 rounded-lg text-xs font-bold transition-all text-on-surface-variant hover:text-on-surface" data-status="In Stock">In Stock</button>
+                        <button onclick="setStatusFilter('Low Stock')" class="status-tab-btn px-md py-1.5 rounded-lg text-xs font-bold transition-all text-on-surface-variant hover:text-on-surface" data-status="Low Stock">Low Stock</button>
+                        <button onclick="setStatusFilter('Out of Stock')" class="status-tab-btn px-md py-1.5 rounded-lg text-xs font-bold transition-all text-on-surface-variant hover:text-on-surface" data-status="Out of Stock">Out of Stock</button>
+                    </div>
+
+                    <!-- Category Dropdown Filter -->
+                    <div class="relative">
+                        <select id="category-filter-select" onchange="fetchInventory(1)" class="bg-surface-container-low border-none rounded-xl text-xs font-semibold text-on-surface py-2 pl-3 pr-8 focus:ring-2 focus:ring-primary/20 cursor-pointer">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-sm">
+                    <div class="relative min-w-[220px]">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+                        <input id="table-search-input" oninput="handleSearchDebounced()" class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low border-none rounded-xl text-xs focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant" placeholder="Filter by product name, SKU..." type="text"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INVENTORY TABLE CONTAINER -->
+            <div class="bg-white rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.05)] overflow-visible">
+                <div class="overflow-x-auto overflow-y-visible min-h-[300px]">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-surface-container-low/60 border-b border-outline-variant/20">
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider">Product</th>
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider">Category</th>
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider">SKU / Barcode</th>
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider text-center">Stock Level</th>
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider">Purchase Price</th>
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider">Selling Price</th>
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider">Status</th>
+                                <th class="px-lg py-md font-label-md text-xs text-on-surface-variant uppercase tracking-wider text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-table-body" class="divide-y divide-outline-variant/10">
+                            <!-- Loading Placeholder -->
+                            <tr>
+                                <td colspan="8" class="text-center py-12 text-on-surface-variant text-sm">
+                                    <div class="inline-flex items-center gap-2">
+                                        <span class="material-symbols-outlined animate-spin text-primary">progress_activity</span>
+                                        <span>Loading inventory records...</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- TABLE FOOTER / PAGINATION -->
+                <div class="px-lg py-md flex flex-col sm:flex-row items-center justify-between gap-md border-t border-outline-variant/20 bg-surface-container-lowest">
+                    <p id="pagination-info" class="text-body-sm text-xs text-on-surface-variant">Showing <span class="font-bold">0</span> products</p>
+                    <div id="pagination-controls" class="flex items-center gap-xs">
+                        <!-- Dynamic pagination buttons -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- QUICK STOCK ADJUSTMENT MODAL -->
+    <div id="stock-adjust-modal" class="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity">
+        <div class="bg-white rounded-2xl shadow-2xl border border-outline-variant/30 w-full max-w-lg overflow-hidden transform transition-all animate-fade-in" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="p-lg bg-surface-container-low/70 border-b border-outline-variant/20 flex items-center justify-between">
+                <div class="flex items-center gap-md">
+                    <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">tune</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-base font-bold text-on-surface">Adjust Inventory Stock</h3>
+                        <p class="text-xs text-on-surface-variant">Update stock quantity with full audit log tracking</p>
+                    </div>
+                </div>
+                <button onclick="closeStockAdjustModal()" class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors" title="Close">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <form id="stock-adjust-form" onsubmit="submitStockAdjustment(event)" class="p-lg space-y-md">
+                <input type="hidden" id="adjust-product-id" name="productId"/>
+                
+                <!-- Product Target Summary Card -->
+                <div class="flex items-center gap-md p-md rounded-xl bg-surface-container-low border border-outline-variant/30">
+                    <div class="w-14 h-14 rounded-lg bg-surface-container-highest overflow-hidden flex-shrink-0 border border-outline-variant/20">
+                        <img id="adjust-product-img" class="w-full h-full object-cover" src="" alt="Product"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 id="adjust-product-name" class="font-bold text-sm text-on-surface truncate">Product Name</h4>
+                        <p id="adjust-product-sku" class="text-xs font-mono text-on-surface-variant">SKU: --</p>
+                        <div class="mt-1 flex items-center gap-2">
+                            <span class="text-xs text-on-surface-variant">Current Stock:</span>
+                            <span id="adjust-current-stock-badge" class="px-2 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary">0 units</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adjustment Type Selection -->
+                <div>
+                    <label class="block text-xs font-bold text-on-surface mb-1.5">Adjustment Type <span class="text-error">*</span></label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="cursor-pointer border border-outline-variant/40 rounded-xl p-2.5 flex flex-col items-center gap-1 text-center hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary">
+                            <input type="radio" name="adjustmentType" value="Increase" checked class="hidden" onchange="calculateProjectedStock()"/>
+                            <span class="material-symbols-outlined text-primary text-[20px]">add_circle</span>
+                            <span class="text-xs font-bold">Stock In (+)</span>
+                        </label>
+                        <label class="cursor-pointer border border-outline-variant/40 rounded-xl p-2.5 flex flex-col items-center gap-1 text-center hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary">
+                            <input type="radio" name="adjustmentType" value="Decrease" class="hidden" onchange="calculateProjectedStock()"/>
+                            <span class="material-symbols-outlined text-amber-600 text-[20px]">remove_circle</span>
+                            <span class="text-xs font-bold">Stock Out (-)</span>
+                        </label>
+                        <label class="cursor-pointer border border-outline-variant/40 rounded-xl p-2.5 flex flex-col items-center gap-1 text-center hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary">
+                            <input type="radio" name="adjustmentType" value="Damaged" class="hidden" onchange="calculateProjectedStock()"/>
+                            <span class="material-symbols-outlined text-error text-[20px]">broken_image</span>
+                            <span class="text-xs font-bold">Damaged (-)</span>
+                        </label>
+                        <label class="cursor-pointer border border-outline-variant/40 rounded-xl p-2.5 flex flex-col items-center gap-1 text-center hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary">
+                            <input type="radio" name="adjustmentType" value="Expired" class="hidden" onchange="calculateProjectedStock()"/>
+                            <span class="material-symbols-outlined text-error text-[20px]">event_busy</span>
+                            <span class="text-xs font-bold">Expired (-)</span>
+                        </label>
+                        <label class="cursor-pointer border border-outline-variant/40 rounded-xl p-2.5 flex flex-col items-center gap-1 text-center hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary">
+                            <input type="radio" name="adjustmentType" value="Lost" class="hidden" onchange="calculateProjectedStock()"/>
+                            <span class="material-symbols-outlined text-error text-[20px]">help_outline</span>
+                            <span class="text-xs font-bold">Lost / Shrink (-)</span>
+                        </label>
+                        <label class="cursor-pointer border border-outline-variant/40 rounded-xl p-2.5 flex flex-col items-center gap-1 text-center hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:text-primary">
+                            <input type="radio" name="adjustmentType" value="Returned" class="hidden" onchange="calculateProjectedStock()"/>
+                            <span class="material-symbols-outlined text-primary text-[20px]">assignment_return</span>
+                            <span class="text-xs font-bold">Returned (+)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Quantity to Adjust with Quick Step Buttons -->
+                <div>
+                    <label class="block text-xs font-bold text-on-surface mb-1.5">Adjustment Quantity <span class="text-error">*</span></label>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="stepQuantity(-1)" class="w-10 h-10 rounded-xl border border-outline-variant bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface font-bold transition-colors">-</button>
+                        <input id="adjust-quantity-input" name="adjustmentQuantity" type="number" min="1" step="1" value="1" required oninput="calculateProjectedStock()" class="flex-1 text-center text-base font-bold py-2 bg-surface-container-low border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface"/>
+                        <button type="button" onclick="stepQuantity(1)" class="w-10 h-10 rounded-xl border border-outline-variant bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface font-bold transition-colors">+</button>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2">
+                        <span class="text-[11px] text-on-surface-variant font-medium">Quick add:</span>
+                        <button type="button" onclick="setQuantity(5)" class="px-2 py-0.5 rounded-lg text-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-medium transition-colors">+5</button>
+                        <button type="button" onclick="setQuantity(10)" class="px-2 py-0.5 rounded-lg text-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-medium transition-colors">+10</button>
+                        <button type="button" onclick="setQuantity(25)" class="px-2 py-0.5 rounded-lg text-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-medium transition-colors">+25</button>
+                        <button type="button" onclick="setQuantity(50)" class="px-2 py-0.5 rounded-lg text-xs bg-surface-container hover:bg-surface-container-high text-on-surface font-medium transition-colors">+50</button>
+                    </div>
+                </div>
+
+                <!-- Resulting Projected Stock Preview -->
+                <div class="p-md rounded-xl bg-primary/5 border border-primary/20 flex items-center justify-between">
+                    <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+                        <span class="material-symbols-outlined text-primary text-[18px]">calculate</span>
+                        <span>Projected New Stock:</span>
+                    </div>
+                    <span id="adjust-projected-stock" class="text-sm font-bold text-primary">0 units</span>
+                </div>
+
+                <!-- Reason / Notes Input -->
+                <div>
+                    <label class="block text-xs font-bold text-on-surface mb-1.5">Reason / Audit Notes <span class="text-error">*</span></label>
+                    <input id="adjust-reason-input" name="reason" type="text" placeholder="e.g. Stock audit correction, Batch delivery, Damaged package" required class="w-full px-3 py-2 text-xs bg-surface-container-low border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface"/>
+                </div>
+
+                <!-- Modal Actions -->
+                <div class="pt-md border-t border-outline-variant/20 flex items-center justify-end gap-sm">
+                    <button type="button" onclick="closeStockAdjustModal()" class="px-lg py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container transition-colors">
+                        Cancel
                     </button>
-</div>
-</section>
-<!-- KPI OVERVIEW CARDS (Bento Style) -->
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-2xl">
-<div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.05)]">
-<div class="flex items-center justify-between mb-md">
-<div class="p-sm bg-primary-container/20 rounded-lg text-primary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory</span>
-</div>
-<span class="text-primary font-label-sm text-label-sm">+2.4%</span>
-</div>
-<p class="text-on-surface-variant font-label-md text-label-md">Total SKU</p>
-<h3 class="text-headline-md font-headline-md text-on-surface">1,284</h3>
-</div>
-<div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.05)]">
-<div class="flex items-center justify-between mb-md">
-<div class="p-sm bg-tertiary-container/20 rounded-lg text-tertiary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
-</div>
-<span class="text-error font-label-sm text-label-sm">High Priority</span>
-</div>
-<p class="text-on-surface-variant font-label-md text-label-md">Low Stock Items</p>
-<h3 class="text-headline-md font-headline-md text-on-surface">12</h3>
-</div>
-<div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.05)]">
-<div class="flex items-center justify-between mb-md">
-<div class="p-sm bg-secondary-container/20 rounded-lg text-secondary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
-</div>
-<span class="text-on-surface-variant font-label-sm text-label-sm">This Month</span>
-</div>
-<p class="text-on-surface-variant font-label-md text-label-md">Inventory Value</p>
-<h3 class="text-headline-md font-headline-md text-on-surface">$45,280.50</h3>
-</div>
-<div class="bg-white p-lg rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.05)]">
-<div class="flex items-center justify-between mb-md">
-<div class="p-sm bg-on-surface-variant/10 rounded-lg text-on-surface-variant">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-</div>
-<span class="text-on-surface-variant font-label-sm text-label-sm">Pending</span>
-</div>
-<p class="text-on-surface-variant font-label-md text-label-md">Inbound Shipments</p>
-<h3 class="text-headline-md font-headline-md text-on-surface">4</h3>
-</div>
-</div>
-<!-- INVENTORY TABLE CONTAINER -->
-<div class="bg-white rounded-xl border border-outline-variant/30 shadow-[0px_4px_20px_rgba(30,41,59,0.05)] overflow-hidden">
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-surface-container-lowest border-b border-outline-variant/20">
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Product</th>
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Category</th>
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">SKU</th>
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-center">Stock</th>
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Purchase Price</th>
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Selling Price</th>
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Status</th>
-<th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Action</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant/10">
-<!-- Product Row 1 -->
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex-shrink-0 overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="Close-up high-resolution shot of fresh organic red gala apples in a clean wooden crate. Natural window light highlighting the vibrant red and subtle yellow patterns on the apple skin. Modern, crisp grocery product photography with a bright, clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-jPucJ2CZn3fDJfQkMlrWrEte88SHy4-a4PbD29a9iz2kb-FM0VWIyRNg9deigBzYUmaUKP5N4-lyVzCeWuCzuH0ilhkGZKgKjrEDRRglq2CUzuruMPXEVFnkx3ZwgociCtDl9fCY9IWvwRReUsXG4PjyzWpJqodJNOOUfUWgHIeznUcJv_Ja8puMV4RDCWO-JG2zs5ALSw3Bf_NkQE0bLLUYKxUDoq0BcmkfL47usKDGYEEbSJZx3A"/>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface">Red Gala Apples</p>
-<p class="text-body-sm text-body-sm text-on-surface-variant">Organic, 1kg pack</p>
-</div>
-</div>
-</td>
-<td class="px-lg py-md">
-<span class="px-sm py-1 bg-surface-container-high rounded text-[11px] font-bold text-on-surface-variant uppercase">Produce</span>
-</td>
-<td class="px-lg py-md text-body-sm font-body-sm text-on-surface-variant font-mono">APL-RG-001</td>
-<td class="px-lg py-md text-center">
-<div class="flex flex-col items-center gap-xs">
-<span class="font-label-md text-label-md text-on-surface">450</span>
-<div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="bg-primary h-full w-[75%] rounded-full"></div>
-</div>
-</div>
-</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$2.50</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$4.99</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-primary text-[12px] font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                        In Stock
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Product Row 2 (Low Stock) -->
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex-shrink-0 overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="High-end grocery product shot of a clear glass bottle of extra virgin olive oil with an elegant label. Golden liquid glowing under soft studio lights. Minimalist aesthetic, luxury food photography, clean white background with subtle reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeuRrleFsPeUXxTA9rV96RXybgsK3YkMzvNTIzTHVXISNK22WPA3lUUTSLRtigPHdzmoavmI3HjWxNgoxutBNHg4BpbQrXEq-i2NIm_BvnKa3c4km95rp2fXpb4uWN_UxyTosZue0OuZkq2Bob6yGLvWZ2wFXHDceaVnQ6B0UDUAAYg6ag3FisQg6PyQDYduRZYQufZlCubBJ0qdHcw8-GdvIstLCV69gd3lr4zIBn3l_SXEAlUEYzaA"/>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface">Extra Virgin Olive Oil</p>
-<p class="text-body-sm text-body-sm text-on-surface-variant">Cold pressed, 500ml</p>
-</div>
-</div>
-</td>
-<td class="px-lg py-md">
-<span class="px-sm py-1 bg-surface-container-high rounded text-[11px] font-bold text-on-surface-variant uppercase">Pantry</span>
-</td>
-<td class="px-lg py-md text-body-sm font-body-sm text-on-surface-variant font-mono">OIL-EV-042</td>
-<td class="px-lg py-md text-center">
-<div class="flex flex-col items-center gap-xs">
-<span class="font-label-md text-label-md text-error">12</span>
-<div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="bg-secondary-container h-full w-[15%] rounded-full"></div>
-</div>
-</div>
-</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$8.20</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$14.50</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary text-[12px] font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                                        Low Stock
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Product Row 3 -->
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex-shrink-0 overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A group of fresh artisan sourdough bread loaves on a rustic baker's rack. Golden brown crust with intricate scoring patterns, dusted with a light coating of flour. Warm, inviting bakery atmosphere with morning sunlight filtering through, high-quality food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsCAnyv2f2YfpBAmPtp9SHavAIHFGjAvj8-TcZkJ0jXm5dkDjSfD2zEjIy9hlVz8HuECtw7Cr7QBNL9zV_Iu0z944uLKfFn3ocTtQLNbwXL5bJeTa0Uh7a_eyY88EH5jdviBQMIQ7l9veGRYsi0qsla6Sd5Gc_bHaUgEDgBm-TwQhwEQJom0HWKdl3Hlxag-I999sIzhuArp2h8spj5poSvmV94vo40QjXh0oNyTsWhSnqPoumY875Vw"/>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface">Artisan Sourdough</p>
-<p class="text-body-sm text-body-sm text-on-surface-variant">Freshly baked, 800g</p>
-</div>
-</div>
-</td>
-<td class="px-lg py-md">
-<span class="px-sm py-1 bg-surface-container-high rounded text-[11px] font-bold text-on-surface-variant uppercase">Bakery</span>
-</td>
-<td class="px-lg py-md text-body-sm font-body-sm text-on-surface-variant font-mono">BKY-SD-088</td>
-<td class="px-lg py-md text-center">
-<div class="flex flex-col items-center gap-xs">
-<span class="font-label-md text-label-md text-on-surface">32</span>
-<div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="bg-primary h-full w-[45%] rounded-full"></div>
-</div>
-</div>
-</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$3.10</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$6.00</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-primary text-[12px] font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                        In Stock
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Product Row 4 (Out of Stock) -->
-<tr class="hover:bg-surface-container-low transition-colors group opacity-60">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex-shrink-0 overflow-hidden grayscale">
-<img class="w-full h-full object-cover" data-alt="A premium carton of high-protein almond milk. Modern packaging design with clean typography and an illustration of almonds. Studio lighting, sharp focus, bright light-mode aesthetic with soft shadows on a white surface. Corporate food presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4A7dmHqimDaR18-jlgOeSNvModNewWbd0iKjoGZDAeS-B6ef5ZR4h_D7r36yj0yAwlEDdLGyTFsm7JnE-dP34YKRUe_3ZJ8ptUS34JGad9R41kKNdaklVVaeEF9T-l2zY9Uh2a3y_e9KVZ_gcc6FcCRoO_ZYMHIjy1_gk8SpkQJ8O181u9nG19bMc1XsgObBxS1nqKAqmMSDZ7ok3NQHJe87-dCpYf8XfRpU9JjnjLVV_L9c6J_kGPg"/>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface">Unsweetened Almond Milk</p>
-<p class="text-body-sm text-body-sm text-on-surface-variant">Dairy-free, 1L</p>
-</div>
-</div>
-</td>
-<td class="px-lg py-md">
-<span class="px-sm py-1 bg-surface-container-high rounded text-[11px] font-bold text-on-surface-variant uppercase">Dairy</span>
-</td>
-<td class="px-lg py-md text-body-sm font-body-sm text-on-surface-variant font-mono">DRY-AM-102</td>
-<td class="px-lg py-md text-center">
-<div class="flex flex-col items-center gap-xs">
-<span class="font-label-md text-label-md text-error">0</span>
-<div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="bg-error h-full w-[0%] rounded-full"></div>
-</div>
-</div>
-</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$2.80</td>
-<td class="px-lg py-md font-label-md text-label-md text-on-surface">$5.50</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container/20 text-error text-[12px] font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
-                                        Out of Stock
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- TABLE FOOTER / PAGINATION -->
-<div class="px-lg py-md flex items-center justify-between border-t border-outline-variant/20 bg-surface-container-lowest">
-<p class="text-body-sm text-body-sm text-on-surface-variant">Showing <span class="font-bold">1-10</span> of <span class="font-bold">1,284</span> products</p>
-<div class="flex items-center gap-sm">
-<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-50" disabled="">
-<span class="material-symbols-outlined">chevron_left</span>
-</button>
-<div class="flex items-center">
-<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-label-md">1</button>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container font-label-md">2</button>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container font-label-md">3</button>
-<span class="px-2 text-on-surface-variant">...</span>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container font-label-md">128</button>
-</div>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- FLOATING QUICK ACTIONS (FAB) - Suppressed on details but visible on main dashboard/inventory list -->
-<button class="fixed bottom-margin-desktop right-margin-desktop w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50 group">
-<span class="material-symbols-outlined text-[28px]">barcode_scanner</span>
-<span class="absolute right-full mr-4 px-3 py-1.5 bg-inverse-surface text-inverse-on-surface rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Scan Item</span>
-</button>
-<script>
-        // Micro-interactions for table rows and buttons
-        document.querySelectorAll('tr').forEach(row => {
-            row.addEventListener('click', (e) => {
-                if (e.target.closest('button')) return;
-                // Add a "ripple" or subtle selection effect here if needed
-                console.log('Row clicked');
+                    <button id="adjust-submit-btn" type="submit" class="px-lg py-2 rounded-xl text-xs font-bold bg-primary text-white hover:brightness-110 shadow-md shadow-primary/20 active:scale-95 transition-all flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[16px]">check</span>
+                        <span>Confirm Adjustment</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- INVENTORY ITEM DETAILS MODAL -->
+    <div id="inventory-details-modal" class="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity">
+        <div class="bg-white rounded-2xl shadow-2xl border border-outline-variant/30 w-full max-w-2xl overflow-hidden transform transition-all animate-fade-in custom-scrollbar max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="p-lg bg-surface-container-low/70 border-b border-outline-variant/20 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur-md z-10">
+                <div class="flex items-center gap-md">
+                    <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined">inventory_2</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-base font-bold text-on-surface">Product & Inventory Sheet</h3>
+                        <p class="text-xs text-on-surface-variant">Real-time stock valuation and activity history</p>
+                    </div>
+                </div>
+                <button onclick="closeDetailsModal()" class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors" title="Close">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-lg space-y-lg">
+                <!-- Top Summary Bento -->
+                <div class="flex flex-col sm:flex-row items-center gap-md p-md rounded-2xl bg-surface-container-low/60 border border-outline-variant/30">
+                    <div class="w-24 h-24 rounded-xl bg-surface-container-highest overflow-hidden flex-shrink-0 border border-outline-variant/20">
+                        <img id="detail-product-img" class="w-full h-full object-cover" src="" alt="Product"/>
+                    </div>
+                    <div class="flex-1 min-w-0 space-y-1 text-center sm:text-left">
+                        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                            <span id="detail-category-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-surface-container-high text-on-surface-variant">Category</span>
+                            <span id="detail-status-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-primary/10 text-primary">In Stock</span>
+                        </div>
+                        <h4 id="detail-product-name" class="font-bold text-lg text-on-surface leading-tight">Product Name</h4>
+                        <p id="detail-barcode" class="text-xs font-mono text-on-surface-variant">Barcode: --</p>
+                    </div>
+                    <div class="flex sm:flex-col gap-2">
+                        <button id="detail-btn-adjust" class="px-md py-2 bg-primary text-white rounded-xl text-xs font-bold hover:brightness-110 shadow-sm flex items-center gap-1 justify-center">
+                            <span class="material-symbols-outlined text-[16px]">tune</span> Adjust
+                        </button>
+                        <a id="detail-btn-edit" href="#" class="px-md py-2 bg-white border border-outline-variant rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container flex items-center gap-1 justify-center">
+                            <span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Financial & Stock Metrics Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-sm">
+                    <div class="p-md rounded-xl bg-surface-container-low border border-outline-variant/20 text-center">
+                        <p class="text-[11px] text-on-surface-variant font-medium">On-Hand Stock</p>
+                        <p id="detail-stock-val" class="text-lg font-bold text-on-surface mt-0.5">--</p>
+                    </div>
+                    <div class="p-md rounded-xl bg-surface-container-low border border-outline-variant/20 text-center">
+                        <p class="text-[11px] text-on-surface-variant font-medium">Purchase Price</p>
+                        <p id="detail-purchase-price" class="text-lg font-bold text-on-surface mt-0.5">--</p>
+                    </div>
+                    <div class="p-md rounded-xl bg-surface-container-low border border-outline-variant/20 text-center">
+                        <p class="text-[11px] text-on-surface-variant font-medium">Selling Price</p>
+                        <p id="detail-selling-price" class="text-lg font-bold text-primary mt-0.5">--</p>
+                    </div>
+                    <div class="p-md rounded-xl bg-surface-container-low border border-outline-variant/20 text-center">
+                        <p class="text-[11px] text-on-surface-variant font-medium">Gross Margin</p>
+                        <p id="detail-gross-margin" class="text-lg font-bold text-emerald-700 mt-0.5">--</p>
+                    </div>
+                </div>
+
+                <!-- Recent Adjustment Logs -->
+                <div>
+                    <h5 class="text-xs font-bold text-on-surface uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-primary text-[16px]">history</span>
+                        Recent Stock Adjustments for this Product
+                    </h5>
+                    <div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs border-collapse">
+                                <thead>
+                                    <tr class="bg-surface-container-low border-b border-outline-variant/20 text-on-surface-variant">
+                                        <th class="p-2.5 font-bold">Date & Time</th>
+                                        <th class="p-2.5 font-bold">Type</th>
+                                        <th class="p-2.5 font-bold text-center">Change</th>
+                                        <th class="p-2.5 font-bold">Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="detail-adjustments-tbody" class="divide-y divide-outline-variant/10">
+                                    <tr>
+                                        <td colspan="4" class="p-4 text-center text-on-surface-variant">No adjustment history recorded for this item yet.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-md bg-surface-container-low/70 border-t border-outline-variant/20 flex justify-end">
+                <button type="button" onclick="closeDetailsModal()" class="px-lg py-2 rounded-xl text-xs font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors">
+                    Close Sheet
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // State management
+        let inventoryState = {
+            items: [],
+            categories: [],
+            pagination: { page: 1, limit: 10, total: 0, pages: 1 },
+            activeStatus: '',
+            searchQuery: '',
+            selectedCategory: '',
+            currentAdjustProduct: null,
+            openDropdownId: null
+        };
+
+        let searchDebounceTimer = null;
+
+        // Document init
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadCategories();
+            await fetchInventory(1);
+
+            // Close dropdowns on outside click
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.action-dropdown-btn') && !e.target.closest('.action-dropdown-menu')) {
+                    closeAllDropdowns();
+                }
             });
+
+            // Keyboard shortcut for escape to close modals/dropdowns
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeAllDropdowns();
+                    closeStockAdjustModal();
+                    closeDetailsModal();
+                }
+            });
+
+            // Header search sync
+            const headerSearch = document.getElementById('header-search-input');
+            if (headerSearch) {
+                headerSearch.addEventListener('input', (e) => {
+                    const tableSearch = document.getElementById('table-search-input');
+                    if (tableSearch) tableSearch.value = e.target.value;
+                    handleSearchDebounced();
+                });
+            }
         });
 
-        // Search bar focus effect
-        const searchInput = document.querySelector('input[type="text"]');
-        searchInput.addEventListener('focus', () => {
-            searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
-        });
-        searchInput.addEventListener('blur', () => {
-            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
-        });
+        // Load Categories for filter dropdown
+        async function loadCategories() {
+            try {
+                const res = await fetch('/api/categories');
+                const result = await res.json();
+                if (result.success && result.data) {
+                    inventoryState.categories = result.data;
+                    const select = document.getElementById('category-filter-select');
+                    if (select) {
+                        select.innerHTML = `<option value="">All Categories</option>` + 
+                            result.data.map(c => `<option value="${c.name}">${c.name}</option>`).join('');
+                    }
+                }
+            } catch (err) {
+                console.error('Failed to load categories:', err);
+            }
+        }
+
+        // Search debouncer
+        function handleSearchDebounced() {
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = setTimeout(() => {
+                const input = document.getElementById('table-search-input');
+                inventoryState.searchQuery = input ? input.value.trim() : '';
+                fetchInventory(1);
+            }, 300);
+        }
+
+        // Status tab selector
+        function setStatusFilter(status) {
+            inventoryState.activeStatus = status;
+            document.querySelectorAll('.status-tab-btn').forEach(btn => {
+                if (btn.getAttribute('data-status') === status) {
+                    btn.className = 'status-tab-btn px-md py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-primary shadow-sm';
+                } else {
+                    btn.className = 'status-tab-btn px-md py-1.5 rounded-lg text-xs font-bold transition-all text-on-surface-variant hover:text-on-surface';
+                }
+            });
+            fetchInventory(1);
+        }
+
+        // Fetch Inventory data from API
+        async function fetchInventory(page = 1) {
+            closeAllDropdowns();
+            const token = localStorage.getItem('token');
+            const tableBody = document.getElementById('inventory-table-body');
+            const categorySelect = document.getElementById('category-filter-select');
+            inventoryState.selectedCategory = categorySelect ? categorySelect.value : '';
+
+            const params = new URLSearchParams({
+                page: page,
+                limit: inventoryState.pagination.limit
+            });
+
+            if (inventoryState.searchQuery) params.append('search', inventoryState.searchQuery);
+            if (inventoryState.selectedCategory) params.append('category', inventoryState.selectedCategory);
+            if (inventoryState.activeStatus) params.append('status', inventoryState.activeStatus);
+
+            try {
+                const res = await fetch(`/api/inventory?${params.toString()}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                    inventoryState.items = result.data || [];
+                    inventoryState.pagination = result.pagination || { page: 1, limit: 10, total: 0, pages: 1 };
+
+                    // Update KPIs
+                    if (result.summary) {
+                        updateKPIs(result.summary);
+                    }
+
+                    renderInventoryTable(inventoryState.items);
+                    renderPagination(inventoryState.pagination);
+                } else {
+                    tableBody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-error text-sm">${result.message || 'Error loading inventory'}</td></tr>`;
+                }
+            } catch (err) {
+                console.error('Fetch inventory error:', err);
+                tableBody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-error text-sm">Failed to connect to server. Please try again.</td></tr>`;
+            }
+        }
+
+        // Update KPI summary cards
+        function updateKPIs(summary) {
+            const skusEl = document.getElementById('kpi-total-skus');
+            const lowStockEl = document.getElementById('kpi-low-stock');
+            const outStockEl = document.getElementById('kpi-out-stock');
+            const valEl = document.getElementById('kpi-inventory-value');
+
+            if (skusEl) skusEl.textContent = Number(summary.totalSku || 0).toLocaleString();
+            if (lowStockEl) lowStockEl.textContent = Number(summary.lowStockCount || 0).toLocaleString();
+            if (outStockEl) outStockEl.textContent = Number(summary.outOfStockCount || 0).toLocaleString();
+            if (valEl) {
+                valEl.textContent = (typeof formatCurrency === 'function') 
+                    ? formatCurrency(summary.totalInventoryValue || 0)
+                    : `$${Number(summary.totalInventoryValue || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            }
+        }
+
+        // Render Inventory Table Rows
+        function renderInventoryTable(items) {
+            const tbody = document.getElementById('inventory-table-body');
+            if (!tbody) return;
+
+            if (!items || items.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="text-center py-16 text-on-surface-variant">
+                            <div class="flex flex-col items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-4xl text-outline-variant">inventory_2</span>
+                                <p class="font-bold text-sm text-on-surface">No inventory products found</p>
+                                <p class="text-xs">Try adjusting your search terms or filters</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = items.map(inv => {
+                const p = inv.product || {};
+                const productId = p._id || inv._id;
+                const productName = p.name || 'Unnamed Product';
+                const categoryName = (p.category && typeof p.category === 'object') ? (p.category.name || 'General') : 'General';
+                const barcode = p.barcode || 'N/A';
+                const stock = inv.stockQuantity ?? 0;
+                const unit = p.unit || 'units';
+                const purchasePrice = Number(p.purchasePrice || 0).toFixed(2);
+                const sellingPrice = Number(p.sellingPrice || 0).toFixed(2);
+                const imgUrl = p.image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-jPucJ2CZn3fDJfQkMlrWrEte88SHy4-a4PbD29a9iz2kb-FM0VWIyRNg9deigBzYUmaUKP5N4-lyVzCeWuCzuH0ilhkGZKgKjrEDRRglq2CUzuruMPXEVFnkx3ZwgociCtDl9fCY9IWvwRReUsXG4PjyzWpJqodJNOOUfUWgHIeznUcJv_Ja8puMV4RDCWO-JG2zs5ALSw3Bf_NkQE0bLLUYKxUDoq0BcmkfL47usKDGYEEbSJZx3A';
+
+                // Stock progress & status badge
+                let statusBadge = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>In Stock</span>`;
+                let progressColor = 'bg-primary';
+                let progressWidth = Math.min(100, Math.round((stock / 100) * 100));
+
+                if (stock <= 0 || inv.status === 'Out of Stock') {
+                    statusBadge = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error/10 text-error text-[11px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Out of Stock</span>`;
+                    progressColor = 'bg-error';
+                    progressWidth = 0;
+                } else if (stock <= 15 || inv.status === 'Low Stock') {
+                    statusBadge = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>Low Stock</span>`;
+                    progressColor = 'bg-amber-500';
+                }
+
+                // Row JSON payload for actions
+                const safeItemJson = encodeURIComponent(JSON.stringify(inv));
+
+                return `
+                    <tr class="hover:bg-surface-container-low/40 transition-colors group relative" id="row-inv-${productId}">
+                        <!-- Product Info -->
+                        <td class="px-lg py-md">
+                            <div class="flex items-center gap-md">
+                                <div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden border border-outline-variant/20">
+                                    <img class="w-full h-full object-cover" src="${imgUrl}" alt="${productName}"/>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="font-label-md text-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openDetailsModal('${safeItemJson}')">${productName}</p>
+                                    <p class="text-xs text-on-surface-variant">${unit}</p>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- Category -->
+                        <td class="px-lg py-md">
+                            <span class="px-2.5 py-1 bg-surface-container-high rounded-md text-[11px] font-bold text-on-surface-variant uppercase">${categoryName}</span>
+                        </td>
+
+                        <!-- SKU / Barcode -->
+                        <td class="px-lg py-md text-xs font-mono text-on-surface-variant font-medium">${barcode}</td>
+
+                        <!-- Stock Level with visual progress bar -->
+                        <td class="px-lg py-md text-center">
+                            <div class="flex flex-col items-center gap-1">
+                                <span class="font-bold text-sm ${stock <= 0 ? 'text-error' : stock <= 15 ? 'text-amber-700' : 'text-on-surface'}">${stock} <span class="text-[11px] font-normal text-on-surface-variant">${unit}</span></span>
+                                <div class="w-20 h-1.5 bg-surface-container rounded-full overflow-hidden">
+                                    <div class="${progressColor} h-full rounded-full transition-all duration-500" style="width: ${progressWidth}%"></div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- Pricing -->
+                        <td class="px-lg py-md text-xs font-semibold text-on-surface-variant">$${purchasePrice}</td>
+                        <td class="px-lg py-md text-xs font-bold text-on-surface">$${sellingPrice}</td>
+
+                        <!-- Status Badge -->
+                        <td class="px-lg py-md">${statusBadge}</td>
+
+                        <!-- THREE-DOT ACTION BUTTON & DROPDOWN -->
+                        <td class="px-lg py-md text-right relative">
+                            <div class="inline-block text-left relative">
+                                <button type="button" 
+                                    id="action-btn-${productId}"
+                                    onclick="toggleRowDropdown(event, '${productId}')" 
+                                    class="action-dropdown-btn p-2 hover:bg-surface-container rounded-full text-on-surface-variant hover:text-primary transition-colors focus:outline-none cursor-pointer flex items-center justify-center" 
+                                    title="More Actions">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                </button>
+
+                                <!-- Popover Action Dropdown Menu -->
+                                <div id="action-menu-${productId}" 
+                                    class="action-dropdown-menu hidden absolute right-0 mt-1 w-48 bg-white rounded-xl border border-outline-variant/30 dropdown-shadow z-[99] py-1 text-left animate-fade-in divide-y divide-outline-variant/10">
+                                    <div class="py-1">
+                                        <button type="button" 
+                                            onclick="openStockAdjustModal('${safeItemJson}')" 
+                                            class="w-full px-3 py-2 text-xs font-semibold text-on-surface hover:bg-primary/5 hover:text-primary flex items-center gap-2 transition-colors">
+                                            <span class="material-symbols-outlined text-[18px] text-primary">tune</span>
+                                            <span>Adjust Stock</span>
+                                        </button>
+                                        <button type="button" 
+                                            onclick="openDetailsModal('${safeItemJson}')" 
+                                            class="w-full px-3 py-2 text-xs font-semibold text-on-surface hover:bg-primary/5 hover:text-primary flex items-center gap-2 transition-colors">
+                                            <span class="material-symbols-outlined text-[18px] text-on-surface-variant">visibility</span>
+                                            <span>View Details</span>
+                                        </button>
+                                        <a href="/products/add?id=${productId}" 
+                                            class="w-full px-3 py-2 text-xs font-semibold text-on-surface hover:bg-primary/5 hover:text-primary flex items-center gap-2 transition-colors">
+                                            <span class="material-symbols-outlined text-[18px] text-on-surface-variant">edit</span>
+                                            <span>Edit Product</span>
+                                        </a>
+                                        <a href="/purchase/new?productId=${productId}" 
+                                            class="w-full px-3 py-2 text-xs font-semibold text-on-surface hover:bg-primary/5 hover:text-primary flex items-center gap-2 transition-colors">
+                                            <span class="material-symbols-outlined text-[18px] text-on-surface-variant">shopping_cart</span>
+                                            <span>Reorder / Purchase</span>
+                                        </a>
+                                    </div>
+                                    <div class="py-1">
+                                        <button type="button" 
+                                            onclick="deleteInventoryProduct('${productId}', '${productName.replace(/'/g, "\\'")}')" 
+                                            class="w-full px-3 py-2 text-xs font-semibold text-error hover:bg-error/10 flex items-center gap-2 transition-colors">
+                                            <span class="material-symbols-outlined text-[18px] text-error">delete</span>
+                                            <span>Delete Product</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Toggle Row Action Dropdown Menu
+        function toggleRowDropdown(event, productId) {
+            event.stopPropagation();
+            const targetMenu = document.getElementById(`action-menu-${productId}`);
+            if (!targetMenu) return;
+
+            const isCurrentlyOpen = !targetMenu.classList.contains('hidden');
+
+            // Close all dropdowns first
+            closeAllDropdowns();
+
+            if (!isCurrentlyOpen) {
+                targetMenu.classList.remove('hidden');
+                inventoryState.openDropdownId = productId;
+            } else {
+                inventoryState.openDropdownId = null;
+            }
+        }
+
+        // Close all open action dropdown menus
+        function closeAllDropdowns() {
+            document.querySelectorAll('.action-dropdown-menu').forEach(menu => {
+                menu.classList.add('hidden');
+            });
+            inventoryState.openDropdownId = null;
+        }
+
+        // Pagination renderer
+        function renderPagination(pagination) {
+            const info = document.getElementById('pagination-info');
+            const controls = document.getElementById('pagination-controls');
+            if (!info || !controls) return;
+
+            const { page, limit, total, pages } = pagination;
+            const start = total === 0 ? 0 : (page - 1) * limit + 1;
+            const end = Math.min(page * limit, total);
+
+            info.innerHTML = `Showing <span class="font-bold">${start}-${end}</span> of <span class="font-bold">${total.toLocaleString()}</span> products`;
+
+            let html = `
+                <button onclick="fetchInventory(${page - 1})" ${page <= 1 ? 'disabled' : ''} class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                    <span class="material-symbols-outlined text-sm">chevron_left</span>
+                </button>
+            `;
+
+            for (let i = 1; i <= pages; i++) {
+                if (i === 1 || i === pages || (i >= page - 1 && i <= page + 1)) {
+                    if (i === page) {
+                        html += `<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-xs font-bold">${i}</button>`;
+                    } else {
+                        html += `<button onclick="fetchInventory(${i})" class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container text-xs font-bold transition-colors">${i}</button>`;
+                    }
+                } else if (i === page - 2 || i === page + 2) {
+                    html += `<span class="px-1 text-on-surface-variant text-xs">...</span>`;
+                }
+            }
+
+            html += `
+                <button onclick="fetchInventory(${page + 1})" ${page >= pages ? 'disabled' : ''} class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                    <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </button>
+            `;
+
+            controls.innerHTML = html;
+        }
+
+        // ==========================================
+        // STOCK ADJUSTMENT MODAL HANDLERS
+        // ==========================================
+        function openStockAdjustModal(safeItemJson) {
+            closeAllDropdowns();
+            const inv = JSON.parse(decodeURIComponent(safeItemJson));
+            const p = inv.product || {};
+            inventoryState.currentAdjustProduct = { inv, p };
+
+            const modal = document.getElementById('stock-adjust-modal');
+            const idInput = document.getElementById('adjust-product-id');
+            const imgEl = document.getElementById('adjust-product-img');
+            const nameEl = document.getElementById('adjust-product-name');
+            const skuEl = document.getElementById('adjust-product-sku');
+            const badgeEl = document.getElementById('adjust-current-stock-badge');
+            const qtyInput = document.getElementById('adjust-quantity-input');
+            const reasonInput = document.getElementById('adjust-reason-input');
+
+            idInput.value = p._id || inv._id;
+            nameEl.textContent = p.name || 'Unnamed Product';
+            skuEl.textContent = `SKU: ${p.barcode || 'N/A'}`;
+            imgEl.src = p.image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-jPucJ2CZn3fDJfQkMlrWrEte88SHy4-a4PbD29a9iz2kb-FM0VWIyRNg9deigBzYUmaUKP5N4-lyVzCeWuCzuH0ilhkGZKgKjrEDRRglq2CUzuruMPXEVFnkx3ZwgociCtDl9fCY9IWvwRReUsXG4PjyzWpJqodJNOOUfUWgHIeznUcJv_Ja8puMV4RDCWO-JG2zs5ALSw3Bf_NkQE0bLLUYKxUDoq0BcmkfL47usKDGYEEbSJZx3A';
+            badgeEl.textContent = `${inv.stockQuantity ?? 0} ${p.unit || 'units'}`;
+
+            qtyInput.value = 1;
+            reasonInput.value = '';
+
+            // Reset radio to Increase
+            const defaultRadio = document.querySelector('input[name="adjustmentType"][value="Increase"]');
+            if (defaultRadio) defaultRadio.checked = true;
+
+            calculateProjectedStock();
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeStockAdjustModal() {
+            const modal = document.getElementById('stock-adjust-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+            inventoryState.currentAdjustProduct = null;
+        }
+
+        function stepQuantity(delta) {
+            const qtyInput = document.getElementById('adjust-quantity-input');
+            if (!qtyInput) return;
+            let current = parseInt(qtyInput.value) || 0;
+            current = Math.max(1, current + delta);
+            qtyInput.value = current;
+            calculateProjectedStock();
+        }
+
+        function setQuantity(val) {
+            const qtyInput = document.getElementById('adjust-quantity-input');
+            if (!qtyInput) return;
+            qtyInput.value = val;
+            calculateProjectedStock();
+        }
+
+        function calculateProjectedStock() {
+            if (!inventoryState.currentAdjustProduct) return;
+            const currentStock = inventoryState.currentAdjustProduct.inv.stockQuantity ?? 0;
+            const unit = inventoryState.currentAdjustProduct.p.unit || 'units';
+
+            const qtyInput = document.getElementById('adjust-quantity-input');
+            const qty = Math.max(1, parseInt(qtyInput.value) || 1);
+
+            const typeRadio = document.querySelector('input[name="adjustmentType"]:checked');
+            const type = typeRadio ? typeRadio.value : 'Increase';
+
+            let change = qty;
+            if (['Decrease', 'Damaged', 'Expired', 'Lost'].includes(type)) {
+                change = -qty;
+            }
+
+            const projected = currentStock + change;
+            const projectedEl = document.getElementById('adjust-projected-stock');
+
+            if (projectedEl) {
+                if (projected < 0) {
+                    projectedEl.innerHTML = `<span class="text-error font-bold">${projected} ${unit} (Invalid: Stock cannot be negative)</span>`;
+                } else {
+                    const sign = change >= 0 ? `+${change}` : `${change}`;
+                    projectedEl.textContent = `${projected} ${unit} (${sign})`;
+                }
+            }
+        }
+
+        async function submitStockAdjustment(event) {
+            event.preventDefault();
+            const token = localStorage.getItem('token');
+            const submitBtn = document.getElementById('adjust-submit-btn');
+
+            const productId = document.getElementById('adjust-product-id').value;
+            const qtyInput = document.getElementById('adjust-quantity-input');
+            const reasonInput = document.getElementById('adjust-reason-input');
+            const typeRadio = document.querySelector('input[name="adjustmentType"]:checked');
+
+            const adjustmentQuantity = parseInt(qtyInput.value) || 1;
+            const adjustmentType = typeRadio ? typeRadio.value : 'Increase';
+            const reason = reasonInput.value.trim();
+
+            if (!productId || !reason) {
+                if (typeof showToast === 'function') showToast('Please enter an adjustment reason', 'error');
+                return;
+            }
+
+            try {
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Saving...`;
+                }
+
+                const res = await fetch('/api/inventory/adjustments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        productId,
+                        adjustmentQuantity,
+                        adjustmentType,
+                        reason
+                    })
+                });
+
+                const result = await res.json();
+                if (result.success) {
+                    if (typeof showToast === 'function') {
+                        showToast(result.message || 'Stock updated successfully!', 'success');
+                    }
+                    closeStockAdjustModal();
+                    await fetchInventory(inventoryState.pagination.page);
+                } else {
+                    if (typeof showToast === 'function') {
+                        showToast(result.message || 'Failed to adjust stock', 'error');
+                    } else {
+                        alert(result.message || 'Failed to adjust stock');
+                    }
+                }
+            } catch (err) {
+                console.error('Adjustment submit error:', err);
+                if (typeof showToast === 'function') showToast('Error submitting adjustment', 'error');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<span class="material-symbols-outlined text-[16px]">check</span> <span>Confirm Adjustment</span>`;
+                }
+            }
+        }
+
+        // ==========================================
+        // INVENTORY DETAILS MODAL HANDLERS
+        // ==========================================
+        async function openDetailsModal(safeItemJson) {
+            closeAllDropdowns();
+            const inv = JSON.parse(decodeURIComponent(safeItemJson));
+            const p = inv.product || {};
+            const productId = p._id || inv._id;
+
+            const modal = document.getElementById('inventory-details-modal');
+            const imgEl = document.getElementById('detail-product-img');
+            const nameEl = document.getElementById('detail-product-name');
+            const catBadge = document.getElementById('detail-category-badge');
+            const statusBadge = document.getElementById('detail-status-badge');
+            const barcodeEl = document.getElementById('detail-barcode');
+
+            const stockVal = document.getElementById('detail-stock-val');
+            const purchaseVal = document.getElementById('detail-purchase-price');
+            const sellingVal = document.getElementById('detail-selling-price');
+            const marginVal = document.getElementById('detail-gross-margin');
+
+            const adjustBtn = document.getElementById('detail-btn-adjust');
+            const editBtn = document.getElementById('detail-btn-edit');
+            const adjustmentsTbody = document.getElementById('detail-adjustments-tbody');
+
+            imgEl.src = p.image || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-jPucJ2CZn3fDJfQkMlrWrEte88SHy4-a4PbD29a9iz2kb-FM0VWIyRNg9deigBzYUmaUKP5N4-lyVzCeWuCzuH0ilhkGZKgKjrEDRRglq2CUzuruMPXEVFnkx3ZwgociCtDl9fCY9IWvwRReUsXG4PjyzWpJqodJNOOUfUWgHIeznUcJv_Ja8puMV4RDCWO-JG2zs5ALSw3Bf_NkQE0bLLUYKxUDoq0BcmkfL47usKDGYEEbSJZx3A';
+            nameEl.textContent = p.name || 'Unnamed Product';
+            catBadge.textContent = (p.category && typeof p.category === 'object') ? (p.category.name || 'General') : 'General';
+            statusBadge.textContent = inv.status || 'In Stock';
+            barcodeEl.textContent = `Barcode: ${p.barcode || 'N/A'}`;
+
+            const stock = inv.stockQuantity ?? 0;
+            const unit = p.unit || 'units';
+            const purchasePrice = Number(p.purchasePrice || 0);
+            const sellingPrice = Number(p.sellingPrice || 0);
+
+            stockVal.textContent = `${stock} ${unit}`;
+            purchaseVal.textContent = `$${purchasePrice.toFixed(2)}`;
+            sellingVal.textContent = `$${sellingPrice.toFixed(2)}`;
+
+            const marginPct = sellingPrice > 0 ? (((sellingPrice - purchasePrice) / sellingPrice) * 100).toFixed(1) : 0;
+            marginVal.textContent = `${marginPct}%`;
+
+            adjustBtn.onclick = () => {
+                closeDetailsModal();
+                openStockAdjustModal(safeItemJson);
+            };
+            editBtn.href = `/products/add?id=${productId}`;
+
+            // Load specific adjustment history
+            adjustmentsTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-on-surface-variant"><span class="material-symbols-outlined animate-spin text-primary text-sm align-middle mr-1">progress_activity</span> Loading logs...</td></tr>`;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            try {
+                const res = await fetch(`/api/inventory/product/${productId}`);
+                const result = await res.json();
+                if (result.success && result.data && result.data.adjustments && result.data.adjustments.length > 0) {
+                    adjustmentsTbody.innerHTML = result.data.adjustments.map(adj => {
+                        const dateStr = new Date(adj.createdAt).toLocaleString('en-US', { month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+                        const qty = adj.adjustmentQuantity;
+                        const qtySign = qty > 0 ? `+${qty}` : `${qty}`;
+                        const badgeColor = qty >= 0 ? 'text-primary bg-primary/10' : 'text-error bg-error/10';
+
+                        return `
+                            <tr class="hover:bg-surface-container-low/40">
+                                <td class="p-2.5 font-medium text-on-surface-variant">${dateStr}</td>
+                                <td class="p-2.5 font-semibold text-on-surface">${adj.adjustmentType}</td>
+                                <td class="p-2.5 text-center"><span class="px-2 py-0.5 rounded-full font-bold text-xs ${badgeColor}">${qtySign}</span></td>
+                                <td class="p-2.5 text-on-surface-variant">${adj.reason || '-'}</td>
+                            </tr>
+                        `;
+                    }).join('');
+                } else {
+                    adjustmentsTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-on-surface-variant">No adjustment history recorded for this item yet.</td></tr>`;
+                }
+            } catch (err) {
+                console.error('Failed to load item adjustment history:', err);
+                adjustmentsTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-on-surface-variant">No adjustment logs available.</td></tr>`;
+            }
+        }
+
+        function closeDetailsModal() {
+            const modal = document.getElementById('inventory-details-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // ==========================================
+        // DELETE PRODUCT ACTION
+        // ==========================================
+        async function deleteInventoryProduct(productId, productName) {
+            closeAllDropdowns();
+            if (!confirm(`Are you sure you want to remove "${productName}" from products and inventory?`)) {
+                return;
+            }
+
+            const token = localStorage.getItem('token');
+            try {
+                const res = await fetch(`/api/products/${productId}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const result = await res.json();
+                if (result.success) {
+                    if (typeof showToast === 'function') showToast(`"${productName}" deleted successfully`, 'success');
+                    await fetchInventory(inventoryState.pagination.page);
+                } else {
+                    if (typeof showToast === 'function') showToast(result.message || 'Failed to delete product', 'error');
+                }
+            } catch (err) {
+                console.error('Delete error:', err);
+                if (typeof showToast === 'function') showToast('Error deleting product', 'error');
+            }
+        }
     </script>
-</body></html>
+</body>
+</html>
