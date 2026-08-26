@@ -123,6 +123,15 @@
         .trend-up { color: #006b2c; }
         .trend-down { color: #ba1a1a; }
     </style>
+
+    <!-- Authentication pre-load checks -->
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = '/login';
+      }
+    </script>
+    <script src="/assets/js/common.js" defer></script>
+    
 </head>
 <body class="bg-background text-on-surface">
 <!-- Side Navigation Bar -->

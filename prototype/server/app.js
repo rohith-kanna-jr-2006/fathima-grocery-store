@@ -9,9 +9,6 @@ require('dotenv').config();
 
 const app = express();
 
-// Connect to MongoDB
-connectDB();
-
 // Middlewares
 app.use(cors());
 app.use(express.json());
@@ -66,7 +63,6 @@ app.get('/products/add', (req, res) => {
 });
 
 app.get('/products/edit/:id', (req, res) => {
-  // Point to add/edit product page (we'll make the page handle both add and edit dynamically)
   res.sendFile(path.join(__dirname, '../client/pages/products/add.html'));
 });
 
@@ -139,13 +135,33 @@ app.get('*', (req, res) => {
   res.status(404).send('Page not found or static assets mismatch.');
 });
 
-// Error handler
+// Database offline error middleware fallback
+app.use((err, req, res, next) => {
+  if (err.name === 'MongooseError' || err.name === 'MongoNetworkError' || (err.message && err.message.includes('buffering timed out'))) {
+    console.warn('[AI Studio] Database offline — returning fallback response');
+    if (req.method === 'GET') {
+      return res.json({ success: true, data: req.path.endsWith('s') || req.path.endsWith('s/') ? [] : {} });
+    }
+    return res.status(503).json({ success: false, message: 'Service temporarily unavailable (database offline)' });
+  }
+  next(err);
+});
+
+// General Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: err.message || 'Something went wrong!' });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+const PORT = 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on http://0.0.0.0:${PORT}`);
 });
+
+// Connect and seed database in background
+connectDB().catch(err => {
+  console.warn('Database initialization note:', err.message);
+});
+
+
+

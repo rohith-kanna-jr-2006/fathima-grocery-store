@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const connectDB = require('../config/db');
 
 // Import Models
 const User = require('../models/User');
@@ -13,10 +12,13 @@ const Purchase = require('../models/Purchase');
 const StockAdjustment = require('../models/StockAdjustment');
 const Report = require('../models/Report');
 
-const seedDatabase = async () => {
+const seedDatabase = async (standalone = false) => {
   try {
-    // 1. Connect to Database
-    await connectDB();
+    // 1. Connect to Database if standalone
+    if (standalone) {
+      const connectDB = require('../config/db');
+      await connectDB();
+    }
 
     console.log('Clearing database...');
     await User.deleteMany({});
@@ -133,29 +135,27 @@ const seedDatabase = async () => {
     ];
 
     console.log('Inserting products and initializing inventory...');
-    const createdProducts = [];
-    const createdInventories = [];
+    const productsToInsert = [];
+    const initialStocks = [];
 
     for (let i = 0; i < productsList.length; i++) {
       const p = productsList[i];
       const categoryObj = categories.find(c => c.name === p.categoryName);
       const categoryId = categoryObj ? categoryObj._id : categories[0]._id;
 
-      // Calculate expiry date
       const expiry = new Date();
       expiry.setDate(expiry.getDate() + p.expiryOffset);
 
-      // Generate random initial stock between 20 and 150
       const initialStock = Math.floor(Math.random() * 131) + 20;
+      initialStocks.push(initialStock);
 
-      // Status based on stock
       let status = 'In Stock';
       if (initialStock <= 0) status = 'Out of Stock';
       else if (initialStock <= 15) status = 'Low Stock';
 
       const barcodeVal = `890${String(1000000000 + i)}`;
 
-      const prod = await Product.create({
+      productsToInsert.push({
         name: p.name,
         barcode: barcodeVal,
         category: categoryId,
@@ -166,16 +166,21 @@ const seedDatabase = async () => {
         image: p.img,
         status: status
       });
-
-      const inv = await Inventory.create({
-        product: prod._id,
-        stockQuantity: initialStock,
-        status: status
-      });
-
-      createdProducts.push(prod);
-      createdInventories.push(inv);
     }
+
+    const createdProducts = await Product.insertMany(productsToInsert);
+    const inventoriesToInsert = createdProducts.map((prod, idx) => {
+      const stock = initialStocks[idx];
+      let status = 'In Stock';
+      if (stock <= 0) status = 'Out of Stock';
+      else if (stock <= 15) status = 'Low Stock';
+      return {
+        product: prod._id,
+        stockQuantity: stock,
+        status: status
+      };
+    });
+    const createdInventories = await Inventory.insertMany(inventoriesToInsert);
     console.log(`${createdProducts.length} products and inventories created.`);
 
     // 6. Seed Purchases (120 Purchases)
@@ -305,12 +310,19 @@ const seedDatabase = async () => {
 
     // Save final updated stock quantities back to MongoDB
     console.log('Updating inventory stock level state...');
-    for (let i = 0; i < createdInventories.length; i++) {
-      const inv = createdInventories[i];
-      // Trigger status calculation hook
-      await inv.save();
-      // Update corresponding product's status
-      await Product.findByIdAndUpdate(inv.product, { status: inv.status });
+    const inventoryUpdates = createdInventories.map(inv => {
+      let status = 'In Stock';
+      if (inv.stockQuantity <= 0) status = 'Out of Stock';
+      else if (inv.stockQuantity <= 15) status = 'Low Stock';
+      return {
+        updateOne: {
+          filter: { _id: inv._id },
+          update: { $set: { stockQuantity: inv.stockQuantity, status } }
+        }
+      };
+    });
+    if (inventoryUpdates.length) {
+      await Inventory.bulkWrite(inventoryUpdates);
     }
     console.log('Inventory stock levels saved.');
 
@@ -339,15 +351,8 @@ const seedDatabase = async () => {
         adjustmentQuantity: adjQty,
         adjustmentType: reason.type,
         reason: reason.text,
-        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000) // spread days
+        date: new Date(Date.now() - i * 24 * 60 * 60 * 1000)
       });
-
-      // Update actual inventory stock quantity
-      if (inv) {
-        inv.stockQuantity = Math.max(0, inv.stockQuantity + adjQty);
-        await inv.save();
-        await Product.findByIdAndUpdate(inv.product, { status: inv.status });
-      }
     }
     await StockAdjustment.insertMany(adjustmentsData);
     console.log('Stock adjustments seeded.');
@@ -364,11 +369,22 @@ const seedDatabase = async () => {
     console.log('Reports history seeded.');
 
     console.log('Database Seeding Completed Successfully.');
-    process.exit(0);
+    if (standalone) {
+      process.exit(0);
+    }
+    return true;
   } catch (error) {
     console.error('Seeding Failed:', error);
-    process.exit(1);
+    if (standalone) {
+      process.exit(1);
+    }
+    throw error;
   }
 };
 
-seedDatabase();
+if (require.main === module) {
+  seedDatabase(true);
+}
+
+module.exports = seedDatabase;
+

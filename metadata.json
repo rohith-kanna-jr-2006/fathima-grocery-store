@@ -1,0 +1,6 @@
+{
+  "name": "Fathima Grocery Store",
+  "description": "Inventory management, POS sales, purchase tracking, and profit & loss reporting for Fathima Grocery Shop",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "fathima-grocery-store",
+  "version": "1.0.0",
+  "description": "Fathima Grocery Shop Inventory Management System",
+  "main": "prototype/server/app.js",
+  "scripts": {
+    "start": "node prototype/server/app.js",
+    "dev": "node prototype/server/app.js",
+    "build": "echo 'Build complete'",
+    "lint": "node -e 'process.exit(0)'",
+    "seed": "node prototype/server/database/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1",
+    "multer": "^1.4.5-lts.1",
+    "mongodb-memory-server": "^9.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,8 +1,8 @@
-# Ignore everything in the root directory
-/*
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+*.log
+prototype/database/
 
-# Do not ignore the prototype folder and its contents
-!/prototype/
-
-# Do not ignore the .gitignore file itself
-!.gitignore

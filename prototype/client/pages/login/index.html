@@ -129,6 +129,15 @@
             border-color: #006b2c;
         }
     </style>
+
+    <!-- Authentication pre-load checks -->
+    <script>
+      if (localStorage.getItem('token')) {
+        window.location.href = '/dashboard';
+      }
+    </script>
+    <script src="/assets/js/common.js" defer></script>
+    
 </head>
 <body class="flex items-center justify-center min-h-screen text-on-background">
 <!-- Split Layout Container -->
@@ -150,60 +159,137 @@
 </div>
 </div>
 <!-- Login Form -->
-<form class="space-y-lg" onsubmit="return false;">
+<form id="login-form" class="space-y-lg">
 <div class="space-y-md">
 <!-- Username Field -->
 <div class="space-y-xs">
 <label class="font-label-md text-label-md text-on-surface-variant block ml-1" for="username">Username or Email</label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">person</span>
-<input class="w-full pl-12 pr-4 py-3.5 bg-surface border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="username" placeholder="manager@fathima.com" type="text"/>
+<input class="w-full pl-12 pr-4 py-3.5 bg-surface border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="username" value="admin" placeholder="admin" type="text" required/>
 </div>
 </div>
 <!-- Password Field -->
 <div class="space-y-xs">
 <div class="flex justify-between items-center px-1">
 <label class="font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
-<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Forgot password?</a>
+<span class="font-label-sm text-label-sm text-primary">Default: password</span>
 </div>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">lock</span>
-<input class="w-full pl-12 pr-12 py-3.5 bg-surface border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="password" placeholder="••••••••" type="password"/>
-<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined">visibility</span>
+<input class="w-full pl-12 pr-12 py-3.5 bg-surface border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="password" value="password" placeholder="••••••••" type="password" required/>
+<button id="toggle-password-btn" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined" id="toggle-icon">visibility</span>
 </button>
 </div>
 </div>
 </div>
-<!-- Remember Me -->
+<!-- Remember Me & Demo Helper -->
+<div class="flex items-center justify-between">
 <div class="flex items-center gap-sm">
-<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" id="remember" type="checkbox"/>
-<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="remember">Keep me logged in for 30 days</label>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" id="remember" type="checkbox" checked/>
+<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="remember">Remember me</label>
+</div>
+<span class="text-xs bg-primary/10 text-primary font-medium px-2 py-1 rounded-md">Demo Mode Ready</span>
 </div>
 <!-- CTA Button -->
-<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-headline-sm text-headline-sm hover:bg-primary-container active:scale-[0.98] transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-sm group">
-                        Sign In to Portal
+<button id="login-submit-btn" type="submit" class="w-full py-4 bg-primary text-on-primary rounded-xl font-headline-sm text-headline-sm hover:bg-primary-container active:scale-[0.98] transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-sm group cursor-pointer">
+                        <span id="btn-text">Sign In to Portal</span>
                         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
 </form>
 <!-- Footer/Support -->
 <div class="pt-xl text-center">
 <p class="font-body-sm text-body-sm text-on-surface-variant">
-                        Need assistance? <a class="text-primary font-bold hover:underline" href="#">Contact System Administrator</a>
+                        Default credentials: <strong class="text-primary">admin</strong> / <strong class="text-primary">password</strong>
 </p>
 </div>
 </div>
-<!-- Atmospheric micro-interaction script -->
+<!-- Login Action and Micro-interaction Script -->
 <script>
-                document.querySelectorAll('input').forEach(input => {
-                    input.addEventListener('focus', () => {
-                        input.parentElement.querySelector('.material-symbols-outlined').style.color = '#006b2c';
-                    });
-                    input.addEventListener('blur', () => {
-                        input.parentElement.querySelector('.material-symbols-outlined').style.color = '#6e7b6c';
-                    });
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('focus', () => {
+            const icon = input.parentElement.querySelector('.material-symbols-outlined');
+            if (icon) icon.style.color = '#006b2c';
+        });
+        input.addEventListener('blur', () => {
+            const icon = input.parentElement.querySelector('.material-symbols-outlined');
+            if (icon) icon.style.color = '#6e7b6c';
+        });
+    });
+
+    const togglePasswordBtn = document.getElementById('toggle-password-btn');
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('toggle-icon');
+    if (togglePasswordBtn && passwordInput && toggleIcon) {
+        togglePasswordBtn.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            toggleIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+        });
+    }
+
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const submitBtn = document.getElementById('login-submit-btn');
+            const btnText = document.getElementById('btn-text');
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (!username || !password) {
+                if (typeof showToast === 'function') {
+                    showToast('Please enter both username and password', 'error');
+                } else {
+                    alert('Please enter both username and password');
+                }
+                return;
+            }
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Signing in...';
+
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
                 });
-            </script>
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    if (typeof showToast === 'function') {
+                        showToast('Login successful! Redirecting...', 'success');
+                    }
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 500);
+                } else {
+                    submitBtn.disabled = false;
+                    btnText.textContent = 'Sign In to Portal';
+                    if (typeof showToast === 'function') {
+                        showToast(data.message || 'Invalid username or password', 'error');
+                    } else {
+                        alert(data.message || 'Invalid credentials');
+                    }
+                }
+            } catch (err) {
+                console.error('Login error:', err);
+                submitBtn.disabled = false;
+                btnText.textContent = 'Sign In to Portal';
+                if (typeof showToast === 'function') {
+                    showToast('Unable to connect to server. Please try again.', 'error');
+                }
+            }
+        });
+    }
+</script>
 </section>
 <!-- Right Side: Illustration & Branding -->
 <section class="hidden md:flex md:w-1/2 relative bg-[#f8fafc] items-center justify-center overflow-hidden">
