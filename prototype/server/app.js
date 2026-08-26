@@ -39,6 +39,7 @@ app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/inventory', require('./routes/inventoryRoutes'));
 app.use('/api/purchases', require('./routes/purchaseRoutes'));
 app.use('/api/sales', require('./routes/salesRoutes'));
+app.use('/api/khata', require('./routes/khataRoutes'));
 app.use('/api/dashboard', require('./routes/dashboardRoutes'));
 app.use('/api/profit-loss', require('./routes/profitRoutes'));
 app.use('/api/reports', require('./routes/reportRoutes'));

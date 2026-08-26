@@ -1,6 +1,9 @@
 const Sale = require('../models/Sale');
 const Inventory = require('../models/Inventory');
 const Product = require('../models/Product');
+const Customer = require('../models/Customer');
+const KhataTransaction = require('../models/KhataTransaction');
+const mongoose = require('mongoose');
 
 // Get sales records list with search, filter, pagination
 exports.getSales = async (req, res) => {
@@ -62,10 +65,13 @@ exports.getSaleByInvoice = async (req, res) => {
 
 // Create a new sale transaction
 exports.createSale = async (req, res) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
   try {
-    const { customer, invoiceNumber, products, discountPct, gstPct, paymentMethod, cashier } = req.body;
+    const { customer, invoiceNumber, products, discountPct, gstPct, paymentMethod, cashier, customerId } = req.body;
 
     if (!products || !products.length) {
+      await session.abortTransaction();
       return res.status(400).json({ success: false, message: 'At least one product is required to make a sale.' });
     }
 
@@ -73,8 +79,9 @@ exports.createSale = async (req, res) => {
     const invNumber = invoiceNumber || `INV-2026-${String(Math.floor(1000 + Math.random() * 9000))}`;
 
     // Verify Invoice Number is unique
-    const existingSale = await Sale.findOne({ invoiceNumber: invNumber });
+    const existingSale = await Sale.findOne({ invoiceNumber: invNumber }).session(session);
     if (existingSale) {
+      await session.abortTransaction();
       return res.status(400).json({ success: false, message: `Invoice number ${invNumber} already exists. Please regenerate.` });
     }
 
@@ -88,16 +95,19 @@ exports.createSale = async (req, res) => {
       const qty = Number(quantity);
 
       if (!productId || qty <= 0) {
+        await session.abortTransaction();
         return res.status(400).json({ success: false, message: 'Invalid product or quantity in list.' });
       }
 
-      const product = await Product.findById(productId);
+      const product = await Product.findById(productId).session(session);
       if (!product) {
+        await session.abortTransaction();
         return res.status(404).json({ success: false, message: `Product not found: ${productId}` });
       }
 
-      const inventory = await Inventory.findOne({ product: productId });
+      const inventory = await Inventory.findOne({ product: productId }).session(session);
       if (!inventory || inventory.stockQuantity < qty) {
+        await session.abortTransaction();
         return res.status(400).json({
           success: false,
           message: `Insufficient stock for product: ${product.name}. Available: ${inventory ? inventory.stockQuantity : 0}, Requested: ${qty}`
@@ -126,8 +136,34 @@ exports.createSale = async (req, res) => {
     const gst = Math.round(((subtotal - discount) * gstPctVal) / 100);
     const grandTotal = subtotal - discount + gst;
 
+    // Handle Khata Payment
+    if (paymentMethod === 'Khata') {
+      if (!customerId) {
+        await session.abortTransaction();
+        return res.status(400).json({ success: false, message: 'Customer selection is required for Khata payment.' });
+      }
+
+      const customerDoc = await Customer.findById(customerId).session(session);
+      if (!customerDoc) {
+        await session.abortTransaction();
+        return res.status(404).json({ success: false, message: 'Customer not found.' });
+      }
+
+      // Update customer balance
+      customerDoc.outstandingBalance += grandTotal;
+      await customerDoc.save({ session });
+
+      // Create Khata transaction
+      await KhataTransaction.create([{
+        customer: customerId,
+        type: 'CREDIT_SALE',
+        amount: grandTotal,
+        notes: `Credit sale - Invoice ${invNumber}`
+      }], { session });
+    }
+
     // Create the Sale document
-    const sale = await Sale.create({
+    const sale = await Sale.create([{
       invoiceNumber: invNumber,
       customer: customer || 'Walk-in Customer',
       products: saleProducts,
@@ -138,23 +174,27 @@ exports.createSale = async (req, res) => {
       paymentMethod: paymentMethod || 'Cash',
       cashier: cashier || 'Fathima R.',
       status: 'Completed'
-    });
+    }], { session });
 
     // Deduct stock from Inventory
     for (const update of inventoryUpdates) {
       update.inventory.stockQuantity -= update.qtyToDeduct;
-      await update.inventory.save();
+      await update.inventory.save({ session });
 
       // Sync Product status
-      await Product.findByIdAndUpdate(update.productId, { status: update.inventory.status });
+      await Product.findByIdAndUpdate(update.productId, { status: update.inventory.status }, { session });
     }
 
+    await session.commitTransaction();
     return res.status(201).json({
       success: true,
       message: 'Sale transaction completed successfully!',
-      data: sale
+      data: sale[0]
     });
   } catch (error) {
+    await session.abortTransaction();
     return res.status(500).json({ success: false, message: error.message });
+  } finally {
+    session.endSession();
   }
 };
